@@ -18,13 +18,13 @@ class _HomepageState extends State<Homepage>{
   Container MyLessons(String lesson, IconData icon){
     return Container(
       width: 160.0,
-        child: Card(
-          color: Colors.cyan,
-          child: Wrap(
+        child: ReuseableCard(
+          colour: Colors.cyan,
+          cardChild: Wrap(
             children: [
               Container(
-                margin: EdgeInsets.symmetric(horizontal:50.0, vertical: 10.0),
-                  child: Icon(icon, size: 60.0, )
+               margin: EdgeInsets.symmetric(horizontal:50.0, vertical: 10.0),
+                  child: Icon(icon, size: 30.0, )
               ),
               ListTile(
                 title: Text(lesson, textAlign: TextAlign.center,),
@@ -60,7 +60,7 @@ class _HomepageState extends State<Homepage>{
                     children: [
                       Container(
                         margin: EdgeInsets.symmetric(horizontal: 10.0),
-                        child: Text('Food',
+                        child: Text('Foood',
                           style: TextStyle(
                             fontSize: 20.0,
                             color: Colors.white,
@@ -73,6 +73,7 @@ class _HomepageState extends State<Homepage>{
                     //padding: EdgeInsets.all(20.0),
                     //margin: EdgeInsets.symmetric(vertical: 20.0),
                     height: 140.0,
+
                     child: ListView(
                       scrollDirection: Axis.horizontal,
                       children: [
