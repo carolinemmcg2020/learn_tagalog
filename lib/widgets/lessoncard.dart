@@ -34,15 +34,17 @@ class LessonCard extends StatelessWidget{
           child: Column(
             children: [
               SizedBox(
-                height: 20.0,
+                height: 30.0,
               ),
-              Icon(
-                this.lesson.icon,
-                size: 40.0,
-                color: this.lesson.backgroundColor,
+              Center(
+                child: Icon(
+                  this.lesson.icon,
+                  size: 40.0,
+                  color: this.lesson.backgroundColor,
+                ),
               ),
               SizedBox(
-                height: 30,
+                height:20,
               ),
               Text(
                 this.lesson.name,
