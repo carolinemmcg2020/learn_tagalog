@@ -24,7 +24,7 @@ class Utils {
                       engWord: 'egg',
                       icon: FontAwesomeIcons.egg,
                       color: Colors.white,
-                      audio: 'assets/audio/egg.mp3'),
+                      audio: 'assets/audio/itlog.mp3'),
                   LessonContent(
                       tagalogWord: 'hatdog',
                       engWord: 'hotdog',
