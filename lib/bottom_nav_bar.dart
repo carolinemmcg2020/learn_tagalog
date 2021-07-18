@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:learn_tagalog/collection.dart';
-import 'package:learn_tagalog/profile.dart';
-import 'package:learn_tagalog/homepage.dart';
+import 'package:learn_tagalog/screens/categorylistpage.dart';
+import 'package:learn_tagalog/screens/collection.dart';
+import 'package:learn_tagalog/screens/firestore_test.dart';
+import 'package:learn_tagalog/screens/profile.dart';
+import 'package:learn_tagalog/screens/topic.dart';
+import 'package:learn_tagalog/screens/topics.dart';
 
 class BottomNavBar extends StatefulWidget{
 
@@ -13,7 +16,7 @@ class _BottomNavBarState extends State<BottomNavBar>{
   int _selectedIndex = 0;
 
   final _pageOptions = [
-    Homepage(),
+    Topics(),
     Collection(),
     Profile(),
   ];
@@ -45,7 +48,7 @@ class _BottomNavBarState extends State<BottomNavBar>{
           child: _pageOptions.elementAt(_selectedIndex),
         ),
         bottomNavigationBar: BottomNavigationBar(
-          backgroundColor: Colors.deepPurple.shade600,
+          backgroundColor: Color.fromRGBO(154, 29, 81, 1.0),
           items: [
             BottomNavigationBarItem(
               icon: Icon(Icons.home),
