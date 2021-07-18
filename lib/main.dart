@@ -2,16 +2,23 @@ import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart' as firebase;
 import 'package:flutter_settings_screens/flutter_settings_screens.dart';
 import 'package:learn_tagalog/layout/header_page.dart';
+import 'package:learn_tagalog/services/loginservice.dart';
+import 'package:provider/provider.dart';
 import 'bottom_nav_bar.dart';
 import 'package:cloud_firestore/cloud_firestore.dart' as firestore;
 
 Future main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await firebase.Firebase.initializeApp();
 
+  await firebase.Firebase.initializeApp();
   await Settings.init(cacheProvider: SharePreferenceCache());
 
-  runApp(MyApp());
+  runApp(
+    Provider(
+      create: (_) => LoginService(),
+      child: MyApp(),
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {
