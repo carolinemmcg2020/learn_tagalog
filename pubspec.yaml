@@ -43,6 +43,8 @@ dependencies:
   flutter_settings_screens: ^0.2.2+1
   basic_utils: ^3.3.3
 
+  avatar_glow: ^2.0.1
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
