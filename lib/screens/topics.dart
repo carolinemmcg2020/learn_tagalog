@@ -32,9 +32,13 @@ class Topics extends StatelessWidget{
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
+              SizedBox(
+                height: 10,
+              ),
               Center(
                 child: Text('Topics',
-                  style: TextStyle(fontSize:20.0),
+                  style: TextStyle(fontSize:15.0,
+                  fontWeight: FontWeight.bold),
                 ),
               ),
               SizedBox(
@@ -56,7 +60,7 @@ class Topics extends StatelessWidget{
                                 Text(
                                   categories[index].name,
                                   style: TextStyle(
-                                  fontSize: 30.0,
+                                  fontSize: 25.0,
                                   fontWeight: FontWeight.bold,
                                 ),
                                 ),
