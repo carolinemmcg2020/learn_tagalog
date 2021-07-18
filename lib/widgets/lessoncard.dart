@@ -17,7 +17,7 @@ class LessonCard extends StatelessWidget{
         },
         //TODO fix card layout
         child: Container(
-          width: 160,
+          width: 140,
           margin: EdgeInsets.all(10.0),
           decoration: BoxDecoration(
             color: this.lesson.color,
@@ -38,15 +38,17 @@ class LessonCard extends StatelessWidget{
               ),
               Icon(
                 this.lesson.icon,
-                size: 50.0,
+                size: 40.0,
                 color: this.lesson.backgroundColor,
               ),
               SizedBox(
-                height: 10,
+                height: 30,
               ),
               Text(
                 this.lesson.name,
-                style: TextStyle(fontSize: 20.0,
+                style: TextStyle(
+                  fontSize: 18.0,
+                  fontWeight: FontWeight.bold
                 ),
               ),
             ],
