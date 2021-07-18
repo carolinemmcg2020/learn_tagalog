@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:learn_tagalog/models/category.dart';
 
-class LessonCard extends StatelessWidget{
-
+class LessonCard extends StatelessWidget {
   Function onCardClick;
   Category lesson;
 
@@ -10,9 +9,8 @@ class LessonCard extends StatelessWidget{
 
   @override
   Widget build(BuildContext context) {
-
     return GestureDetector(
-        onTap: (){
+        onTap: () {
           this.onCardClick();
         },
         //TODO fix card layout
@@ -44,19 +42,14 @@ class LessonCard extends StatelessWidget{
                 ),
               ),
               SizedBox(
-                height:20,
+                height: 20,
               ),
               Text(
                 this.lesson.name,
-                style: TextStyle(
-                  fontSize: 18.0,
-                  fontWeight: FontWeight.bold
-                ),
+                style: TextStyle(fontSize: 18.0, fontWeight: FontWeight.bold),
               ),
             ],
           ),
-        )
-    );
-
+        ));
   }
 }

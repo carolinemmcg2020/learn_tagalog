@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:firebase_core/firebase_core.dart'as firebase;
+import 'package:firebase_core/firebase_core.dart' as firebase;
 import 'package:flutter_settings_screens/flutter_settings_screens.dart';
 import 'package:learn_tagalog/layout/header_page.dart';
 import 'bottom_nav_bar.dart';
-import 'package:cloud_firestore/cloud_firestore.dart'as firestore;
+import 'package:cloud_firestore/cloud_firestore.dart' as firestore;
 
 Future main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -11,9 +11,7 @@ Future main() async {
 
   await Settings.init(cacheProvider: SharePreferenceCache());
 
-  runApp(
-      MyApp()
-  );
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -28,27 +26,25 @@ class MyApp extends StatelessWidget {
         title: 'Learn Tagalog',
         theme: isDarkMode
             ? ThemeData.dark().copyWith(
-          //primaryColor: Colors.deepPurpleAccent,
-          brightness: Brightness.dark,
-          accentColor: Colors.white,
-          canvasColor: Colors.transparent,
-          snackBarTheme:SnackBarThemeData(
-              backgroundColor: Colors.deepPurpleAccent,
-              elevation: 40,
-              actionTextColor: Colors.white,
-              disabledActionTextColor: Colors.white,
-          ),
-        )
-        : ThemeData.light().copyWith(
-          primaryColor: Colors.white,
-          brightness: Brightness.light,
-          accentColor: Colors.orange,
-          canvasColor: Colors.transparent,
-        ),
+                //primaryColor: Colors.deepPurpleAccent,
+                brightness: Brightness.dark,
+                accentColor: Colors.white,
+                canvasColor: Colors.transparent,
+                snackBarTheme: SnackBarThemeData(
+                  backgroundColor: Colors.deepPurpleAccent,
+                  elevation: 40,
+                  actionTextColor: Colors.white,
+                  disabledActionTextColor: Colors.white,
+                ),
+              )
+            : ThemeData.light().copyWith(
+                primaryColor: Colors.white,
+                brightness: Brightness.light,
+                accentColor: Colors.orange,
+                canvasColor: Colors.transparent,
+              ),
         home: BottomNavBar(),
       ),
     );
   }
 }
-
-
