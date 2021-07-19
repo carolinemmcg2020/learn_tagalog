@@ -4,6 +4,9 @@ import 'package:flutter/material.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:learn_tagalog/animation/delayed_animation.dart';
 import 'package:learn_tagalog/bottom_nav_bar.dart';
+import 'package:learn_tagalog/models/loginusermodel.dart';
+import 'package:learn_tagalog/services/loginservice.dart';
+import 'package:provider/provider.dart';
 
 class WelcomePage extends StatefulWidget {
   @override
@@ -12,7 +15,9 @@ class WelcomePage extends StatefulWidget {
 
 class _WelcomePageState extends State<WelcomePage>
     with SingleTickerProviderStateMixin {
-  //LoginService loginService;
+  LoginUserModel _userModel;
+
+  LoginUserModel get loggedInUserModel => _userModel;
 
   final int delayedAmount = 500;
   double _scale;
@@ -34,45 +39,52 @@ class _WelcomePageState extends State<WelcomePage>
     super.initState();
   }
 
-  // function to implement the google signin
-
-  // creating firebase instance
-  final FirebaseAuth auth = FirebaseAuth.instance;
-
-  Future<void> signup(BuildContext context) async {
-    final GoogleSignIn googleSignIn = GoogleSignIn();
-    final GoogleSignInAccount googleSignInAccount = await googleSignIn.signIn();
-
-    if (googleSignInAccount != null) {
-      final GoogleSignInAuthentication googleSignInAuthentication =
-          await googleSignInAccount.authentication;
-
-      final AuthCredential authCredential = GoogleAuthProvider.credential(
-          idToken: googleSignInAuthentication.idToken,
-          accessToken: googleSignInAuthentication.accessToken);
-
-      // Getting users credential
-      UserCredential result = await auth.signInWithCredential(authCredential);
-      User user = result.user;
-
-      if (result != null) {
-        print('pressed sign in button');
-        setState(() {
-          Navigator.pushReplacement(
-            context,
-            MaterialPageRoute(
-              builder: (context) => BottomNavBar(),
-            ),
-          );
-        });
-      } // if result not null we simply call the MaterialpageRoute,
-      // for go to the HomePage screen
-    }
-  }
+  // // function to implement the google signin
+  //
+  // // creating firebase instance
+  // final FirebaseAuth auth = FirebaseAuth.instance;
+  //
+  // Future<void> signup(BuildContext context) async {
+  //   final GoogleSignIn googleSignIn = GoogleSignIn();
+  //   final GoogleSignInAccount googleSignInAccount = await googleSignIn.signIn();
+  //
+  //   if (googleSignInAccount != null) {
+  //     final GoogleSignInAuthentication googleSignInAuthentication =
+  //         await googleSignInAccount.authentication;
+  //
+  //     final AuthCredential authCredential = GoogleAuthProvider.credential(
+  //         idToken: googleSignInAuthentication.idToken,
+  //         accessToken: googleSignInAuthentication.accessToken);
+  //
+  //     // Getting users credential
+  //     UserCredential result = await auth.signInWithCredential(authCredential);
+  //     User user = result.user;
+  //
+  //     if (result != null) {
+  //       print(result.user.email);
+  //
+  //       _userModel = LoginUserModel(
+  //           displayName: result.user.displayName,
+  //           photoUrl: result.user.photoURL,
+  //           email: result.user.email);
+  //       setState(() {
+  //         Navigator.pushReplacement(
+  //           context,
+  //           MaterialPageRoute(
+  //             builder: (context) => BottomNavBar(),
+  //           ),
+  //         );
+  //       });
+  //     } // if result not null we simply call the MaterialpageRoute,
+  //     // for go to the HomePage screen
+  //   }
+  // }
 
   @override
   Widget build(BuildContext context) {
-    // final loginService = Provider.of<LoginService>(context, listen: false);
+
+    final LoginService loginService =
+        Provider.of<LoginService>(context, listen: false);
 
     final color = Colors.white;
     _scale = 1 - _controller.value;
@@ -164,7 +176,12 @@ class _WelcomePageState extends State<WelcomePage>
                         child: GestureDetector(
                           onTap: () {
                             //TODO: navigate to the right page
-                            print('pressed sign up button');
+                            Navigator.pushReplacement(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => BottomNavBar(),
+                              ),
+                            );
                           },
                           child: _animatedButtonUI,
                         ),
@@ -177,10 +194,23 @@ class _WelcomePageState extends State<WelcomePage>
                   ),
                   DelayedAnimation(
                     child: GestureDetector(
-                      onTap: () {
+                      onTap: () async {
                         //TODO: Navigate to the google auth callback
+                        //signup(context);
+                        bool success = await loginService.signInWithGoogle();
 
-                        signup(context);
+                        if (success != null) {
+                          setState(
+                            () {
+                              Navigator.pushReplacement(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => BottomNavBar(),
+                                ),
+                              );
+                            },
+                          );
+                        }
                       },
                       child: Text(
                         "I Already have An Account".toUpperCase(),

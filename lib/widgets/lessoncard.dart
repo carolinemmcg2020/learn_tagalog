@@ -5,7 +5,7 @@ class LessonCard extends StatelessWidget {
   Function onCardClick;
   Category lesson;
 
-  LessonCard({this.lesson, this.onCardClick});
+  LessonCard({ this.lesson,  this.onCardClick});
 
   @override
   Widget build(BuildContext context) {

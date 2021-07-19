@@ -5,11 +5,15 @@ import 'package:learn_tagalog/layout/header_page.dart';
 import 'package:learn_tagalog/layout/icon_widget.dart';
 
 class Profile extends StatefulWidget {
+
+  bool showProfilePic = true;
+
   @override
   _ProfileState createState() => _ProfileState();
 }
 
 class _ProfileState extends State<Profile> {
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -27,7 +31,7 @@ class _ProfileState extends State<Profile> {
               SettingsGroup(
                 title: '',
                 children: <Widget>[
-                  HeaderPage(),
+                  HeaderPage(showProfilePic: widget.showProfilePic,),
                 ],
               ),
               SettingsGroup(
