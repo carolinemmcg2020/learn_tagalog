@@ -7,7 +7,6 @@ import 'package:learn_tagalog/screens/welcomepage.dart';
 import 'package:learn_tagalog/services/loginservice.dart';
 import 'package:provider/provider.dart';
 import 'bottom_nav_bar.dart';
-import 'package:cloud_firestore/cloud_firestore.dart' as firestore;
 
 Future main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -53,7 +52,7 @@ class MyApp extends StatelessWidget {
                 accentColor: Colors.orange,
                 canvasColor: Colors.transparent,
               ),
-        home: WelcomePage()//BottomNavBar(),
+        home: WelcomePage(),
       ),
     );
   }

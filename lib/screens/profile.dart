@@ -3,7 +3,6 @@ import 'package:flutter_settings_screens/flutter_settings_screens.dart';
 import 'package:learn_tagalog/layout/account_page.dart';
 import 'package:learn_tagalog/layout/header_page.dart';
 import 'package:learn_tagalog/layout/icon_widget.dart';
-import 'package:basic_utils/basic_utils.dart';
 
 class Profile extends StatefulWidget {
   @override

@@ -4,6 +4,7 @@ import 'package:learn_tagalog/screens/profile.dart';
 import 'package:learn_tagalog/screens/topics.dart';
 
 class BottomNavBar extends StatefulWidget {
+
   @override
   _BottomNavBarState createState() => _BottomNavBarState();
 }
@@ -45,7 +46,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
         child: _pageOptions.elementAt(_selectedIndex),
       ),
       bottomNavigationBar: BottomNavigationBar(
-        backgroundColor: Color.fromRGBO(154, 29, 81, 1.0),
+        backgroundColor: Color(0xFF102C7D),
         items: [
           BottomNavigationBarItem(
             icon: Icon(Icons.home),
