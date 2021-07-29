@@ -1,10 +1,14 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart' as firebase;
 import 'package:flutter/services.dart';
 import 'package:flutter_settings_screens/flutter_settings_screens.dart';
 import 'package:learn_tagalog/layout/header_page.dart';
+import 'package:learn_tagalog/screens/loginpage.dart';
+import 'package:learn_tagalog/screens/signuppage.dart';
 import 'package:learn_tagalog/screens/welcomepage.dart';
-import 'package:learn_tagalog/services/loginservice.dart';
+import 'package:learn_tagalog/services/email_login_service.dart';
+import 'package:learn_tagalog/services/google_login_service.dart';
 import 'package:provider/provider.dart';
 import 'bottom_nav_bar.dart';
 
@@ -16,8 +20,15 @@ Future main() async {
   await Settings.init(cacheProvider: SharePreferenceCache());
 
   runApp(
-    Provider(
-      create: (_) => LoginService(),
+    MultiProvider(
+      providers: [
+        Provider(
+          create: (_) => GoogleLoginService(),
+        ),
+        Provider<EmailLoginService>(
+          create: (_) => EmailLoginService(FirebaseAuth.instance),
+        )
+      ],
       child: MyApp(),
     ),
   );
@@ -29,21 +40,21 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return ValueChangeObserver<bool>(
       cacheKey: HeaderPage.keyDarkMode,
-      defaultValue: true,
+      defaultValue: false,
       builder: (_, isDarkMode, __) => MaterialApp(
         debugShowCheckedModeBanner: false,
         title: 'Learn Tagalog',
         theme: isDarkMode
             ? ThemeData.dark().copyWith(
-                //primaryColor: Colors.deepPurpleAccent,
+                //TODO: themes are opposite
                 brightness: Brightness.dark,
                 accentColor: Colors.white,
                 canvasColor: Colors.transparent,
                 snackBarTheme: SnackBarThemeData(
-                  backgroundColor: Colors.deepPurpleAccent,
+                  backgroundColor: Colors.transparent,
                   elevation: 40,
-                  actionTextColor: Colors.white,
-                  disabledActionTextColor: Colors.white,
+                  //actionTextColor: Colors.red,
+                  //disabledActionTextColor: Colors.red,
                 ),
               )
             : ThemeData.light().copyWith(
@@ -51,6 +62,11 @@ class MyApp extends StatelessWidget {
                 brightness: Brightness.light,
                 accentColor: Colors.orange,
                 canvasColor: Colors.transparent,
+                // snackBarTheme: SnackBarThemeData(
+                //   backgroundColor: Colors.transparent,
+                //   elevation: 40,
+                //   disabledActionTextColor: Colors.white,
+                // ),
               ),
         home: WelcomePage(),
       ),
