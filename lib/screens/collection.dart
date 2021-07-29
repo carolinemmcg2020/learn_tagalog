@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:learn_tagalog/helpers/utils.dart';
+import 'package:learn_tagalog/models/category.dart';
+import 'package:learn_tagalog/models/lessons.dart';
 import 'package:learn_tagalog/widgets/theme_background_color.dart';
 
 class Collection extends StatefulWidget {
@@ -7,6 +11,9 @@ class Collection extends StatefulWidget {
 }
 
 class _CollectionState extends State<Collection> {
+  List<Category> categories = Utils.getMockedCategories();
+  Lessons lessonContent;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -35,6 +42,130 @@ class _CollectionState extends State<Collection> {
                     fontSize: 26.0,
                     fontWeight: FontWeight.bold,
                   ),
+                ),
+              ),
+              SizedBox(
+                height: 10.0,
+              ),
+              Expanded(
+                child: ListView.builder(
+                  shrinkWrap: true,
+                  itemCount: categories.length,
+                  itemBuilder: (BuildContext context, int index) {
+                    return Container(
+                      child: Column(
+                        children: [
+                          Row(
+                            children: [
+                              Padding(
+                                padding: const EdgeInsets.only(
+                                    left: 15.0, top: 15.0),
+                                child: Text(
+                                  categories[index].name,
+                                  style: TextStyle(
+                                    fontSize: 24.0,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                          SizedBox(
+                            child: ListView.builder(
+                              shrinkWrap: true,
+                              physics: ClampingScrollPhysics(),
+                              itemCount: categories[index].lessons.length,
+                              itemBuilder: (BuildContext context, int ind) {
+                                return Container(
+                                  child: Column(
+                                    children: [
+                                      Row(
+                                        children: [
+                                          Padding(
+                                            padding: const EdgeInsets.only(
+                                                left: 15.0,
+                                                bottom: 5.0,
+                                                top: 5.0),
+                                            child: Text(
+                                              categories[index]
+                                                  .lessons[ind]
+                                                  .name,
+                                              style: TextStyle(
+                                                  fontWeight: FontWeight.w300,
+                                                  fontSize: 20.0,
+                                                  color: Colors.yellow),
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                      SizedBox(
+                                        child: ListView.builder(
+                                          shrinkWrap: true,
+                                          itemCount:
+                                              categories[index].lessons.length,
+                                          itemBuilder: (BuildContext context,
+                                              int contentIndex) {
+                                            return Container(
+                                              child: Padding(
+                                                padding:
+                                                    const EdgeInsets.all(15.0),
+                                                child: Expanded(
+                                                  child: Row(
+                                                    children: [
+                                                      Icon(
+                                                        FontAwesomeIcons.egg,
+                                                        size: 35.0,
+                                                      ),
+                                                      SizedBox(
+                                                        width: 40,
+                                                      ),
+                                                      Text(
+                                                        'test',
+                                                        style: TextStyle(
+                                                            fontSize: 18.0),
+                                                      ),
+                                                      SizedBox(
+                                                        width: 40,
+                                                      ),
+                                                      Text(
+                                                        'english word',
+                                                        style: TextStyle(
+                                                            fontSize: 18.0),
+                                                      ),
+                                                      SizedBox(
+                                                        width: 30,
+                                                      ),
+                                                      Expanded(
+                                                        child: FlatButton(
+                                                          onPressed: () {},
+                                                          child: Icon(
+                                                            FontAwesomeIcons
+                                                                .playCircle,
+                                                            size: 35.0,
+                                                          ),
+                                                        ),
+                                                      ),
+                                                    ],
+                                                  ),
+                                                ),
+                                              ),
+                                            );
+                                          },
+                                        ),
+                                      ),
+                                      SizedBox(
+                                        height: 10,
+                                      )
+                                    ],
+                                  ),
+                                );
+                              },
+                            ),
+                          )
+                        ],
+                      ),
+                    );
+                  },
                 ),
               )
             ],
