@@ -5,20 +5,25 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:learn_tagalog/bottom_nav_bar.dart';
 import 'package:learn_tagalog/screens/welcomepage.dart';
+import 'package:learn_tagalog/services/email_login_service.dart';
 import 'package:learn_tagalog/widgets/custom_button.dart';
 import 'package:learn_tagalog/widgets/custom_textfield.dart';
+import 'package:provider/provider.dart';
 
 class SignUp extends StatefulWidget {
   @override
   _SignUpState createState() => _SignUpState();
 }
 
-class _SignUpState extends State<SignUp> with SingleTickerProviderStateMixin {
+class _SignUpState extends State<SignUp> {
 
-  String _email, _password;
+  String email;
+  String password;
 
   @override
   Widget build(BuildContext context) {
+    final EmailLoginService emailLoginService = Provider.of<EmailLoginService>(context, listen: false);
+
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       routes: {'/homepage': (context) => BottomNavBar()},
@@ -69,7 +74,7 @@ class _SignUpState extends State<SignUp> with SingleTickerProviderStateMixin {
                   obscureText: false,
                   keyboardType: TextInputType.emailAddress,
                   onChanged: (value){
-                    _email = value.trim();
+                    this.email = value.trim();
                   },
                 ),
                 CustomTextField(
@@ -78,7 +83,7 @@ class _SignUpState extends State<SignUp> with SingleTickerProviderStateMixin {
                   labelText: 'Password',
                   obscureText: true,
                   onChanged: (value){
-                    _password = value.trim();
+                    password = value.trim();
                   },
                 ),
                 SizedBox(
@@ -90,8 +95,10 @@ class _SignUpState extends State<SignUp> with SingleTickerProviderStateMixin {
                     width: 200,
                     child: GestureDetector(
                       //TODO: Validation Check to see if the text fields are populated
-                      onTap: () {
-                        FirebaseAuth.instance.createUserWithEmailAndPassword(email: _email, password: _password);
+                      //TODO: Make class which stores username, email and password
+                      onTap: () async {
+                        //FirebaseAuth.instance.createUserWithEmailAndPassword(email: _email, password: _password);
+                        await emailLoginService.signUpWithEmail(email: email, password: password);
                         Navigator.of(context).pushReplacement(
                           MaterialPageRoute(
                             builder: (context) => BottomNavBar(),
