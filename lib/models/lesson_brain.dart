@@ -8,7 +8,7 @@ import 'lessons.dart';
 class LessonBrain {
   Lessons lessons;
 
- //LessonBrain({this.lessons});
+ LessonBrain({this.lessons});
 
   int _lessonNumber = 0;
 
@@ -37,27 +37,20 @@ class LessonBrain {
     return lessons.lessonContent[_lessonNumber].icon;
   }
 
-  // Void getLessonContent(){
-  //
-  //    // lessons.lessonContent[_lessonNumber].
-  //
-  //     print('content added');
-  //
-  // }
 
   void reset(){
     _lessonNumber = 0;
-    //_lessonBank.clear();
   }
 
   bool isFinished(){
     if (_lessonNumber >= lessons.lessonContent.length - 1 ){
       //TODO: Step 3 Part B - Use a print statement to check that isFinished is returning true when you are indeed at the end of the quiz and when a restart should happen.
+      print('now printing true');
       return true;
-      print('true');
+
     } else {
+      print('printing false');
       return false;
-      print('false');
     }
   }
 }

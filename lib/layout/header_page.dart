@@ -3,7 +3,8 @@ import 'package:flutter_settings_screens/flutter_settings_screens.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:learn_tagalog/layout/icon_widget.dart';
 import 'package:learn_tagalog/models/loginusermodel.dart';
-import 'package:learn_tagalog/services/loginservice.dart';
+import 'package:learn_tagalog/services/email_login_service.dart';
+import 'package:learn_tagalog/services/google_login_service.dart';
 import 'package:provider/provider.dart';
 
 class HeaderPage extends StatelessWidget {
@@ -14,8 +15,7 @@ class HeaderPage extends StatelessWidget {
   HeaderPage({this.showProfilePic});
 
   @override
-  Widget build(BuildContext context) =>
-      Column(
+  Widget build(BuildContext context) => Column(
         children: [
           buildHeader(),
           const SizedBox(
@@ -26,8 +26,7 @@ class HeaderPage extends StatelessWidget {
         ],
       );
 
-  Widget buildDarkMode() =>
-      SwitchSettingsTile(
+  Widget buildDarkMode() => SwitchSettingsTile(
         settingKey: keyDarkMode,
         leading: IconWidget(
           icon: Icons.data_usage_rounded,
@@ -38,57 +37,56 @@ class HeaderPage extends StatelessWidget {
       );
 
   Widget buildUser(BuildContext context) {
-    final LoginService loginService =
-    Provider.of<LoginService>(context, listen: false);
+    final GoogleLoginService loginService =
+        Provider.of<GoogleLoginService>(context, listen: false);
 
-    LoginUserModel userModel = loginService.loggedInUserModel;
+    final EmailLoginService emailLoginService = Provider.of<EmailLoginService>(context, listen: false);
 
-    String imgPath = userModel != null ? userModel.photoUrl : '';
-    String userName = userModel != null ? userModel.displayName : '';
-    String userEmail = userModel != null ? userModel.email : '';
+    LoginUserModel googleUserModel = loginService.loggedInUserModel;
+
+    String imgPath = googleUserModel != null ? googleUserModel.photoUrl : '';
+    String userName = googleUserModel != null ? googleUserModel.displayName : '';
+    String userEmail = googleUserModel != null ? googleUserModel.email : '';
 
     bool showUserMapBadge = userName.isNotEmpty && userEmail.isNotEmpty;
 
     return this.showProfilePic && imgPath.isNotEmpty && showUserMapBadge
         ? SimpleSettingsTile(
-      title: userName,
-      subtitle: userEmail,
-      leading: ClipOval(
-        child: Image.network(imgPath),
-      ),
-      onTap: () =>
-          ScaffoldMessenger.of(context).showSnackBar(
-            const SnackBar(
-              content: Text('Clicked User Profile'),
+            title: userName,
+            subtitle: userEmail,
+            leading: ClipOval(
+              child: Image.network(imgPath),
             ),
-          ),
-      child: SettingsScreen(
-        children: [buildUserDetails(context)],
-      ),
-    )
+            onTap: () => ScaffoldMessenger.of(context).showSnackBar(
+              const SnackBar(
+                content: Text('Clicked User Profile'),
+              ),
+            ),
+            child: SettingsScreen(
+              children: [buildUserDetails(context)],
+            ),
+          )
         : SimpleSettingsTile(
-      title: 'User Name',
-      subtitle: 'User Email',
-      leading: ClipOval(
-        child: IconWidget(
-          icon: FontAwesomeIcons.user,
-          color: Colors.purpleAccent,
-        ),
-      ),
-      onTap: () =>
-          ScaffoldMessenger.of(context).showSnackBar(
-            const SnackBar(
-              content: Text('Clicked User Profile'),
+            title: 'User Name',
+            subtitle: 'User Email',
+            leading: ClipOval(
+              child: IconWidget(
+                icon: FontAwesomeIcons.user,
+                color: Colors.purpleAccent,
+              ),
             ),
-          ),
-      child: SettingsScreen(
-        children: [buildUserDetails(context)],
-      ),
-    );
+            onTap: () => ScaffoldMessenger.of(context).showSnackBar(
+              const SnackBar(
+                content: Text('Clicked User Profile'),
+              ),
+            ),
+            child: SettingsScreen(
+              children: [buildUserDetails(context)],
+            ),
+          );
   }
 
-  Widget buildHeader() =>
-      Center(
+  Widget buildHeader() => Center(
         child: Text(
           'Profile',
           style: TextStyle(
@@ -98,19 +96,17 @@ class HeaderPage extends StatelessWidget {
         ),
       );
 
-  Widget buildUserDetails(BuildContext context) =>
-      SimpleSettingsTile(
+  Widget buildUserDetails(BuildContext context) => SimpleSettingsTile(
         title: 'User Details',
         subtitle: '',
         leading: IconWidget(
           icon: Icons.book,
           color: Colors.blue,
         ),
-        onTap: () =>
-            ScaffoldMessenger.of(context).showSnackBar(
-              const SnackBar(
-                content: Text('Clicked User Details'),
-              ),
-            ),
+        onTap: () => ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(
+            content: Text('Clicked User Details'),
+          ),
+        ),
       );
 }

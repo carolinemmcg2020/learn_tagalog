@@ -17,9 +17,6 @@ class LessonContent extends Lessons{
     backgroundColor: backgroundColor,
     audio: audio,
     engWord: engWord,
-
-
   );
 
-  //TODO need to create getters to move through lesson content
 }

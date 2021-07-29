@@ -44,6 +44,7 @@ dependencies:
   basic_utils: ^3.3.3
 
   avatar_glow: ^2.0.1
+  flutter_alert: ^0.4.0
 
 dev_dependencies:
   flutter_test:
