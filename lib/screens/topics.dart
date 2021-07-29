@@ -3,6 +3,7 @@ import 'package:learn_tagalog/helpers/utils.dart';
 import 'package:learn_tagalog/models/category.dart';
 import 'package:learn_tagalog/screens/lessondetail.dart';
 import 'package:learn_tagalog/widgets/lessoncard.dart';
+import 'package:learn_tagalog/widgets/theme_background_color.dart';
 
 class Topics extends StatelessWidget {
   List<Category> categories = Utils.getMockedCategories();
@@ -14,28 +15,32 @@ class Topics extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
-        decoration: BoxDecoration(
+      body: ThemeColor(
+       /* decoration: BoxDecoration(
           gradient: LinearGradient(
-              begin: Alignment.topLeft,
-              end: Alignment.bottomRight,
-              colors: [Color(0xFF311136), Colors.deepPurpleAccent]),
-        ),
+            begin: Alignment.topLeft,
+            end: Alignment.bottomRight,
+            colors: [
+              Color(0xFF311136),
+              Colors.deepPurpleAccent,
+            ],
+          ),
+        ),*/
         child: SafeArea(
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
               SizedBox(
-                height: 10,
+                height: 20,
               ),
               Center(
                 child: Text(
                   'Topics',
-                  style: TextStyle(fontSize: 15.0, fontWeight: FontWeight.bold),
+                  style: TextStyle(fontSize: 28.0, fontWeight: FontWeight.bold),
                 ),
               ),
               SizedBox(
-                height: 20,
+                height: 30,
               ),
               Expanded(
                 child: ListView.builder(
@@ -50,11 +55,14 @@ class Topics extends StatelessWidget {
                               SizedBox(
                                 width: 10,
                               ),
-                              Text(
-                                categories[index].name,
-                                style: TextStyle(
-                                  fontSize: 25.0,
-                                  fontWeight: FontWeight.bold,
+                              Padding(
+                                padding: const EdgeInsets.only(left:15.0),
+                                child: Text(
+                                  categories[index].name,
+                                  style: TextStyle(
+                                    fontSize: 20.0,
+                                    fontWeight: FontWeight.bold,
+                                  ),
                                 ),
                               ),
                             ],
