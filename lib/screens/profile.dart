@@ -81,7 +81,7 @@ class _ProfileState extends State<Profile> {
         color: Colors.blueAccent,
       ),
       onTap: () {
-
+        //TODO: Invoke an Alert before user logs out
         if (userModel != null) {
           Settings.clearCache();
           loginService.singOut();
