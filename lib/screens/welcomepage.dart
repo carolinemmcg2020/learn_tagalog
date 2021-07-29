@@ -5,8 +5,13 @@ import 'package:google_sign_in/google_sign_in.dart';
 import 'package:learn_tagalog/animation/delayed_animation.dart';
 import 'package:learn_tagalog/bottom_nav_bar.dart';
 import 'package:learn_tagalog/models/loginusermodel.dart';
-import 'package:learn_tagalog/services/loginservice.dart';
+import 'package:learn_tagalog/screens/signuppage.dart';
+import 'package:learn_tagalog/services/google_login_service.dart';
+import 'package:learn_tagalog/widgets/custom_button.dart';
+import 'package:learn_tagalog/widgets/theme_background_color.dart';
 import 'package:provider/provider.dart';
+
+import 'loginpage.dart';
 
 class WelcomePage extends StatefulWidget {
   @override
@@ -39,52 +44,10 @@ class _WelcomePageState extends State<WelcomePage>
     super.initState();
   }
 
-  // // function to implement the google signin
-  //
-  // // creating firebase instance
-  // final FirebaseAuth auth = FirebaseAuth.instance;
-  //
-  // Future<void> signup(BuildContext context) async {
-  //   final GoogleSignIn googleSignIn = GoogleSignIn();
-  //   final GoogleSignInAccount googleSignInAccount = await googleSignIn.signIn();
-  //
-  //   if (googleSignInAccount != null) {
-  //     final GoogleSignInAuthentication googleSignInAuthentication =
-  //         await googleSignInAccount.authentication;
-  //
-  //     final AuthCredential authCredential = GoogleAuthProvider.credential(
-  //         idToken: googleSignInAuthentication.idToken,
-  //         accessToken: googleSignInAuthentication.accessToken);
-  //
-  //     // Getting users credential
-  //     UserCredential result = await auth.signInWithCredential(authCredential);
-  //     User user = result.user;
-  //
-  //     if (result != null) {
-  //       print(result.user.email);
-  //
-  //       _userModel = LoginUserModel(
-  //           displayName: result.user.displayName,
-  //           photoUrl: result.user.photoURL,
-  //           email: result.user.email);
-  //       setState(() {
-  //         Navigator.pushReplacement(
-  //           context,
-  //           MaterialPageRoute(
-  //             builder: (context) => BottomNavBar(),
-  //           ),
-  //         );
-  //       });
-  //     } // if result not null we simply call the MaterialpageRoute,
-  //     // for go to the HomePage screen
-  //   }
-  // }
-
   @override
   Widget build(BuildContext context) {
-
-    final LoginService loginService =
-        Provider.of<LoginService>(context, listen: false);
+    final GoogleLoginService loginService =
+        Provider.of<GoogleLoginService>(context, listen: false);
 
     final color = Colors.white;
     _scale = 1 - _controller.value;
@@ -93,17 +56,7 @@ class _WelcomePageState extends State<WelcomePage>
       debugShowCheckedModeBanner: false,
       home: Scaffold(
         //backgroundColor: Color(0xFF8185E2),
-        body: Container(
-          decoration: BoxDecoration(
-            gradient: LinearGradient(
-              begin: Alignment.bottomLeft,
-              end: Alignment.topRight,
-              colors: [
-                Color(0xFFCE2029),
-                Color(0xFF1E419B),
-              ],
-            ),
-          ),
+        body: ThemeColor(
           child: SafeArea(
             child: Center(
               child: Column(
@@ -159,13 +112,13 @@ class _WelcomePageState extends State<WelcomePage>
                   ),
                   DelayedAnimation(
                     child: Text(
-                      "Journaling companion",
+                      "Study Buddy",
                       style: TextStyle(fontSize: 20.0, color: color),
                     ),
                     delay: delayedAmount + 3000,
                   ),
                   SizedBox(
-                    height: 100.0,
+                    height: 60.0,
                   ),
                   DelayedAnimation(
                     child: GestureDetector(
@@ -175,43 +128,71 @@ class _WelcomePageState extends State<WelcomePage>
                         scale: _scale,
                         child: GestureDetector(
                           onTap: () {
-                            //TODO: navigate to the right page
                             Navigator.pushReplacement(
                               context,
                               MaterialPageRoute(
-                                builder: (context) => BottomNavBar(),
+                                builder: (context) => SignUp(),
                               ),
                             );
                           },
-                          child: _animatedButtonUI,
+                          child: CustomButton(
+                            buttonText: 'Sign Up',
+                          ),
                         ),
                       ),
                     ),
                     delay: delayedAmount + 4000,
                   ),
                   SizedBox(
-                    height: 50.0,
+                    height: 30.0,
                   ),
                   DelayedAnimation(
                     child: GestureDetector(
-                      onTap: () async {
-                        //TODO: Navigate to the google auth callback
-                        //signup(context);
-                        bool success = await loginService.signInWithGoogle();
+                      onTapUp: _onTapUp,
+                      onTapDown: _onTapDown,
+                      child: Transform.scale(
+                        scale: _scale,
+                        child: GestureDetector(
+                          onTap: () async {
+                            bool success =
+                                await loginService.signInWithGoogle();
 
-                        if (success != null) {
-                          setState(
-                            () {
-                              Navigator.pushReplacement(
-                                context,
-                                MaterialPageRoute(
-                                  builder: (context) => BottomNavBar(),
-                                ),
+                            if (success != null) {
+                              setState(
+                                () {
+                                  Navigator.pushReplacement(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (context) => BottomNavBar(),
+                                    ),
+                                  );
+                                },
                               );
-                            },
-                          );
-                        }
+                            }
+                          },
+                          child: CustomButton(
+                            buttonText: 'Sign in with Google',
+                          ),
+                        ),
+                      ),
+                    ),
+                    delay: delayedAmount + 5000,
+                  ),
+                  SizedBox(
+                    height: 30.0,
+                  ),
+                  DelayedAnimation(
+                    child: GestureDetector(
+                      onTap: () {
+                        //TODO: Navigate to the login page
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => LoginPage(),
+                          ),
+                        );
                       },
+
                       child: Text(
                         "I Already have An Account".toUpperCase(),
                         style: TextStyle(
@@ -220,7 +201,7 @@ class _WelcomePageState extends State<WelcomePage>
                             color: color),
                       ),
                     ),
-                    delay: delayedAmount + 5000,
+                    delay: delayedAmount + 6000,
                   ),
                 ],
               ),
@@ -230,25 +211,6 @@ class _WelcomePageState extends State<WelcomePage>
       ),
     );
   }
-
-  Widget get _animatedButtonUI => Container(
-        height: 60,
-        width: 270,
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(100.0),
-          color: Colors.white,
-        ),
-        child: Center(
-          child: Text(
-            'Sign up',
-            style: TextStyle(
-              fontSize: 20.0,
-              fontWeight: FontWeight.bold,
-              color: Color(0xFF1E419B),
-            ),
-          ),
-        ),
-      );
 
   void _onTapDown(TapDownDetails details) {
     _controller.forward();
