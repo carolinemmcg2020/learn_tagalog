@@ -14,43 +14,44 @@ class Utils {
         backgroundColor: Colors.purpleAccent,
         lessons: [
           Lessons(
-              name: 'Food one',
-              icon: FontAwesomeIcons.hamburger,
-              color: Colors.purple,
-              backgroundColor: Colors.purpleAccent,
-              lessonContent: [
-                LessonContent(
-                    tagalogWord: 'itlog',
-                    engWord: 'egg',
-                    icon: FontAwesomeIcons.egg,
-                    color: Colors.white,
-                    audio: 'assets/audio/itlog.mp3'),
-                LessonContent(
-                    tagalogWord: 'hatdog',
-                    engWord: 'hotdog',
-                    icon: FontAwesomeIcons.hotdog,
-                    color: Colors.white,
-                    audio: 'assets/audio/hotdog.mp3'),
-                //TODO import audio assets and fill out audio variable for each lesson content object
-                LessonContent(
-                  tagalogWord: 'berger',
-                  engWord: 'burger',
-                  icon: FontAwesomeIcons.hamburger,
-                  color: Colors.white,
-                ),
-                LessonContent(
-                  tagalogWord: 'kanin',
-                  engWord: 'rice',
-                  icon: FontAwesomeIcons.pills,
-                  color: Colors.white,
-                ),
-                LessonContent(
-                  tagalogWord: 'manok',
-                  engWord: 'chicken',
+            name: 'Food one',
+            icon: FontAwesomeIcons.hamburger,
+            color: Colors.purple,
+            backgroundColor: Colors.purpleAccent,
+            lessonContent: [
+              LessonContent(
+                  tagalogWord: 'itlog',
+                  engWord: 'egg',
                   icon: FontAwesomeIcons.egg,
                   color: Colors.white,
-                ),
-              ]),
+                  audio: 'assets/audio/itlog.mp3'),
+              LessonContent(
+                  tagalogWord: 'hatdog',
+                  engWord: 'hotdog',
+                  icon: FontAwesomeIcons.hotdog,
+                  color: Colors.white,
+                  audio: 'assets/audio/hotdog.mp3'),
+              //TODO import audio assets and fill out audio variable for each lesson content object
+              LessonContent(
+                tagalogWord: 'berger',
+                engWord: 'burger',
+                icon: FontAwesomeIcons.hamburger,
+                color: Colors.white,
+              ),
+              LessonContent(
+                tagalogWord: 'kanin',
+                engWord: 'rice',
+                icon: FontAwesomeIcons.pills,
+                color: Colors.white,
+              ),
+              LessonContent(
+                tagalogWord: 'manok',
+                engWord: 'chicken',
+                icon: FontAwesomeIcons.egg,
+                color: Colors.white,
+              ),
+            ],
+          ),
           Lessons(
               name: 'Food two',
               icon: FontAwesomeIcons.flask,
