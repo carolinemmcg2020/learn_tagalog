@@ -3,9 +3,13 @@ import 'package:flutter_settings_screens/flutter_settings_screens.dart';
 import 'package:learn_tagalog/layout/account_page.dart';
 import 'package:learn_tagalog/layout/header_page.dart';
 import 'package:learn_tagalog/layout/icon_widget.dart';
+import 'package:learn_tagalog/models/loginusermodel.dart';
+import 'package:learn_tagalog/screens/welcomepage.dart';
+import 'package:learn_tagalog/services/google_login_service.dart';
+import 'package:learn_tagalog/widgets/theme_background_color.dart';
+import 'package:provider/provider.dart';
 
 class Profile extends StatefulWidget {
-
   bool showProfilePic = true;
 
   @override
@@ -13,32 +17,33 @@ class Profile extends StatefulWidget {
 }
 
 class _ProfileState extends State<Profile> {
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       // backgroundColor: Colors.purple,
-      body: Container(
-        decoration: BoxDecoration(
+      body: ThemeColor(
+        /*decoration: BoxDecoration(
           gradient: LinearGradient(
               begin: Alignment.bottomLeft,
               end: Alignment.topRight,
               colors: [Colors.purple, Colors.blue]),
-        ),
+        ),*/
         child: SafeArea(
           child: ListView(
             children: [
               SettingsGroup(
                 title: '',
                 children: <Widget>[
-                  HeaderPage(showProfilePic: widget.showProfilePic,),
+                  HeaderPage(
+                    showProfilePic: widget.showProfilePic,
+                  ),
                 ],
               ),
               SettingsGroup(
                 title: 'General',
                 children: <Widget>[
                   AccountPage(),
-                  buildLogout(),
+                  buildLogout(context),
                   buildDeleteAccount(),
                 ],
               ),
@@ -62,7 +67,13 @@ class _ProfileState extends State<Profile> {
     );
   }
 
-  Widget buildLogout() => SimpleSettingsTile(
+  Widget buildLogout(BuildContext context) {
+    final GoogleLoginService loginService =
+        Provider.of<GoogleLoginService>(context, listen: false);
+
+    LoginUserModel userModel = loginService.loggedInUserModel;
+
+    return SimpleSettingsTile(
       title: "Logout",
       subtitle: '',
       leading: IconWidget(
@@ -70,13 +81,35 @@ class _ProfileState extends State<Profile> {
         color: Colors.blueAccent,
       ),
       onTap: () {
-        ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(
-            content: Text('Clicked Logout'),
-          ),
-        );
-        Settings.clearCache();
-      });
+
+        if (userModel != null) {
+          Settings.clearCache();
+          loginService.singOut();
+
+          ScaffoldMessenger.of(context).showSnackBar(
+            const SnackBar(
+              content: Text('User Logged Out!'),
+            ),
+          );
+
+          Navigator.pushReplacement(
+            context,
+            MaterialPageRoute(
+              builder: (context) => WelcomePage(),
+            ),
+          );
+        } else {
+
+          ScaffoldMessenger.of(context).showSnackBar(
+            const SnackBar(
+              content: Text('No user Logged in '),
+            ),
+          );
+
+        }
+      },
+    );
+  }
 
   Widget buildDeleteAccount() => SimpleSettingsTile(
         title: "Delete Account",
@@ -85,6 +118,7 @@ class _ProfileState extends State<Profile> {
           icon: Icons.delete,
           color: Colors.pink,
         ),
+        //TODO: delete account from firebase
         onTap: () => ScaffoldMessenger.of(context).showSnackBar(
           const SnackBar(
             content: Text('Clicked Delete Account'),
