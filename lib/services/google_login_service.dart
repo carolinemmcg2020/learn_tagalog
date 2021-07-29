@@ -3,8 +3,8 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:learn_tagalog/models/loginusermodel.dart';
 
-class LoginService {
-  LoginService() {
+class GoogleLoginService {
+  GoogleLoginService() {
     Firebase.initializeApp();
   }
 
@@ -36,14 +36,12 @@ class LoginService {
     UserCredential userCreds =
         await FirebaseAuth.instance.signInWithCredential(credential);
     if (userCreds != null) {
-      //TODO: collect user info here
-
       _userModel = LoginUserModel(
         displayName: userCreds.user.displayName,
         photoUrl: userCreds.user.photoURL,
-        email: userCreds.user.email
+        email: userCreds.user.email,
+        uid: userCreds.user.uid,
       );
-
     }
     return true;
   }
