@@ -46,7 +46,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
         child: _pageOptions.elementAt(_selectedIndex),
       ),
       bottomNavigationBar: BottomNavigationBar(
-        backgroundColor: Color(0xFF102C7D),
+        backgroundColor: Color(0xFFCE2029),
         items: [
           BottomNavigationBarItem(
             icon: Icon(Icons.home),
