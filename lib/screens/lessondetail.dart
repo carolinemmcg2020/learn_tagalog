@@ -5,6 +5,7 @@ import 'package:just_audio/just_audio.dart';
 import 'package:learn_tagalog/models/lesson_brain.dart';
 import 'package:learn_tagalog/models/lessons.dart';
 import 'package:learn_tagalog/screens/end_of_topic_quiz_detail.dart';
+import 'package:percent_indicator/linear_percent_indicator.dart';
 
 LessonBrain lessonBrain = LessonBrain();
 
@@ -21,6 +22,7 @@ class _LessonDetailState extends State<LessonDetail> {
   AudioPlayer player;
 
   int index = 0;
+  double percent = 0.0;
 
   @override
   void initState() {
@@ -36,6 +38,7 @@ class _LessonDetailState extends State<LessonDetail> {
 
   void reset() {
     index = 0;
+    percent = 0.0;
   }
 
   void nextWord() {
@@ -101,8 +104,17 @@ class _LessonDetailState extends State<LessonDetail> {
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
                   Container(
-                    padding: EdgeInsets.fromLTRB(0.0, 0.0, 20.0, 10.0),
-                    margin: EdgeInsets.symmetric(vertical: 10.0),
+                    width: 250.0,
+                    child: LinearPercentIndicator(
+                      lineHeight: 10.0,
+                      backgroundColor: Colors.white,
+                      progressColor: Colors.amber,
+                      percent: percent/widget.lessons.lessonContent.length.toDouble(),
+                    ),
+                  ),
+                  Container(
+                    padding: EdgeInsets.fromLTRB(10.0, 0.0, 20.0, 10.0),
+                   // margin: EdgeInsets.symmetric(vertical: 10.0),
                     child: Row(
                       children: [
                         GestureDetector(
@@ -117,7 +129,7 @@ class _LessonDetailState extends State<LessonDetail> {
                         ),
                       ],
                     ),
-                  )
+                  ),
                 ],
               ),
               Container(
@@ -172,6 +184,10 @@ class _LessonDetailState extends State<LessonDetail> {
                           FlatButton(
                             onPressed: () {
                               nextWord();
+                              setState(() {
+                                percent ++;
+                              });
+                              print(percent);
                             },
                             child: Text('Button'),
                           ),
