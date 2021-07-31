@@ -109,12 +109,13 @@ class _LessonDetailState extends State<LessonDetail> {
                       lineHeight: 10.0,
                       backgroundColor: Colors.white,
                       progressColor: Colors.amber,
-                      percent: percent/widget.lessons.lessonContent.length.toDouble(),
+                      percent: percent /
+                          widget.lessons.lessonContent.length.toDouble(),
                     ),
                   ),
                   Container(
                     padding: EdgeInsets.fromLTRB(10.0, 0.0, 20.0, 10.0),
-                   // margin: EdgeInsets.symmetric(vertical: 10.0),
+                    // margin: EdgeInsets.symmetric(vertical: 10.0),
                     child: Row(
                       children: [
                         GestureDetector(
@@ -181,15 +182,20 @@ class _LessonDetailState extends State<LessonDetail> {
                           SizedBox(
                             height: 20,
                           ),
-                          FlatButton(
-                            onPressed: () {
-                              nextWord();
-                              setState(() {
-                                percent ++;
-                              });
-                              print(percent);
-                            },
-                            child: Text('Button'),
+                          SizedBox(
+                            width: 400,
+                            child: FlatButton(
+                              onPressed: () {
+                                nextWord();
+                                setState(
+                                  () {
+                                    percent++;
+                                  },
+                                );
+                                print(percent);
+                              },
+                              child: Text('Button'),
+                            ),
                           ),
                         ],
                       ),
