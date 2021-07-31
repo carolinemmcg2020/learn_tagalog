@@ -4,13 +4,10 @@ import 'package:firebase_core/firebase_core.dart' as firebase;
 import 'package:flutter/services.dart';
 import 'package:flutter_settings_screens/flutter_settings_screens.dart';
 import 'package:learn_tagalog/layout/header_page.dart';
-import 'package:learn_tagalog/screens/loginpage.dart';
-import 'package:learn_tagalog/screens/signuppage.dart';
 import 'package:learn_tagalog/screens/welcomepage.dart';
 import 'package:learn_tagalog/services/email_login_service.dart';
 import 'package:learn_tagalog/services/google_login_service.dart';
 import 'package:provider/provider.dart';
-import 'bottom_nav_bar.dart';
 
 Future main() async {
   WidgetsFlutterBinding.ensureInitialized();
