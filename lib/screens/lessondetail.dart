@@ -58,7 +58,9 @@ class _LessonDetailState extends State<LessonDetail> {
                 text: 'Redo',
                 onPressed: () {
                   //TODO: Restart the lesson
-                  reset();
+                  setState(() {
+                    reset();
+                  });
                   print('pressed redo'+ '' + index.toString());
                 },
               )
