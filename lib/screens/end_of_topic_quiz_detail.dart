@@ -16,7 +16,7 @@ class _EndOfTopicQuizDetailState extends State<EndOfTopicQuizDetail> {
 
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
+
     return Scaffold(
       body: ThemeColor(
         child: SafeArea(
