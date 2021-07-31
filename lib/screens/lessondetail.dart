@@ -4,6 +4,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:just_audio/just_audio.dart';
 import 'package:learn_tagalog/models/lesson_brain.dart';
 import 'package:learn_tagalog/models/lessons.dart';
+import 'package:learn_tagalog/screens/end_of_topic_quiz_detail.dart';
 
 LessonBrain lessonBrain = LessonBrain();
 
@@ -33,7 +34,7 @@ class _LessonDetailState extends State<LessonDetail> {
     super.dispose();
   }
 
-  void reset(){
+  void reset() {
     index = 0;
   }
 
@@ -52,6 +53,14 @@ class _LessonDetailState extends State<LessonDetail> {
                 text: 'Yes',
                 onPressed: () {
                   //TODO: fill me in, send me to questions page
+                  setState(() {
+                    Navigator.pushReplacement(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => EndOfTopicQuizDetail(),
+                      ),
+                    );
+                  });
                 },
               ),
               AlertAction(
@@ -61,7 +70,7 @@ class _LessonDetailState extends State<LessonDetail> {
                   setState(() {
                     reset();
                   });
-                  print('pressed redo'+ '' + index.toString());
+                  print('pressed redo' + '' + index.toString());
                 },
               )
             ],
