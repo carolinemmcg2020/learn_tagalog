@@ -144,71 +144,72 @@ class _LessonDetailState extends State<LessonDetail> {
               Container(
                 padding: EdgeInsets.symmetric(vertical: 50.0),
                 margin: EdgeInsets.symmetric(vertical: 30.0),
-                child: Expanded(
-                  flex: 1,
-                  child: Column(
-                    children: [
-                      Column(
-                        children: [
-                          GestureDetector(
-                            onTap: () async {
-                              await player.setAsset(
-                                  widget.lessons.lessonContent[index].audio);
-                              player.play();
-                              print('tapped');
-                            },
-                            child: Container(
-                              padding: EdgeInsets.all(10.0),
-                              child: Icon(
-                                widget.lessons.lessonContent[index].icon,
-                                size: 200.0,
-                                color: Colors.white,
-                              ),
-                            ),
-                          ),
-                          SizedBox(
-                            height: 10,
-                          ),
-                          Text(
-                            widget.lessons.lessonContent[index].name,
-                            style: TextStyle(
-                              fontSize: 40.0,
-                              fontWeight: FontWeight.bold,
-                              color: Colors.white,
-                            ),
-                          ),
-                          SizedBox(
-                            height: 10.0,
-                          ),
-                          Text(
-                            widget.lessons.lessonContent[index].engWord,
-                            style: TextStyle(
-                                fontWeight: FontWeight.w500,
-                                fontSize: 29.0,
-                                color: Colors.white70),
-                          ),
-                          SizedBox(
-                            height: 20,
-                          ),
-                          SizedBox(
-                            width: 400,
-                            child: FlatButton(
-                              onPressed: () {
-                                nextWord();
-                                setState(
-                                  () {
-                                    percent++;
-                                  },
-                                );
-                                print(percent);
-                              },
-                              child: Text('Button'),
-                            ),
-                          ),
-                        ],
+                child: Column(
+                  children: [
+                    GestureDetector(
+                      onTap: () async {
+                        await player.setAsset(
+                            widget.lessons.lessonContent[index].audio);
+                        player.play();
+                        print('tapped');
+                      },
+                      child: Container(
+                        padding: EdgeInsets.all(15.0),
+                        margin: EdgeInsets.all(20.0),
+                        child: Icon(
+                          widget.lessons.lessonContent[index].icon,
+                          size: 200.0,
+                          color: Colors.white,
+                        ),
                       ),
-                    ],
-                  ),
+                    ),
+                    SizedBox(
+                      height: 20,
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Text(
+                        widget.lessons.lessonContent[index].name,
+                        style: TextStyle(
+                          fontSize: 40.0,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.white,
+                        ),
+                      ),
+                    ),
+                    SizedBox(
+                      height: 10.0,
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Align(
+                        alignment: Alignment.center,
+                        child: Text(
+                          widget.lessons.lessonContent[index].engWord,
+                          style: TextStyle(
+                              fontWeight: FontWeight.w500,
+                              fontSize: 25.0,
+                              color: Colors.white70),
+                        ),
+                      ),
+                    ),
+                    SizedBox(
+                      height: 20,
+                    ),
+                    FlatButton(
+                      color: Colors.amber,
+                      onPressed: () {
+                        nextWord();
+                        setState(
+                          () {
+                            percent++;
+                          },
+                        );
+                        print(percent);
+                      },
+                      child: Text('Press Here'),
+                    ),
+                  ],
                 ),
               ),
             ],
