@@ -10,6 +10,7 @@ class LessonContent extends Lesson{
     IconData icon,
     Color color,
     Color backgroundColor,
+    String type,
 }): super (
     name: tagalogWord,
     icon: icon,
@@ -17,6 +18,7 @@ class LessonContent extends Lesson{
     backgroundColor: backgroundColor,
     audio: audio,
     engWord: engWord,
+    type: type,
   );
 
 }

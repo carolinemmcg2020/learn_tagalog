@@ -8,10 +8,10 @@ import 'package:learn_tagalog/widgets/theme_background_color.dart';
 import 'package:percent_indicator/linear_percent_indicator.dart';
 
 class EndOfTopicQuizDetail extends StatefulWidget {
-   List<Lesson> lesson;
-  // int index = 0;
+   List<Lesson> questionContent;
+   String questionTitle;
 
-  EndOfTopicQuizDetail({this.lesson, });
+  EndOfTopicQuizDetail({this.questionContent, this.questionTitle});
 
   @override
   _EndOfTopicQuizDetailState createState() => _EndOfTopicQuizDetailState();
@@ -24,10 +24,10 @@ class _EndOfTopicQuizDetailState extends State<EndOfTopicQuizDetail> {
   void nextQuestion() {
     setState(
           () {
-        if (index >= widget.lesson.length - 1) {
+        if (index >= widget.questionContent.length - 1) {
           print('button pressed');
         } else {
-          if (index < widget.lesson.length - 1) {
+          if (index < widget.questionContent.length - 1) {
             index++;
           }
         }
@@ -42,14 +42,13 @@ class _EndOfTopicQuizDetailState extends State<EndOfTopicQuizDetail> {
         child: SafeArea(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            //crossAxisAlignment: CrossAxisAlignment.stretch,
+            crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
-
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: Center(
                   child: Text(
-                    'Lesson One Review Quiz',
+                    widget.questionTitle + ' Review Quiz',
                     style: TextStyle(fontSize: 20.0),
                   ),
                 ),
@@ -64,7 +63,7 @@ class _EndOfTopicQuizDetailState extends State<EndOfTopicQuizDetail> {
                     lineHeight: 10.0,
                     backgroundColor: Colors.white,
                     progressColor: Colors.amber,
-                    percent: _progress /widget.lesson.length.toDouble(),
+                    percent: _progress /widget.questionContent.length.toDouble(),
                   ),
                 ),
               ),
@@ -74,14 +73,14 @@ class _EndOfTopicQuizDetailState extends State<EndOfTopicQuizDetail> {
                   padding: const EdgeInsets.all(15.0),
                   child: Center(
                     child: Text(
-                      'What is the word for ' + widget.lesson[index].engWord + '?',
+                      'What is the ' + widget.questionContent[index].type +' for ' + widget.questionContent[index].name + '?',
                       style: TextStyle(fontSize: 23.0),
                     ),
                   ),
                 ),
               ),
               QuizButton(
-                buttonTxt: widget.lesson[index].name,
+                buttonTxt: widget.questionContent[index].engWord,
                 onTap: (){
                   setState(() {
                     _progress++;

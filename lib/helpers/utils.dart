@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:learn_tagalog/models/topic.dart';
-import 'package:learn_tagalog/models/lessoncontent.dart';
 import 'package:learn_tagalog/models/lesson.dart';
+import 'package:learn_tagalog/models/lessoncontent.dart';
 import 'package:learn_tagalog/models/questions.dart';
+import 'package:learn_tagalog/models/topic.dart';
 
 class Utils {
   static List<Topic> getMockedCategories() {
@@ -29,73 +29,86 @@ class Utils {
                 icon: FontAwesomeIcons.egg,
                 color: Colors.white,
                 audio: 'assets/audio/itlog.mp3',
-
+                type: 'word',
               ),
               LessonContent(
-                  tagalogWord: 'hatdog',
-                  engWord: 'hotdog',
-                  icon: FontAwesomeIcons.hotdog,
-                  color: Colors.white,
-                  audio: 'assets/audio/hotdog.mp3'),
+                tagalogWord: 'hatdog',
+                engWord: 'hotdog',
+                icon: FontAwesomeIcons.hotdog,
+                color: Colors.white,
+                audio: 'assets/audio/hotdog.mp3',
+                type: 'word',
+              ),
               //TODO import audio assets and fill out audio variable for each lesson content object
               LessonContent(
                 tagalogWord: 'berger',
                 engWord: 'burger',
                 icon: FontAwesomeIcons.hamburger,
                 color: Colors.white,
+                type: 'word',
               ),
               LessonContent(
                 tagalogWord: 'kanin',
                 engWord: 'rice',
                 icon: FontAwesomeIcons.pills,
                 color: Colors.white,
+                type: 'word',
               ),
               LessonContent(
                 tagalogWord: 'manok',
                 engWord: 'chicken',
                 icon: FontAwesomeIcons.earlybirds,
                 color: Colors.white,
+                type: 'word',
               ),
             ],
           ),
           Lesson(
-              name: 'Food two',
-              icon: FontAwesomeIcons.flask,
-              color: Colors.purple,
-              backgroundColor: Colors.purpleAccent,
-              lessonContent: [
-                LessonContent(
-                    tagalogWord: 'Walang anuman',
-                    engWord: 'No worries, You/re Welcome',
-                    icon: FontAwesomeIcons.egg,
-                    color: Colors.white,
-                    audio: 'assets/audio/egg.mp3'),
-                LessonContent(
-                    tagalogWord: 'Pagkain',
-                    engWord: 'Food',
-                    icon: FontAwesomeIcons.hotdog,
-                    color: Colors.white,
-                    audio: 'assets/audio/hotdog.mp3'),
-                //TODO import audio assets and fill out audio variable for each lesson content object
-                LessonContent(
-                  tagalogWord: 'Masarap',
-                  engWord: 'Delicious',
-                  icon: FontAwesomeIcons.hamburger,
-                  color: Colors.white,
-                ),
-                LessonContent(
-                  tagalogWord: 'Kain Tayo',
-                  engWord: 'Lets Eat',
-                  icon: FontAwesomeIcons.sink,
-                  color: Colors.white,
-                ),
-                LessonContent(
-                  tagalogWord: 'adobo',
-                  engWord: 'chicken',
-                  icon: FontAwesomeIcons.egg,
-                  color: Colors.white,
-                ),
-              ]),
+            name: 'Food two',
+            icon: FontAwesomeIcons.flask,
+            color: Colors.purple,
+            backgroundColor: Colors.purpleAccent,
+            lessonContent: [
+              LessonContent(
+                tagalogWord: 'Walang anuman',
+                engWord: 'No worries, you are welcome',
+                icon: FontAwesomeIcons.egg,
+                color: Colors.white,
+                audio: 'assets/audio/egg.mp3',
+                type: 'phrase',
+              ),
+              LessonContent(
+                tagalogWord: 'Pagkain',
+                engWord: 'Food',
+                icon: FontAwesomeIcons.hotdog,
+                color: Colors.white,
+                audio: 'assets/audio/hotdog.mp3',
+                type: 'word',
+              ),
+              //TODO import audio assets and fill out audio variable for each lesson content object
+              LessonContent(
+                tagalogWord: 'Masarap',
+                engWord: 'Delicious',
+                icon: FontAwesomeIcons.hamburger,
+                color: Colors.white,
+                type: 'word',
+              ),
+              LessonContent(
+                tagalogWord: 'Kain Tayo',
+                engWord: 'Lets Eat',
+                icon: FontAwesomeIcons.sink,
+                color: Colors.white,
+                type: 'phrase',
+              ),
+              LessonContent(
+                tagalogWord: 'adobo',
+                engWord: 'chicken',
+                icon: FontAwesomeIcons.egg,
+                color: Colors.white,
+                type: 'word',
+              ),
+            ],
+          ),
           Lesson(
             name: 'Food three',
             icon: FontAwesomeIcons.wineBottle,

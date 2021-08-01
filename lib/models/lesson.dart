@@ -7,6 +7,7 @@ class Lesson extends Topic {
   List<Lesson> lessonQuestions;
   String engWord;
   String audio;
+  String type;
 
   Lesson({
     String name,
@@ -17,6 +18,7 @@ class Lesson extends Topic {
     this.audio,
     this.engWord,
     this.lessonQuestions,
+    this.type,
 
 }): super (
     name: name,
@@ -24,4 +26,7 @@ class Lesson extends Topic {
     color: color,
     backgroundColor: backgroundColor,
   );
+
+
+
 }
