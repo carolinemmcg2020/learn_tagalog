@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_alert/flutter_alert.dart';
 import 'package:learn_tagalog/helpers/utils.dart';
-import 'package:learn_tagalog/models/category.dart';
+import 'package:learn_tagalog/models/topic.dart';
 import 'package:learn_tagalog/screens/lessondetail.dart';
 import 'package:learn_tagalog/widgets/lessoncard.dart';
 import 'package:learn_tagalog/widgets/theme_background_color.dart';
 
 class Topics extends StatelessWidget {
-  List<Category> categories = Utils.getMockedCategories();
+  List<Topic> categories = Utils.getMockedCategories();
 
-  Category selectedCategory;
+  Topic selectedCategory;
 
   Topics({this.selectedCategory});
 

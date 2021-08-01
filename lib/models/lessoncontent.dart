@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:learn_tagalog/models/lessons.dart';
+import 'package:learn_tagalog/models/lesson.dart';
 
-class LessonContent extends Lessons{
+class LessonContent extends Lesson{
 
   LessonContent({
     String tagalogWord,

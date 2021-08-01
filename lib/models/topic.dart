@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 
 
-class Category{
+class Topic{
   String name;
   IconData icon;
   Color color;
   Color backgroundColor;
-  List<Category> lessons;
+  List<Topic> lessons;
 
-  Category(
+  Topic(
   {
     this.name,
     this.icon,

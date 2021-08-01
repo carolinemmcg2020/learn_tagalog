@@ -2,17 +2,17 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-import 'lessons.dart';
+import 'lesson.dart';
 
 
 class LessonBrain {
-  Lessons lessons;
+  Lesson lessons;
 
  LessonBrain({this.lessons});
 
   int _lessonNumber = 0;
 
- List<Lessons> _lessonBank = [];
+ List<Lesson> _lessonBank = [];
 
 
   void nextLesson() {

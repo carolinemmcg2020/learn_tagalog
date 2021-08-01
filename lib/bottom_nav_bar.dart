@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:learn_tagalog/screens/collection.dart';
 import 'package:learn_tagalog/screens/profile.dart';
-import 'package:learn_tagalog/screens/topics.dart';
+import 'package:learn_tagalog/screens/topics_detail.dart';
 
 class BottomNavBar extends StatefulWidget {
 

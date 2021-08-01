@@ -1,30 +1,36 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:learn_tagalog/models/category.dart';
+import 'package:learn_tagalog/models/topic.dart';
 import 'package:learn_tagalog/models/lessoncontent.dart';
-import 'package:learn_tagalog/models/lessons.dart';
+import 'package:learn_tagalog/models/lesson.dart';
+import 'package:learn_tagalog/models/questions.dart';
 
 class Utils {
-  static List<Category> getMockedCategories() {
+  static List<Topic> getMockedCategories() {
     return [
-      Category(
+      Topic(
         name: 'Food',
         icon: FontAwesomeIcons.breadSlice,
         color: Colors.purple,
         backgroundColor: Colors.purpleAccent,
         lessons: [
-          Lessons(
+          Lesson(
             name: 'Food one',
             icon: FontAwesomeIcons.hamburger,
             color: Colors.purple,
             backgroundColor: Colors.purpleAccent,
+            lessonQuestions: [
+              Question(question: 'testing', answer: 'passed'),
+            ],
             lessonContent: [
               LessonContent(
-                  tagalogWord: 'itlog',
-                  engWord: 'egg',
-                  icon: FontAwesomeIcons.egg,
-                  color: Colors.white,
-                  audio: 'assets/audio/itlog.mp3'),
+                tagalogWord: 'itlog',
+                engWord: 'egg',
+                icon: FontAwesomeIcons.egg,
+                color: Colors.white,
+                audio: 'assets/audio/itlog.mp3',
+
+              ),
               LessonContent(
                   tagalogWord: 'hatdog',
                   engWord: 'hotdog',
@@ -47,12 +53,12 @@ class Utils {
               LessonContent(
                 tagalogWord: 'manok',
                 engWord: 'chicken',
-                icon: FontAwesomeIcons.egg,
+                icon: FontAwesomeIcons.earlybirds,
                 color: Colors.white,
               ),
             ],
           ),
-          Lessons(
+          Lesson(
               name: 'Food two',
               icon: FontAwesomeIcons.flask,
               color: Colors.purple,
@@ -90,25 +96,25 @@ class Utils {
                   color: Colors.white,
                 ),
               ]),
-          Lessons(
+          Lesson(
             name: 'Food three',
             icon: FontAwesomeIcons.wineBottle,
             color: Colors.purple,
             backgroundColor: Colors.purpleAccent,
           ),
-          Lessons(
+          Lesson(
             name: 'Food four',
             icon: FontAwesomeIcons.glassWhiskey,
             color: Colors.purple,
             backgroundColor: Colors.purpleAccent,
           ),
-          Lessons(
+          Lesson(
             name: 'Food five',
             icon: FontAwesomeIcons.glassMartini,
             color: Colors.purple,
             backgroundColor: Colors.purpleAccent,
           ),
-          Lessons(
+          Lesson(
             name: 'Food six',
             icon: FontAwesomeIcons.sink,
             color: Colors.purple,
@@ -116,43 +122,43 @@ class Utils {
           ),
         ],
       ),
-      Category(
+      Topic(
         name: 'Alphabet',
         icon: FontAwesomeIcons.wordpress,
         color: Color.fromRGBO(124, 180, 2, 1.0),
         backgroundColor: Color.fromRGBO(171, 236, 49, 1.0),
         lessons: [
-          Lessons(
+          Lesson(
             name: 'Lesson One',
             icon: FontAwesomeIcons.pencilAlt,
             color: Color.fromRGBO(124, 180, 2, 1.0),
             backgroundColor: Color.fromRGBO(171, 236, 49, 1.0),
           ),
-          Lessons(
+          Lesson(
             name: 'Lesson Two',
             icon: FontAwesomeIcons.bookOpen,
             color: Color.fromRGBO(124, 180, 2, 1.0),
             backgroundColor: Color.fromRGBO(171, 236, 49, 1.0),
           ),
-          Lessons(
+          Lesson(
             name: 'Lesson Three',
             icon: FontAwesomeIcons.addressBook,
             color: Color.fromRGBO(124, 180, 2, 1.0),
             backgroundColor: Color.fromRGBO(171, 236, 49, 1.0),
           ),
-          Lessons(
+          Lesson(
             name: 'Lesson Four',
             icon: FontAwesomeIcons.bookReader,
             color: Color.fromRGBO(124, 180, 2, 1.0),
             backgroundColor: Color.fromRGBO(171, 236, 49, 1.0),
           ),
-          Lessons(
+          Lesson(
             name: 'Lesson Five',
             icon: FontAwesomeIcons.pen,
             color: Color.fromRGBO(124, 180, 2, 1.0),
             backgroundColor: Color.fromRGBO(171, 236, 49, 1.0),
           ),
-          Lessons(
+          Lesson(
             name: 'Lesson Six',
             icon: FontAwesomeIcons.ruler,
             color: Color.fromRGBO(124, 180, 2, 1.0),
@@ -161,43 +167,43 @@ class Utils {
         ],
       ),
 
-      Category(
+      Topic(
         name: 'Numbers',
         icon: FontAwesomeIcons.personBooth,
         color: Color.fromRGBO(0, 149, 85, 1.0),
         backgroundColor: Colors.green[400],
         lessons: [
-          Lessons(
+          Lesson(
             name: 'Lesson One',
             icon: FontAwesomeIcons.personBooth,
             color: Color.fromRGBO(0, 149, 85, 1.0),
             backgroundColor: Colors.green[400],
           ),
-          Lessons(
+          Lesson(
             name: 'Lesson Two',
             icon: FontAwesomeIcons.tractor,
             color: Color.fromRGBO(0, 149, 85, 1.0),
             backgroundColor: Colors.green[400],
           ),
-          Lessons(
+          Lesson(
             name: 'Lesson Three',
             icon: FontAwesomeIcons.spaceShuttle,
             color: Color.fromRGBO(0, 149, 85, 1.0),
             backgroundColor: Colors.green[400],
           ),
-          Lessons(
+          Lesson(
             name: 'Lesson Four',
             icon: FontAwesomeIcons.plane,
             color: Color.fromRGBO(0, 149, 85, 1.0),
             backgroundColor: Colors.green[400],
           ),
-          Lessons(
+          Lesson(
             name: 'Lesson Five',
             icon: FontAwesomeIcons.car,
             color: Color.fromRGBO(0, 149, 85, 1.0),
             backgroundColor: Colors.green[400],
           ),
-          Lessons(
+          Lesson(
             name: 'Lesson Six',
             icon: FontAwesomeIcons.train,
             color: Color.fromRGBO(0, 149, 85, 1.0),
@@ -206,43 +212,43 @@ class Utils {
         ],
       ),
       //TODO: Fill with lesson content
-      Category(
+      Topic(
         name: 'Days of the Week',
         icon: FontAwesomeIcons.plane,
         color: Colors.red[700],
         backgroundColor: Colors.redAccent,
         lessons: [
-          Lessons(
+          Lesson(
             name: 'Lesson One',
             icon: FontAwesomeIcons.bicycle,
             color: Colors.red[700],
             backgroundColor: Colors.redAccent,
           ),
-          Lessons(
+          Lesson(
             name: 'Lesson Two',
             icon: FontAwesomeIcons.tractor,
             color: Colors.red[700],
             backgroundColor: Colors.redAccent,
           ),
-          Lessons(
+          Lesson(
             name: 'Lesson Three',
             icon: FontAwesomeIcons.spaceShuttle,
             color: Colors.red[700],
             backgroundColor: Colors.redAccent,
           ),
-          Lessons(
+          Lesson(
             name: 'Lesson Four',
             icon: FontAwesomeIcons.plane,
             color: Colors.red[700],
             backgroundColor: Colors.redAccent,
           ),
-          Lessons(
+          Lesson(
             name: 'Lesson Five',
             icon: FontAwesomeIcons.car,
             color: Colors.red[700],
             backgroundColor: Colors.redAccent,
           ),
-          Lessons(
+          Lesson(
             name: 'Lesson Six',
             icon: FontAwesomeIcons.train,
             color: Colors.red[700],
@@ -250,25 +256,25 @@ class Utils {
           ),
         ],
       ),
-      Category(
+      Topic(
         name: 'Months',
         icon: FontAwesomeIcons.paintBrush,
         color: Colors.cyan,
         backgroundColor: Colors.cyanAccent,
         lessons: [
-          Lessons(
+          Lesson(
             name: 'Months One',
             icon: FontAwesomeIcons.calendar,
             color: Colors.cyan,
             backgroundColor: Colors.cyanAccent,
           ),
-          Lessons(
+          Lesson(
             name: 'Months Two',
             icon: FontAwesomeIcons.calendarDay,
             color: Colors.cyan,
             backgroundColor: Colors.cyanAccent,
           ),
-          Lessons(
+          Lesson(
             name: 'Months Three',
             icon: FontAwesomeIcons.calendarWeek,
             color: Colors.cyan,
@@ -276,43 +282,43 @@ class Utils {
           ),
         ],
       ),
-      Category(
+      Topic(
         name: 'Colours',
         icon: FontAwesomeIcons.paintBrush,
         color: Colors.deepOrange,
         backgroundColor: Colors.orangeAccent,
         lessons: [
-          Lessons(
+          Lesson(
             name: 'Colours One',
             icon: FontAwesomeIcons.bicycle,
             color: Colors.deepOrange,
             backgroundColor: Colors.orangeAccent,
           ),
-          Lessons(
+          Lesson(
             name: 'Colours Two',
             icon: FontAwesomeIcons.tractor,
             color: Colors.deepOrange,
             backgroundColor: Colors.orangeAccent,
           ),
-          Lessons(
+          Lesson(
             name: 'Colours Three',
             icon: FontAwesomeIcons.spaceShuttle,
             color: Colors.deepOrange,
             backgroundColor: Colors.orangeAccent,
           ),
-          Lessons(
+          Lesson(
             name: 'Colours Four',
             icon: FontAwesomeIcons.plane,
             color: Colors.deepOrange,
             backgroundColor: Colors.orangeAccent,
           ),
-          Lessons(
+          Lesson(
             name: 'Colours Five',
             icon: FontAwesomeIcons.car,
             color: Colors.deepOrange,
             backgroundColor: Colors.orangeAccent,
           ),
-          Lessons(
+          Lesson(
             name: 'Colours Six',
             icon: FontAwesomeIcons.train,
             color: Colors.deepOrange,

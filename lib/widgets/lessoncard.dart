@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:learn_tagalog/models/category.dart';
+import 'package:learn_tagalog/models/topic.dart';
 
 class LessonCard extends StatelessWidget {
   Function onCardClick;
-  Category lesson;
+  Topic lesson;
 
   LessonCard({ this.lesson,  this.onCardClick});
 

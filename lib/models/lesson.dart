@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:learn_tagalog/models/category.dart';
+import 'package:learn_tagalog/models/topic.dart';
 
-class Lessons extends Category {
+class Lesson extends Topic {
 
-  List<Lessons> lessonContent;
+  List<Lesson> lessonContent;
+  List<Lesson> lessonQuestions;
   String engWord;
   String audio;
 
-  Lessons({
+  Lesson({
     String name,
     IconData icon,
     Color color,
@@ -15,6 +16,7 @@ class Lessons extends Category {
     this.lessonContent,
     this.audio,
     this.engWord,
+    this.lessonQuestions,
 
 }): super (
     name: name,

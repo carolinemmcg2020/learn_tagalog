@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:learn_tagalog/helpers/utils.dart';
-import 'package:learn_tagalog/models/category.dart';
-import 'package:learn_tagalog/models/lessons.dart';
+import 'package:learn_tagalog/models/topic.dart';
+import 'package:learn_tagalog/models/lesson.dart';
 import 'package:learn_tagalog/widgets/theme_background_color.dart';
 
 class Collection extends StatefulWidget {
@@ -11,8 +11,8 @@ class Collection extends StatefulWidget {
 }
 
 class _CollectionState extends State<Collection> {
-  List<Category> categories = Utils.getMockedCategories();
-  Lessons lessonContent;
+  List<Topic> categories = Utils.getMockedCategories();
+  Lesson lessonContent;
 
   @override
   Widget build(BuildContext context) {
