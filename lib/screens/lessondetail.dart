@@ -2,15 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter_alert/flutter_alert.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:just_audio/just_audio.dart';
-import 'package:learn_tagalog/models/lesson_brain.dart';
-import 'package:learn_tagalog/models/lessons.dart';
+import 'package:learn_tagalog/models/topic.dart';
+import 'package:learn_tagalog/models/lesson.dart';
 import 'package:learn_tagalog/screens/end_of_topic_quiz_detail.dart';
 import 'package:percent_indicator/linear_percent_indicator.dart';
 
-LessonBrain lessonBrain = LessonBrain();
 
 class LessonDetail extends StatefulWidget {
-  Lessons lessons;
+  Lesson lessons;
 
   LessonDetail({this.lessons});
 
@@ -20,6 +19,7 @@ class LessonDetail extends StatefulWidget {
 
 class _LessonDetailState extends State<LessonDetail> {
   AudioPlayer player;
+  Topic category;
 
   int index = 0;
   double percent = 0.0;
@@ -41,43 +41,50 @@ class _LessonDetailState extends State<LessonDetail> {
     percent = 0.0;
   }
 
+  void alertDialog() {
+    showAlert(
+      context: context,
+      title: 'Review lesson?',
+      body: 'Test your knowledge by answering questions about this lesson.',
+      actions: [
+        AlertAction(
+          text: 'Yes',
+          onPressed: () {
+            setState(() {
+              index = 0;
+              Navigator.pushReplacement(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => EndOfTopicQuizDetail(
+                    lesson: widget.lessons.lessonContent,
+                    //index: index,
+                  ),
+                ),
+              );
+            });
+          },
+        ),
+        AlertAction(
+          text: 'Redo',
+          onPressed: () {
+            setState(
+              () {
+                reset();
+              },
+            );
+            print('pressed redo' + '' + index.toString());
+          },
+        )
+      ],
+    );
+  }
+
   void nextWord() {
     setState(
       () {
         if (index >= widget.lessons.lessonContent.length - 1) {
           print('button pressed');
-          showAlert(
-            context: context,
-            title: 'Review lesson?',
-            body:
-                'Test your knowledge by answering questions about this lesson.',
-            actions: [
-              AlertAction(
-                text: 'Yes',
-                onPressed: () {
-                  //TODO: fill me in, send me to questions page
-                  setState(() {
-                    Navigator.pushReplacement(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => EndOfTopicQuizDetail(),
-                      ),
-                    );
-                  });
-                },
-              ),
-              AlertAction(
-                text: 'Redo',
-                onPressed: () {
-                  //TODO: Restart the lesson
-                  setState(() {
-                    reset();
-                  });
-                  print('pressed redo' + '' + index.toString());
-                },
-              )
-            ],
-          );
+          alertDialog();
         } else {
           if (index < widget.lessons.lessonContent.length - 1) {
             index++;
