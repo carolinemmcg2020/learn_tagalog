@@ -13,7 +13,7 @@ class _ReminderState extends State<Reminder> {
 
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
+    // TODO: add functionality
     return Scaffold(
       body: ThemeColor(
         child: SafeArea(
