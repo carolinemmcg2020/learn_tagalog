@@ -5,18 +5,27 @@ import 'package:learn_tagalog/screens/profile.dart';
 import 'package:learn_tagalog/screens/topics_detail.dart';
 
 import 'helpers/utils.dart';
+import 'models/lesson.dart';
 import 'models/topic.dart';
 
 
 class BottomNavBar extends StatefulWidget {
+ /* List<Topic> categories = Utils.getMockedCategories();
+  BottomNavBar({this.categories});*/
   @override
   _BottomNavBarState createState() => _BottomNavBarState();
 }
 
 class _BottomNavBarState extends State<BottomNavBar> {
-  List<Topic> categories = Utils.getMockedCategories();
 
+  Lesson content;
   int _selectedIndex = 0;
+  int index = 0;
+
+/*  void initState(){
+    content = widget.categories[index].lessons[index];
+  }*/
+
 
   final _pageOptions = [
     Topics(),
