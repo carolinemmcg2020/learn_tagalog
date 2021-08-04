@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_settings_screens/flutter_settings_screens.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:learn_tagalog/layout/account_page.dart';
 import 'package:learn_tagalog/layout/header_page.dart';
 import 'package:learn_tagalog/layout/icon_widget.dart';
 import 'package:learn_tagalog/models/loginusermodel.dart';
+import 'package:learn_tagalog/screens/reminder_detail.dart';
 import 'package:learn_tagalog/screens/welcomepage.dart';
 import 'package:learn_tagalog/services/google_login_service.dart';
 import 'package:learn_tagalog/widgets/theme_background_color.dart';
@@ -43,6 +45,7 @@ class _ProfileState extends State<Profile> {
                 title: 'General',
                 children: <Widget>[
                   AccountPage(),
+                  buildReminder(context),
                   buildLogout(context),
                   buildDeleteAccount(),
                 ],
@@ -64,6 +67,25 @@ class _ProfileState extends State<Profile> {
           ),
         ),
       ),
+    );
+  }
+
+  Widget buildReminder(BuildContext context) {
+    return SimpleSettingsTile(
+      title: 'Reminders',
+      subtitle: 'Set reminders',
+      leading: IconWidget(
+        icon: FontAwesomeIcons.bell,
+        color: Colors.amber,
+      ),
+      onTap: (){
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => Reminder(),
+          ),
+        );
+      } ,
     );
   }
 
@@ -99,13 +121,11 @@ class _ProfileState extends State<Profile> {
             ),
           );
         } else {
-
           ScaffoldMessenger.of(context).showSnackBar(
             const SnackBar(
               content: Text('No user Logged in '),
             ),
           );
-
         }
       },
     );
