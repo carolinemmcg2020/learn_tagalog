@@ -2,11 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_alert/flutter_alert.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:just_audio/just_audio.dart';
-import 'package:learn_tagalog/models/topic.dart';
 import 'package:learn_tagalog/models/lesson.dart';
-import 'package:learn_tagalog/screens/end_of_topic_quiz_detail.dart';
+import 'package:learn_tagalog/models/topic.dart';
+import 'package:learn_tagalog/screens/end_of_lesson_quiz_detail.dart';
 import 'package:percent_indicator/linear_percent_indicator.dart';
-
 
 class LessonDetail extends StatefulWidget {
   Lesson lessons;
@@ -55,7 +54,7 @@ class _LessonDetailState extends State<LessonDetail> {
               Navigator.pushReplacement(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => EndOfTopicQuizDetail(
+                  builder: (context) => EndOfLessonQuizDetail(
                     questionContent: widget.lessons.lessonContent,
                     questionTitle: widget.lessons.name,
                     //index: index,
@@ -99,6 +98,7 @@ class _LessonDetailState extends State<LessonDetail> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
+        height: MediaQuery.of(context).size.height,
         decoration: BoxDecoration(
           gradient: LinearGradient(
               begin: Alignment.bottomLeft,
@@ -163,9 +163,6 @@ class _LessonDetailState extends State<LessonDetail> {
                         ),
                       ),
                     ),
-                    SizedBox(
-                      height: 20,
-                    ),
                     Padding(
                       padding: const EdgeInsets.all(8.0),
                       child: Text(
@@ -176,9 +173,6 @@ class _LessonDetailState extends State<LessonDetail> {
                           color: Colors.white,
                         ),
                       ),
-                    ),
-                    SizedBox(
-                      height: 10.0,
                     ),
                     Padding(
                       padding: const EdgeInsets.all(8.0),
@@ -193,21 +187,24 @@ class _LessonDetailState extends State<LessonDetail> {
                         ),
                       ),
                     ),
-                    SizedBox(
-                      height: 20,
-                    ),
-                    FlatButton(
-                      color: Colors.amber,
-                      onPressed: () {
-                        nextWord();
-                        setState(
-                          () {
-                            percent++;
-                          },
-                        );
-                        print(percent);
-                      },
-                      child: Text('Press Here'),
+                    Padding(
+                      padding: const EdgeInsets.all(20.0),
+                      child: GestureDetector(
+                        onTap: () {
+                          nextWord();
+                          player.stop();
+                          setState(
+                                () {
+                              percent++;
+                            },
+                          );
+                        },
+                        child: Icon(
+                          FontAwesomeIcons.arrowCircleRight,
+                          size: 40.0,
+                          color: Colors.white,
+                        ),
+                      ),
                     ),
                   ],
                 ),
