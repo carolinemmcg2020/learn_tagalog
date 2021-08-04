@@ -7,17 +7,17 @@ import 'package:learn_tagalog/widgets/quiz_button.dart';
 import 'package:learn_tagalog/widgets/theme_background_color.dart';
 import 'package:percent_indicator/linear_percent_indicator.dart';
 
-class EndOfTopicQuizDetail extends StatefulWidget {
+class EndOfLessonQuizDetail extends StatefulWidget {
    List<Lesson> questionContent;
    String questionTitle;
 
-  EndOfTopicQuizDetail({this.questionContent, this.questionTitle});
+  EndOfLessonQuizDetail({this.questionContent, this.questionTitle});
 
   @override
-  _EndOfTopicQuizDetailState createState() => _EndOfTopicQuizDetailState();
+  _EndOfLessonQuizDetailState createState() => _EndOfLessonQuizDetailState();
 }
 
-class _EndOfTopicQuizDetailState extends State<EndOfTopicQuizDetail> {
+class _EndOfLessonQuizDetailState extends State<EndOfLessonQuizDetail> {
   double _progress = 0.0;
   int index = 0;
 
