@@ -2,17 +2,17 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:learn_tagalog/helpers/utils.dart';
 import 'package:learn_tagalog/models/topic.dart';
-import 'package:learn_tagalog/models/lesson.dart';
 import 'package:learn_tagalog/widgets/theme_background_color.dart';
 
+
 class Collection extends StatefulWidget {
+
   @override
   _CollectionState createState() => _CollectionState();
 }
 
 class _CollectionState extends State<Collection> {
   List<Topic> categories = Utils.getMockedCategories();
-  Lesson lessonContent;
 
   @override
   Widget build(BuildContext context) {
@@ -113,14 +113,14 @@ class _CollectionState extends State<Collection> {
                                                   child: Row(
                                                     children: [
                                                       Icon(
-                                                        FontAwesomeIcons.egg,
+                                                        categories[index].lessons[contentIndex].icon,
                                                         size: 35.0,
                                                       ),
                                                       SizedBox(
                                                         width: 40,
                                                       ),
                                                       Text(
-                                                        'test',
+                                                        categories[index].lessons[contentIndex].name,
                                                         style: TextStyle(
                                                             fontSize: 18.0),
                                                       ),
