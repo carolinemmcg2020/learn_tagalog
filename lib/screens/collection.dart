@@ -136,7 +136,7 @@ class _CollectionState extends State<Collection> {
                                                         width: 30,
                                                       ),
                                                       Expanded(
-                                                        child: FlatButton(
+                                                        child: TextButton(
                                                           onPressed: () {},
                                                           child: Icon(
                                                             FontAwesomeIcons
