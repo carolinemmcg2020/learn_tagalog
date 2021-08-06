@@ -55,8 +55,7 @@ class _LessonDetailState extends State<LessonDetail> {
                 context,
                 MaterialPageRoute(
                   builder: (context) => EndOfLessonQuizDetail(
-                    questionContent: widget.lessons.lessonQuestions,
-                    lessonContent: widget.lessons.lessonContent,
+                    questionContent: widget.lessons.lessonContent,
                     quizTitle: widget.lessons.name,
                     //index: index,
                   ),
