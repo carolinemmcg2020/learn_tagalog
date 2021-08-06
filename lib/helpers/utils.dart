@@ -20,7 +20,7 @@ class Utils {
             color: Colors.purple,
             backgroundColor: Colors.purpleAccent,
             lessonQuestions: [
-              Question(question: 'testing', answer: 'passed'),
+              Question(question: 'What is the word for egg?', answer: 'itlog'),
             ],
             lessonContent: [
               LessonContent(
@@ -36,7 +36,7 @@ class Utils {
                 engWord: 'hotdog',
                 icon: FontAwesomeIcons.hotdog,
                 color: Colors.white,
-                audio: 'assets/audio/hotdog.mp3',
+                audio: 'assets/audio/hatdog.mp3',
                 type: 'word',
               ),
               //TODO import audio assets and fill out audio variable for each lesson content object

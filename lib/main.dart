@@ -3,9 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart' as firebase;
 import 'package:flutter/services.dart';
 import 'package:flutter_settings_screens/flutter_settings_screens.dart';
-import 'package:learn_tagalog/bottom_nav_bar.dart';
 import 'package:learn_tagalog/layout/header_page.dart';
-import 'package:learn_tagalog/screens/end_of_topic_quiz_detail.dart';
+import 'package:learn_tagalog/screens/reminder_detail.dart';
 import 'package:learn_tagalog/screens/welcomepage.dart';
 import 'package:learn_tagalog/services/email_login_service.dart';
 import 'package:learn_tagalog/services/google_login_service.dart';
@@ -61,13 +60,9 @@ class MyApp extends StatelessWidget {
                 brightness: Brightness.light,
                 accentColor: Colors.orange,
                 canvasColor: Colors.transparent,
-                // snackBarTheme: SnackBarThemeData(
-                //   backgroundColor: Colors.transparent,
-                //   elevation: 40,
-                //   disabledActionTextColor: Colors.white,
-                // ),
+
               ),
-        home: BottomNavBar(),
+        home: WelcomePage(),
       ),
     );
   }

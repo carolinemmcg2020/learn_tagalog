@@ -4,8 +4,9 @@ import 'package:flutter/material.dart';
 class QuizButton extends StatelessWidget {
   String buttonTxt;
   Function onTap;
+  final Color colour;
 
-  QuizButton({this.buttonTxt, this.onTap});
+  QuizButton({this.buttonTxt, this.onTap, this.colour = const Color.fromRGBO(253, 202, 49, 1.0),});
 
   @override
   Widget build(BuildContext context) {
@@ -25,7 +26,7 @@ class QuizButton extends StatelessWidget {
                 style: BorderStyle.solid,
                 width: 3.0,
               ),
-              color: Colors.transparent,
+              color: colour,
               borderRadius: BorderRadius.circular(30.0),
             ),
             child: Row(

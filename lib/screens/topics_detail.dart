@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_alert/flutter_alert.dart';
 import 'package:learn_tagalog/helpers/utils.dart';
 import 'package:learn_tagalog/models/topic.dart';
 import 'package:learn_tagalog/screens/lessondetail.dart';
@@ -101,7 +100,7 @@ class Topics extends StatelessWidget {
                                                 FlatButton(
                                                   child: Text('Yes'),
                                                   onPressed: () {
-                                                    //TODO: fill me in, send me to lesson page
+
                                                     Navigator.pushReplacement(
                                                       context,
                                                       MaterialPageRoute(
@@ -117,7 +116,7 @@ class Topics extends StatelessWidget {
                                                 FlatButton(
                                                   child: Text('No'),
                                                   onPressed: () {
-                                                    //TODO: Close Alert
+
                                                     Navigator.of(alertContext,
                                                         rootNavigator: true)
                                                         .pop();
