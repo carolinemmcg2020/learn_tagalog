@@ -9,18 +9,31 @@ class ResultsDetail extends StatelessWidget {
   List<Lesson> numOfQs;
 
   bool isVisible = false;
+  String message = '';
 
   ResultsDetail({this.userResults, this.numOfQs});
 
   String resultMessage() {
-    if (userResults >= numOfQs.length / 2) {
+    if (userResults >= ((numOfQs.length * 70) * 0.1)) {
       isVisible = false;
       print(isVisible);
       return 'Well Done! You can move to the next Lesson';
+    } else if(userResults == numOfQs.length/2) {
+      return 'Well Done! You may want to review the content later';
     } else {
       isVisible = true;
       print(isVisible);
       return 'Try again!';
+    }
+  }
+
+  bool failMessage() {
+    if (userResults >= numOfQs.length/2) {
+     return isVisible = false;
+
+    } else {
+     return isVisible = true;
+
     }
   }
 
@@ -29,8 +42,6 @@ class ResultsDetail extends StatelessWidget {
     var percent = (userResults / numOfQs.length).toDouble();
     int percentText = (userResults / numOfQs.length * 100).toInt();
 
-
-    // TODO: implement build
     return Scaffold(
       body: ThemeColor(
         child: SafeArea(
@@ -59,8 +70,12 @@ class ResultsDetail extends StatelessWidget {
                 ),
               ),
               Visibility(
-                visible: isVisible,
-                child: Text('This is a test'),
+                visible: failMessage(),
+                child: Text(
+                  'Maybe you should review the lesson content again',
+                  textAlign: TextAlign.center,
+                  style: TextStyle(fontSize: 15.0, color: Colors.amberAccent, fontWeight: FontWeight.bold),
+                ),
               ),
               Padding(
                 padding: const EdgeInsets.all(20.0),
