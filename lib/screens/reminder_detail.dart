@@ -85,7 +85,7 @@ class _ReminderState extends State<Reminder> {
               Padding(
                 padding: const EdgeInsets.all(40.0),
                 child: Text(
-                  _value.toInt().toString() + ' days',
+                  _value.toInt().toString() + ' lessons',
                   style: TextStyle(
                     fontSize: 32,
                     fontWeight: FontWeight.w500,
