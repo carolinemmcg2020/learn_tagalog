@@ -1,6 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:learn_tagalog/bottom_nav_bar.dart';
 import 'package:learn_tagalog/models/lesson.dart';
+import 'package:learn_tagalog/screens/end_of_lesson_quiz_detail.dart';
+import 'package:learn_tagalog/screens/lessondetail.dart';
 import 'package:learn_tagalog/widgets/theme_background_color.dart';
 import 'package:percent_indicator/circular_percent_indicator.dart';
 
@@ -14,11 +17,11 @@ class ResultsDetail extends StatelessWidget {
   ResultsDetail({this.userResults, this.numOfQs});
 
   String resultMessage() {
-    if (userResults >= ((numOfQs.length * 70) * 0.1)) {
+    if (userResults > ((numOfQs.length * 7) * 0.1)) {
       isVisible = false;
       print(isVisible);
-      return 'Well Done! You can move to the next Lesson';
-    } else if(userResults == numOfQs.length/2) {
+      return 'Great results! You can move to the next Lesson';
+    } else if (userResults >= numOfQs.length / 2) {
       return 'Well Done! You may want to review the content later';
     } else {
       isVisible = true;
@@ -28,12 +31,90 @@ class ResultsDetail extends StatelessWidget {
   }
 
   bool failMessage() {
-    if (userResults >= numOfQs.length/2) {
-     return isVisible = false;
-
+    if (userResults >= numOfQs.length / 2) {
+      return isVisible = false;
     } else {
-     return isVisible = true;
+      return isVisible = true;
+    }
+  }
 
+  Widget buildButton(BuildContext context) {
+    if (isVisible) {
+      return SizedBox(
+        width: 100,
+        child: ClipRect(
+          child: Stack(
+            children: [
+              Positioned.fill(
+                child: Container(
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(10.0),
+                      gradient: LinearGradient(
+                        colors: <Color>[
+                          Color(0xFF0D47A1),
+                          Color(0xFF1976D2),
+                          Color(0xFF42A5F5),
+                        ],
+                      )),
+                ),
+              ),
+              Center(
+                child: TextButton(
+                  style: TextButton.styleFrom(
+                    padding: const EdgeInsets.all(16.0),
+                    primary: Colors.white,
+                    textStyle: const TextStyle(fontSize: 20),
+                  ),
+                  onPressed: () {
+                    Navigator.pop(context);
+                  },
+                  child: const Text(
+                    'Back to Lessons',
+                  ),
+                ),
+              )
+            ],
+          ),
+        ),
+      );
+    } else {
+      return SizedBox(
+        width: 100,
+        child: ClipRect(
+          child: Stack(
+            children: [
+              Positioned.fill(
+                child: Container(
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(10.0),
+                      gradient: LinearGradient(
+                        colors: <Color>[
+                          Color(0xFF0D47A1),
+                          Color(0xFF1976D2),
+                          Color(0xFF42A5F5),
+                        ],
+                      )),
+                ),
+              ),
+              Center(
+                child: TextButton(
+                  style: TextButton.styleFrom(
+                    padding: const EdgeInsets.all(16.0),
+                    primary: Colors.white,
+                    textStyle: const TextStyle(fontSize: 20),
+                  ),
+                  onPressed: () {
+                    Navigator.pop(context);
+                  },
+                  child: const Text(
+                    'Exit',
+                  ),
+                ),
+              )
+            ],
+          ),
+        ),
+      );
     }
   }
 
@@ -72,9 +153,12 @@ class ResultsDetail extends StatelessWidget {
               Visibility(
                 visible: failMessage(),
                 child: Text(
-                  'Maybe you should review the lesson content again',
+                  'You should review the lesson content again before continuing to the next lesson',
                   textAlign: TextAlign.center,
-                  style: TextStyle(fontSize: 15.0, color: Colors.amberAccent, fontWeight: FontWeight.bold),
+                  style: TextStyle(
+                      fontSize: 15.0,
+                      color: Colors.amberAccent,
+                      fontWeight: FontWeight.bold),
                 ),
               ),
               Padding(
@@ -88,7 +172,7 @@ class ResultsDetail extends StatelessWidget {
               SizedBox(
                 height: 20,
               ),
-              SizedBox(
+              /*SizedBox(
                 width: 100,
                 child: ClipRect(
                   child: Stack(
@@ -124,7 +208,8 @@ class ResultsDetail extends StatelessWidget {
                     ],
                   ),
                 ),
-              )
+              )*/
+              buildButton(context),
             ],
           ),
         ),
