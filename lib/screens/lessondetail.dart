@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:flutter_alert/flutter_alert.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:just_audio/just_audio.dart';
@@ -107,7 +108,15 @@ class _LessonDetailState extends State<LessonDetail> {
         ),
         child: SafeArea(
           child: Column(
+            mainAxisSize: MainAxisSize.max,
             children: [
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Text(
+                  'Lesson Topic: ' + widget.lessons.name,
+                  style: TextStyle(fontSize: 22.0, fontWeight: FontWeight.w300, color: Colors.amberAccent),
+                ),
+              ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
@@ -142,7 +151,7 @@ class _LessonDetailState extends State<LessonDetail> {
                 ],
               ),
               Container(
-                padding: EdgeInsets.symmetric(vertical: 50.0),
+                // padding: EdgeInsets.symmetric(vertical: 30.0),
                 margin: EdgeInsets.symmetric(vertical: 30.0),
                 child: Column(
                   children: [
@@ -194,7 +203,7 @@ class _LessonDetailState extends State<LessonDetail> {
                           nextWord();
                           player.stop();
                           setState(
-                                () {
+                            () {
                               percent++;
                             },
                           );
