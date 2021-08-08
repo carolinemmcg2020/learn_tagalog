@@ -37,6 +37,7 @@ class _ProfileState extends State<Profile> {
               SettingsGroup(
                 title: 'General',
                 children: <Widget>[
+                  AccountPage(),
                   buildReminder(context),
                   buildLogout(context),
                   buildDeleteAccount(),
