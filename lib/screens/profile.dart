@@ -22,14 +22,7 @@ class _ProfileState extends State<Profile> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // backgroundColor: Colors.purple,
       body: ThemeColor(
-        /*decoration: BoxDecoration(
-          gradient: LinearGradient(
-              begin: Alignment.bottomLeft,
-              end: Alignment.topRight,
-              colors: [Colors.purple, Colors.blue]),
-        ),*/
         child: SafeArea(
           child: ListView(
             children: [
@@ -44,7 +37,6 @@ class _ProfileState extends State<Profile> {
               SettingsGroup(
                 title: 'General',
                 children: <Widget>[
-                  AccountPage(),
                   buildReminder(context),
                   buildLogout(context),
                   buildDeleteAccount(),
