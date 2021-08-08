@@ -63,7 +63,7 @@ class ResultsDetail extends StatelessWidget {
                   style: TextButton.styleFrom(
                     padding: const EdgeInsets.all(16.0),
                     primary: Colors.white,
-                    textStyle: const TextStyle(fontSize: 20),
+                    textStyle: const TextStyle(fontSize: 15),
                   ),
                   onPressed: () {
                     Navigator.pop(context);
@@ -130,9 +130,12 @@ class ResultsDetail extends StatelessWidget {
             mainAxisSize: MainAxisSize.max,
             children: [
               Center(
-                child: Text(
-                  'Results',
-                  style: TextStyle(fontSize: 28.0),
+                child: Padding(
+                  padding: const EdgeInsets.all(10.0),
+                  child: Text(
+                    'Results',
+                    style: TextStyle(fontSize: 28.0),
+                  ),
                 ),
               ),
               Padding(
