@@ -16,16 +16,6 @@ class Topics extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: ThemeColor(
-        /* decoration: BoxDecoration(
-          gradient: LinearGradient(
-            begin: Alignment.topLeft,
-            end: Alignment.bottomRight,
-            colors: [
-              Color(0xFF311136),
-              Colors.deepPurpleAccent,
-            ],
-          ),
-        ),*/
         child: SafeArea(
           child: Column(
             mainAxisSize: MainAxisSize.min,
