@@ -168,7 +168,7 @@ class _LessonDetailState extends State<LessonDetail> {
                         child: Icon(
                           widget.lessons.lessonContent[index].icon,
                           size: 200.0,
-                          color: Colors.white,
+                          color: widget.lessons.lessonContent[index].color,
                         ),
                       ),
                     ),
@@ -176,6 +176,7 @@ class _LessonDetailState extends State<LessonDetail> {
                       padding: const EdgeInsets.all(8.0),
                       child: Text(
                         widget.lessons.lessonContent[index].name,
+                        textAlign: TextAlign.center,
                         style: TextStyle(
                           fontSize: 40.0,
                           fontWeight: FontWeight.bold,
