@@ -210,7 +210,7 @@ class _LessonDetailState extends State<LessonDetail> {
                       ),
                     ),
                     Padding(
-                      padding: const EdgeInsets.all(30.0),
+                      padding: const EdgeInsets.all(20.0),
                       child: GestureDetector(
                         onTap: () {
                           nextWord();
