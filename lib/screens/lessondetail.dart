@@ -95,6 +95,16 @@ class _LessonDetailState extends State<LessonDetail> {
     );
   }
 
+  double phraseFontSize(){
+    if(widget.lessons.lessonContent[index].type == 'phrase'){
+      print('fontsize is 30');
+      return 30.0;
+    } else {
+      print('fontsize is 40');
+      return 40.0;
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -114,7 +124,10 @@ class _LessonDetailState extends State<LessonDetail> {
                 padding: const EdgeInsets.all(8.0),
                 child: Text(
                   'Lesson Topic: ' + widget.lessons.name,
-                  style: TextStyle(fontSize: 22.0, fontWeight: FontWeight.w300, color: Colors.amberAccent),
+                  style: TextStyle(
+                      fontSize: 22.0,
+                      fontWeight: FontWeight.w300,
+                      color: Colors.amberAccent),
                 ),
               ),
               Row(
@@ -167,7 +180,7 @@ class _LessonDetailState extends State<LessonDetail> {
                         margin: EdgeInsets.all(20.0),
                         child: Icon(
                           widget.lessons.lessonContent[index].icon,
-                          size: 200.0,
+                          size: 180.0,
                           color: widget.lessons.lessonContent[index].color,
                         ),
                       ),
@@ -178,7 +191,7 @@ class _LessonDetailState extends State<LessonDetail> {
                         widget.lessons.lessonContent[index].name,
                         textAlign: TextAlign.center,
                         style: TextStyle(
-                          fontSize: 40.0,
+                          fontSize: phraseFontSize(),
                           fontWeight: FontWeight.bold,
                           color: Colors.white,
                         ),
@@ -186,19 +199,18 @@ class _LessonDetailState extends State<LessonDetail> {
                     ),
                     Padding(
                       padding: const EdgeInsets.all(8.0),
-                      child: Align(
-                        alignment: Alignment.center,
-                        child: Text(
-                          widget.lessons.lessonContent[index].engWord,
-                          style: TextStyle(
-                              fontWeight: FontWeight.w500,
-                              fontSize: 25.0,
-                              color: Colors.white70),
+                      child: Text(
+                        widget.lessons.lessonContent[index].engWord,
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                          fontWeight: FontWeight.w500,
+                          fontSize: 25.0,
+                          color: Colors.white70,
                         ),
                       ),
                     ),
                     Padding(
-                      padding: const EdgeInsets.all(20.0),
+                      padding: const EdgeInsets.all(30.0),
                       child: GestureDetector(
                         onTap: () {
                           nextWord();
