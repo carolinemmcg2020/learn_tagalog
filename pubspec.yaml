@@ -46,10 +46,26 @@ dependencies:
   avatar_glow: ^2.0.1
   flutter_alert: ^0.4.0
   percent_indicator: ^3.0.1
+  flutter_launcher_icons: ^0.9.1
+
+
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
+  flutter_native_splash: ^1.2.1
+
+flutter_native_splash:
+  color: "#ffffff"
+  image: assets/splash_800.png
+  android: true
+  ios: true
+
+flutter_icons:
+  ios: true
+  android: true
+  image_path: 'assets/icon_2_800.jpg'
+
 
 
 
