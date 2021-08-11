@@ -79,7 +79,7 @@ class _EndOfLessonQuizDetailState extends State<EndOfLessonQuizDetail> {
   }
 
   //TODO Fix Colour Button Check
-  void buttonColourCheck(Color colourChange) {
+  Color buttonColourCheck(Color colourChange) {
     setState(
       () {
         if (checked == true) {
@@ -161,12 +161,12 @@ class _EndOfLessonQuizDetailState extends State<EndOfLessonQuizDetail> {
                 height: 30.0,
               ),
               QuizButton(
-                buttonTxt: widget.questionContent[2].engWord,
+                buttonTxt: widget.questionContent[0].engWord,
                 colour: buttonColor1,
                 onTap: () {
                   setState(
                     () {
-                      checkAnswer(widget.questionContent[2].engWord);
+                      checkAnswer(widget.questionContent[0].engWord);
                       buttonColourCheck(buttonColor1);
                     },
                   );
@@ -176,12 +176,12 @@ class _EndOfLessonQuizDetailState extends State<EndOfLessonQuizDetail> {
                 height: 30.0,
               ),
               QuizButton(
-                buttonTxt: widget.questionContent[3].engWord,
+                buttonTxt: widget.questionContent[1].engWord,
                 colour: buttonColor2,
                 onTap: () {
                   setState(
                     () {
-                      checkAnswer(widget.questionContent[3].engWord);
+                      checkAnswer(widget.questionContent[1].engWord);
                       // buttonColourCheck(buttonColor2);
                       if (checked == true) {
                         buttonColor2 = buttonColorRight;
@@ -196,12 +196,12 @@ class _EndOfLessonQuizDetailState extends State<EndOfLessonQuizDetail> {
                 height: 30.0,
               ),
               QuizButton(
-                buttonTxt: widget.questionContent[4].engWord,
+                buttonTxt: widget.questionContent[2].engWord,
                 colour: buttonColor3,
                 onTap: () {
                   setState(
                     () {
-                      checkAnswer(widget.questionContent[4].engWord);
+                      checkAnswer(widget.questionContent[2].engWord);
                       // buttonColourCheck(buttonColor3);
                       if (checked == true) {
                         buttonColor3 = buttonColorRight;
