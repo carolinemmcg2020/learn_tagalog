@@ -29,7 +29,7 @@ class Utils {
                 icon: FontAwesomeIcons.monument,
                 audio: 'assets/audio/Ah.mp3',
                 color: Colors.yellow,
-                type: 'word'
+                type: 'word',
               ),
               LessonContent(
                   tagalogWord: 'Ba',
@@ -37,7 +37,7 @@ class Utils {
                   icon: FontAwesomeIcons.monument,
                   audio: 'assets/audio/Ba.mp3',
                   color: Colors.yellow,
-                  type: 'word'
+                  type: 'word',
               ),
               LessonContent(
                   tagalogWord: 'Ka',
@@ -45,7 +45,7 @@ class Utils {
                   icon: FontAwesomeIcons.monument,
                   audio: 'assets/audio/Ka.mp3',
                   color: Colors.yellow,
-                  type: 'word'
+                  type: 'word',
               ),
               LessonContent(
                   tagalogWord: 'Da',
@@ -53,7 +53,7 @@ class Utils {
                   icon: FontAwesomeIcons.monument,
                   audio: 'assets/audio/Da.mp3',
                   color: Colors.yellow,
-                  type: 'word'
+                  type: 'word',
               ),
               LessonContent(
                   tagalogWord: 'Eh',
@@ -61,7 +61,7 @@ class Utils {
                   icon: FontAwesomeIcons.monument,
                   audio: 'assets/audio/Eh.mp3',
                   color: Colors.yellow,
-                  type: 'word'
+                  type: 'word',
               ),
               LessonContent(
                   tagalogWord: 'Ga',
@@ -69,7 +69,7 @@ class Utils {
                   icon: FontAwesomeIcons.monument,
                   audio: 'assets/audio/Ga.mp3',
                   color: Colors.yellow,
-                  type: 'word'
+                  type: 'word',
               ),
               LessonContent(
                   tagalogWord: 'Ha',
@@ -77,7 +77,7 @@ class Utils {
                   icon: FontAwesomeIcons.monument,
                   audio: 'assets/audio/Ha.mp3',
                   color: Colors.yellow,
-                  type: 'word'
+                  type: 'word',
               ),
               LessonContent(
                   tagalogWord: 'e',
@@ -116,14 +116,6 @@ class Utils {
                   engWord: 'N',
                   icon: FontAwesomeIcons.monument,
                   audio: 'assets/audio/Na.mp3',
-                  color: Colors.yellow,
-                  type: 'word'
-              ),
-              LessonContent(
-                  tagalogWord: 'Nga',
-                  engWord: 'NG',
-                  icon: FontAwesomeIcons.monument,
-                  audio: 'assets/audio/Nga.mp3',
                   color: Colors.yellow,
                   type: 'word'
               ),
