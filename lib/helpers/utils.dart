@@ -18,180 +18,165 @@ class Utils {
         backgroundColor: Color.fromRGBO(171, 236, 49, 1.0),
         lessons: [
           Lesson(
-            name: 'Lesson One',
-            icon: FontAwesomeIcons.pencilAlt,
-            color: Color.fromRGBO(124, 180, 2, 1.0),
-            backgroundColor: Color.fromRGBO(171, 236, 49, 1.0),
-            lessonContent: [
-              LessonContent(
-                tagalogWord: 'Ah',
-                engWord: 'A',
-                icon: FontAwesomeIcons.monument,
-                audio: 'assets/audio/Ah.mp3',
-                color: Colors.yellow,
-                type: 'word',
-              ),
-              LessonContent(
+              name: 'Lesson One',
+              icon: FontAwesomeIcons.pencilAlt,
+              color: Color.fromRGBO(124, 180, 2, 1.0),
+              backgroundColor: Color.fromRGBO(171, 236, 49, 1.0),
+              lessonContent: [
+                LessonContent(
+                  tagalogWord: 'Ah',
+                  engWord: 'A',
+                  icon: FontAwesomeIcons.monument,
+                  audio: 'assets/audio/Ah.mp3',
+                  color: Colors.yellow,
+                  type: 'word',
+                ),
+                LessonContent(
                   tagalogWord: 'Ba',
                   engWord: 'B',
                   icon: FontAwesomeIcons.monument,
                   audio: 'assets/audio/Ba.mp3',
                   color: Colors.yellow,
                   type: 'word',
-              ),
-              LessonContent(
+                ),
+                LessonContent(
                   tagalogWord: 'Ka',
                   engWord: 'C',
                   icon: FontAwesomeIcons.monument,
                   audio: 'assets/audio/Ka.mp3',
                   color: Colors.yellow,
                   type: 'word',
-              ),
-              LessonContent(
+                ),
+                LessonContent(
                   tagalogWord: 'Da',
                   engWord: 'D',
                   icon: FontAwesomeIcons.monument,
                   audio: 'assets/audio/Da.mp3',
                   color: Colors.yellow,
                   type: 'word',
-              ),
-              LessonContent(
+                ),
+                LessonContent(
                   tagalogWord: 'Eh',
                   engWord: 'E',
                   icon: FontAwesomeIcons.monument,
                   audio: 'assets/audio/Eh.mp3',
                   color: Colors.yellow,
                   type: 'word',
-              ),
-              LessonContent(
+                ),
+                LessonContent(
                   tagalogWord: 'Ga',
                   engWord: 'G',
                   icon: FontAwesomeIcons.monument,
                   audio: 'assets/audio/Ga.mp3',
                   color: Colors.yellow,
                   type: 'word',
-              ),
-              LessonContent(
+                ),
+                LessonContent(
                   tagalogWord: 'Ha',
                   engWord: 'H',
                   icon: FontAwesomeIcons.monument,
                   audio: 'assets/audio/Ha.mp3',
                   color: Colors.yellow,
                   type: 'word',
-              ),
-              LessonContent(
-                  tagalogWord: 'e',
-                  engWord: 'I',
-                  icon: FontAwesomeIcons.monument,
-                  audio: 'assets/audio/E.mp3',
-                  color: Colors.yellow,
-                  type: 'word'
-              ),
-              LessonContent(
-                  tagalogWord: 'La',
-                  engWord: 'L',
-                  icon: FontAwesomeIcons.monument,
-                  audio: 'assets/audio/La.mp3',
-                  color: Colors.yellow,
-                  type: 'word'
-              ),
-              LessonContent(
-                  tagalogWord: 'Ma',
-                  engWord: 'M',
-                  icon: FontAwesomeIcons.monument,
-                  audio: 'assets/audio/Ma.mp3',
-                  color: Colors.yellow,
-                  type: 'word'
-              )
-            ]
-          ),
+                ),
+                LessonContent(
+                    tagalogWord: 'e',
+                    engWord: 'I',
+                    icon: FontAwesomeIcons.monument,
+                    audio: 'assets/audio/E.mp3',
+                    color: Colors.yellow,
+                    type: 'word'),
+                LessonContent(
+                    tagalogWord: 'La',
+                    engWord: 'L',
+                    icon: FontAwesomeIcons.monument,
+                    audio: 'assets/audio/La.mp3',
+                    color: Colors.yellow,
+                    type: 'word'),
+                LessonContent(
+                    tagalogWord: 'Ma',
+                    engWord: 'M',
+                    icon: FontAwesomeIcons.monument,
+                    audio: 'assets/audio/Ma.mp3',
+                    color: Colors.yellow,
+                    type: 'word')
+              ]),
           Lesson(
-            name: 'Lesson Two',
-            icon: FontAwesomeIcons.bookOpen,
-            color: Color.fromRGBO(124, 180, 2, 1.0),
-            backgroundColor: Color.fromRGBO(171, 236, 49, 1.0),
-            lessonContent: [
-              LessonContent(
-                  tagalogWord: 'Na',
-                  engWord: 'N',
-                  icon: FontAwesomeIcons.monument,
-                  audio: 'assets/audio/Na.mp3',
-                  color: Colors.yellow,
-                  type: 'word'
-              ),
-              LessonContent(
-                  tagalogWord: 'Oh',
-                  engWord: 'O',
-                  icon: FontAwesomeIcons.monument,
-                  audio: 'assets/audio/Oh.mp3',
-                  color: Colors.yellow,
-                  type: 'word'
-              ),
-              LessonContent(
-                  tagalogWord: 'Pah',
-                  engWord: 'P',
-                  icon: FontAwesomeIcons.monument,
-                  audio: 'assets/audio/Pah.mp3',
-                  color: Colors.yellow,
-                  type: 'word'
-              ),
-              LessonContent(
-                  tagalogWord: 'Ra',
-                  engWord: 'R',
-                  icon: FontAwesomeIcons.monument,
-                  audio: 'assets/audio/Rah.mp3',
-                  color: Colors.yellow,
-                  type: 'word'
-              ),
-              LessonContent(
-                  tagalogWord: 'Sa',
-                  engWord: 'S',
-                  icon: FontAwesomeIcons.monument,
-                  audio: 'assets/audio/Sa.mp3',
-                  color: Colors.yellow,
-                  type: 'word'
-              ),
-              LessonContent(
-                  tagalogWord: 'Ta',
-                  engWord: 'T',
-                  icon: FontAwesomeIcons.monument,
-                  audio: 'assets/audio/Ta.mp3',
-                  color: Colors.yellow,
-                  type: 'word'
-              ),
-              LessonContent(
-                  tagalogWord: 'Ooh',
-                  engWord: 'U',
-                  icon: FontAwesomeIcons.monument,
-                  audio: 'assets/audio/ooh.mp3',
-                  color: Colors.yellow,
-                  type: 'word'
-              ),
-              LessonContent(
-                  tagalogWord: 'Wa',
-                  engWord: 'W',
-                  icon: FontAwesomeIcons.monument,
-                  audio: 'assets/audio/Wa.mp3',
-                  color: Colors.yellow,
-                  type: 'word'
-              ),
-              LessonContent(
-                  tagalogWord: 'Ya',
-                  engWord: 'Y',
-                  icon: FontAwesomeIcons.monument,
-                  audio: 'assets/audio/Ya.mp3',
-                  color: Colors.yellow,
-                  type: 'word'
-              )
-            ]
-          ),
+              name: 'Lesson Two',
+              icon: FontAwesomeIcons.bookOpen,
+              color: Color.fromRGBO(124, 180, 2, 1.0),
+              backgroundColor: Color.fromRGBO(171, 236, 49, 1.0),
+              lessonContent: [
+                LessonContent(
+                    tagalogWord: 'Na',
+                    engWord: 'N',
+                    icon: FontAwesomeIcons.monument,
+                    audio: 'assets/audio/Na.mp3',
+                    color: Colors.yellow,
+                    type: 'word'),
+                LessonContent(
+                    tagalogWord: 'Oh',
+                    engWord: 'O',
+                    icon: FontAwesomeIcons.monument,
+                    audio: 'assets/audio/Oh.mp3',
+                    color: Colors.yellow,
+                    type: 'word'),
+                LessonContent(
+                    tagalogWord: 'Pah',
+                    engWord: 'P',
+                    icon: FontAwesomeIcons.monument,
+                    audio: 'assets/audio/Pa.mp3',
+                    color: Colors.yellow,
+                    type: 'word'),
+                LessonContent(
+                    tagalogWord: 'Ra',
+                    engWord: 'R',
+                    icon: FontAwesomeIcons.monument,
+                    audio: 'assets/audio/Ra.mp3',
+                    color: Colors.yellow,
+                    type: 'word'),
+                LessonContent(
+                    tagalogWord: 'Sa',
+                    engWord: 'S',
+                    icon: FontAwesomeIcons.monument,
+                    audio: 'assets/audio/Sa.mp3',
+                    color: Colors.yellow,
+                    type: 'word'),
+                LessonContent(
+                    tagalogWord: 'Ta',
+                    engWord: 'T',
+                    icon: FontAwesomeIcons.monument,
+                    audio: 'assets/audio/Ta.mp3',
+                    color: Colors.yellow,
+                    type: 'word'),
+                LessonContent(
+                    tagalogWord: 'Ooh',
+                    engWord: 'U',
+                    icon: FontAwesomeIcons.monument,
+                    audio: 'assets/audio/ooh.mp3',
+                    color: Colors.yellow,
+                    type: 'word'),
+                LessonContent(
+                    tagalogWord: 'Wa',
+                    engWord: 'W',
+                    icon: FontAwesomeIcons.monument,
+                    audio: 'assets/audio/wah.mp3',
+                    color: Colors.yellow,
+                    type: 'word'),
+                LessonContent(
+                    tagalogWord: 'Ya',
+                    engWord: 'Y',
+                    icon: FontAwesomeIcons.monument,
+                    audio: 'assets/audio/Ya.mp3',
+                    color: Colors.yellow,
+                    type: 'word')
+              ]),
           Lesson(
             name: 'Lesson Three',
             icon: FontAwesomeIcons.addressBook,
             color: Color.fromRGBO(124, 180, 2, 1.0),
             backgroundColor: Color.fromRGBO(171, 236, 49, 1.0),
           ),
-
         ],
       ),
       Topic(
@@ -653,7 +638,7 @@ class Utils {
                 icon: Icons.person_sharp,
                 color: Colors.white,
                 audio:
-                'assets/audio/Ang nanay ko ay tatlongput limang taong gulang.mp3',
+                    'assets/audio/Ang nanay ko ay tatlongput limang taong gulang.mp3',
                 type: 'phrase',
               )
             ],
@@ -668,10 +653,10 @@ class Utils {
         backgroundColor: Colors.redAccent,
         lessons: [
           Lesson(
-            name: 'Lesson One',
-            icon: FontAwesomeIcons.bicycle,
-            color: Colors.red[700],
-            backgroundColor: Colors.redAccent,
+              name: 'Lesson One',
+              icon: FontAwesomeIcons.bicycle,
+              color: Colors.red[700],
+              backgroundColor: Colors.redAccent,
               lessonContent: [
                 LessonContent(
                     tagalogWord: 'Lunes',
@@ -679,64 +664,57 @@ class Utils {
                     color: Colors.orange,
                     icon: WeekdayIcons.monday_calendar_page,
                     audio: 'assets/audio/Lunes.mp3',
-                    type: 'word'
-                ),
+                    type: 'word'),
                 LessonContent(
                     tagalogWord: 'Martes',
                     engWord: 'Tuesday',
                     color: Colors.orange,
                     icon: WeekdayIcons.tuesday_daily_calendar_page,
                     audio: 'assets/audio/Martes.mp3',
-                    type: 'word'
-                ),
+                    type: 'word'),
                 LessonContent(
                     tagalogWord: 'Miyerkules',
                     engWord: 'Wednesday',
                     color: Colors.orange,
                     icon: WeekdayIcons.wednesday_calendar_daily_page,
                     audio: 'assets/audio/Miyerkules.mp3',
-                    type: 'word'
-                ),
+                    type: 'word'),
                 LessonContent(
                     tagalogWord: 'Huwebes',
                     engWord: 'Thursday',
                     color: Colors.orange,
-                    icon: WeekdayIcons.thursday_calendar_daily_page_interface_symbol,
+                    icon: WeekdayIcons
+                        .thursday_calendar_daily_page_interface_symbol,
                     audio: 'assets/audio/Huwebes.mp3',
-                    type: 'word'
-                ),
+                    type: 'word'),
                 LessonContent(
                     tagalogWord: 'Biyernes',
                     engWord: 'Friday',
                     color: Colors.orange,
                     icon: WeekdayIcons.friday_daily_calendar_page,
                     audio: 'assets/audio/Biyernes.mp3',
-                    type: 'word'
-                ),
+                    type: 'word'),
                 LessonContent(
                     tagalogWord: 'Sabado',
                     engWord: 'Saturday',
                     color: Colors.orange,
-                    icon: WeekdayIcons.saturday_calendar_daily_page_interface_symbol,
+                    icon: WeekdayIcons
+                        .saturday_calendar_daily_page_interface_symbol,
                     audio: 'assets/audio/Sabado.mp3',
-                    type: 'word'
-                ),
+                    type: 'word'),
                 LessonContent(
                     tagalogWord: 'Linggo',
                     engWord: 'Sunday',
                     color: Colors.orange,
                     icon: WeekdayIcons.sunday_daily_calendar_page,
                     audio: 'assets/audio/Linggo.mp3',
-                    type: 'word'
-                ),
-
-              ]
-          ),
+                    type: 'word'),
+              ]),
           Lesson(
-            name: 'Lesson Two',
-            icon: FontAwesomeIcons.tractor,
-            color: Colors.red[700],
-            backgroundColor: Colors.redAccent,
+              name: 'Lesson Two',
+              icon: FontAwesomeIcons.tractor,
+              color: Colors.red[700],
+              backgroundColor: Colors.redAccent,
               lessonContent: [
                 LessonContent(
                     tagalogWord: 'Ngayon ay Lunes',
@@ -744,114 +722,105 @@ class Utils {
                     color: Colors.orange,
                     icon: WeekdayIcons.monday_calendar_page,
                     audio: 'assets/audio/Ngayon ay Lunes.mp3',
-                    type: 'phrase'
-                ),
+                    type: 'phrase'),
                 LessonContent(
                     tagalogWord: 'Bukas ay Miyerkules',
                     engWord: 'Tomorrow',
                     color: Colors.orange,
                     icon: WeekdayIcons.tuesday_daily_calendar_page,
                     audio: 'assets/audio/Bukas ay Miyerkules.mp3',
-                    type: 'phrase'
-                ),
+                    type: 'phrase'),
                 LessonContent(
                     tagalogWord: 'Ngayon ay Huwebes',
                     engWord: 'Today is Thursday',
                     color: Colors.orange,
                     icon: WeekdayIcons.wednesday_calendar_daily_page,
                     audio: 'assets/audio/Ngayon ay Huwebes.mp3',
-                    type: 'phrase'
-                ),
+                    type: 'phrase'),
                 LessonContent(
                     tagalogWord: 'Ngayon ay Biyernes',
                     engWord: 'Today is Friday',
                     color: Colors.orange,
-                    icon: WeekdayIcons.thursday_calendar_daily_page_interface_symbol,
+                    icon: WeekdayIcons
+                        .thursday_calendar_daily_page_interface_symbol,
                     audio: 'assets/audio/Ngayon ay Biyernes.mp3',
-                    type: 'phrase'
-                ),
+                    type: 'phrase'),
                 LessonContent(
                     tagalogWord: 'Bukas ay Sabado',
                     engWord: 'Tomorrow is Saturday',
                     color: Colors.orange,
                     icon: WeekdayIcons.friday_daily_calendar_page,
                     audio: 'assets/audio/Bukas ay Sabado.mp3',
-                    type: 'phrase'
-                ),
+                    type: 'phrase'),
                 LessonContent(
                     tagalogWord: 'Kahapon ay Martes',
                     engWord: 'Yesterday was Tuesday',
                     color: Colors.orange,
-                    icon: WeekdayIcons.saturday_calendar_daily_page_interface_symbol,
+                    icon: WeekdayIcons
+                        .saturday_calendar_daily_page_interface_symbol,
                     audio: 'assets/audio/Kahapon ay Martes.mp3',
-                    type: 'phrase'
-                ),
+                    type: 'phrase'),
                 LessonContent(
                     tagalogWord: 'Ngayon ay Linggo',
                     engWord: 'Today is Sunday',
                     color: Colors.orange,
                     icon: WeekdayIcons.sunday_daily_calendar_page,
                     audio: 'assets/audio/Ngayon ay Linggo.mp3',
-                    type: 'phrase'
-                ),
-              ]
-          ),
+                    type: 'phrase'),
+              ]),
           Lesson(
-            name: 'Lesson Three',
-            icon: FontAwesomeIcons.spaceShuttle,
-            color: Colors.red[700],
-            backgroundColor: Colors.redAccent,
-            lessonContent: [
-              LessonContent(
-                tagalogWord: 'Ako ay magbabakasyon sa Martes',
-                engWord: 'I am going on holiday on Tuesday',
-                icon: FontAwesomeIcons.plane,
-                audio: 'assets/audio/Ako ay magbabakasyon sa Martes.mp3',
-                color: Colors.white,
-                type: 'phrase'
-              ),
-              LessonContent(
-                  tagalogWord: 'Magbabakasyon ako ng dalawang linggo',
-                  engWord: 'I am going on holiday for 2 weeks',
-                  icon: FontAwesomeIcons.plane,
-                  audio: 'assets/audio/Magbabakasyon ako ng dalawang linggo.mp3',
-                  color: Colors.white,
-                  type: 'phrase'
-              ),
-              LessonContent(
-                  tagalogWord: 'Magbabakasyon ako ng dalawang linggo',
-                  engWord: 'I am going on holiday for 2 weeks',
-                  icon: FontAwesomeIcons.plane,
-                  audio: 'assets/audio/Magbabakasyon ako ng dalawang linggo.mp3',
-                  color: Colors.white,
-                  type: 'phrase'
-              ),
-              LessonContent(
-                  tagalogWord: 'Ano ang petsa ngayon?',
-                  engWord: 'What is the date today',
-                  icon: FontAwesomeIcons.plane,
-                  audio: 'assets/audio/Ano ang petsa ngayon_.mp3',
-                  color: Colors.white,
-                  type: 'phrase'
-              ),
-              LessonContent(
-                  tagalogWord: 'Ang petsa ngayon ay',
-                  engWord: 'Today\'s date is...',
-                  icon: FontAwesomeIcons.plane,
-                  audio: 'assets/audio/ang petsa ngayon ay.mp3',
-                  color: Colors.white,
-                  type: 'phrase'
-              ),
-              LessonContent(
-                  tagalogWord: 'Ang petsa ngayon ay dalawampu\'t-tatlo ng Agosto, 2021',
-                  engWord: 'Today\'s date is 23rd of August, 2021',
-                  icon: FontAwesomeIcons.plane,
-                  audio: 'assets/audio/ang petsa ngayon ay dalawampu\'t-tatlo ng Agosto, 2021.mp3',
-                  color: Colors.white,
-                  type: 'phrase'
-              ),
-            ]
-          ),
+              name: 'Lesson Three',
+              icon: FontAwesomeIcons.spaceShuttle,
+              color: Colors.red[700],
+              backgroundColor: Colors.redAccent,
+              lessonContent: [
+                LessonContent(
+                    tagalogWord: 'Ako ay magbabakasyon sa Martes',
+                    engWord: 'I am going on holiday on Tuesday',
+                    icon: FontAwesomeIcons.plane,
+                    audio: 'assets/audio/Ako ay magbabakasyon sa Martes.mp3',
+                    color: Colors.white,
+                    type: 'phrase'),
+                LessonContent(
+                    tagalogWord: 'Magbabakasyon ako ng dalawang linggo',
+                    engWord: 'I am going on holiday for 2 weeks',
+                    icon: FontAwesomeIcons.plane,
+                    audio:
+                        'assets/audio/Magbabakasyon ako ng dalawang linggo.mp3',
+                    color: Colors.white,
+                    type: 'phrase'),
+                LessonContent(
+                    tagalogWord: 'Magbabakasyon ako ng dalawang linggo',
+                    engWord: 'I am going on holiday for 2 weeks',
+                    icon: FontAwesomeIcons.plane,
+                    audio:
+                        'assets/audio/Magbabakasyon ako ng dalawang linggo.mp3',
+                    color: Colors.white,
+                    type: 'phrase'),
+                LessonContent(
+                    tagalogWord: 'Ano ang petsa ngayon?',
+                    engWord: 'What is the date today',
+                    icon: FontAwesomeIcons.plane,
+                    audio: 'assets/audio/Ano ang petsa ngayon_.mp3',
+                    color: Colors.white,
+                    type: 'phrase'),
+                LessonContent(
+                    tagalogWord: 'Ang petsa ngayon ay',
+                    engWord: 'Today\'s date is...',
+                    icon: FontAwesomeIcons.plane,
+                    audio: 'assets/audio/ang petsa ngayon ay.mp3',
+                    color: Colors.white,
+                    type: 'phrase'),
+                LessonContent(
+                    tagalogWord:
+                        'Ang petsa ngayon ay dalawampu\'t-tatlo ng Agosto, 2021',
+                    engWord: 'Today\'s date is 23rd of August, 2021',
+                    icon: FontAwesomeIcons.plane,
+                    audio:
+                        'assets/audio/ang petsa ngayon ay dalawampu\'t-tatlo ng Agosto, 2021.mp3',
+                    color: Colors.white,
+                    type: 'phrase'),
+              ]),
         ],
       ),
       Topic(
@@ -861,239 +830,229 @@ class Utils {
         backgroundColor: Colors.cyanAccent,
         lessons: [
           Lesson(
-            name: 'Months One',
-            icon: FontAwesomeIcons.calendar,
-            color: Colors.cyan,
-            backgroundColor: Colors.cyanAccent,
-            lessonContent: [
-              LessonContent(
-                tagalogWord: 'Enero',
-                engWord: 'January',
-                icon: FontAwesomeIcons.jedi,
-                audio: 'assets/audio/Enero.mp3',
-                color: Colors.white,
-                type: 'word'
-              ),
-              LessonContent(
-                  tagalogWord: 'Pebrero',
-                  engWord: 'February',
-                  icon: FontAwesomeIcons.jedi,
-                  audio: 'assets/audio/Pebrero.mp3',
-                  color: Colors.white,
-                  type: 'word'
-              ),
-              LessonContent(
-                  tagalogWord: 'Marso',
-                  engWord: 'March',
-                  icon: FontAwesomeIcons.jedi,
-                  audio: 'assets/audio/Marso.mp3',
-                  color: Colors.white,
-                  type: 'word'
-              ),
-              LessonContent(
-                  tagalogWord: 'Abril',
-                  engWord: 'April',
-                  icon: FontAwesomeIcons.jedi,
-                  audio: 'assets/audio/Abril.mp3',
-                  color: Colors.white,
-                  type: 'word'
-              ),
-              LessonContent(
-                  tagalogWord: 'Mayo',
-                  engWord: 'May',
-                  icon: FontAwesomeIcons.jedi,
-                  audio: 'assets/audio/Mayo.mp3',
-                  color: Colors.white,
-                  type: 'word'
-              ),
-              LessonContent(
-                  tagalogWord: 'Hunyo',
-                  engWord: 'June',
-                  icon: FontAwesomeIcons.jedi,
-                  audio: 'assets/audio/Hunyo.mp3',
-                  color: Colors.white,
-                  type: 'word'
-              ),
-              LessonContent(
-                  tagalogWord: 'Hulyo',
-                  engWord: 'July',
-                  icon: FontAwesomeIcons.jedi,
-                  audio: 'assets/audio/Hulyo.mp3',
-                  color: Colors.white,
-                  type: 'word'
-              ),
-              LessonContent(
-                  tagalogWord: 'Agosto',
-                  engWord: 'August',
-                  icon: FontAwesomeIcons.jedi,
-                  audio: 'assets/audio/Agosto.mp3',
-                  color: Colors.white,
-                  type: 'word'
-              ),
-              LessonContent(
-                  tagalogWord: 'Septiembre',
-                  engWord: 'September',
-                  icon: FontAwesomeIcons.jedi,
-                  audio: 'assets/audio/Septiembre.mp3',
-                  color: Colors.white,
-                  type: 'word'
-              ),
-              LessonContent(
-                  tagalogWord: 'Oktubre',
-                  engWord: 'October',
-                  icon: FontAwesomeIcons.jedi,
-                  audio: 'assets/audio/Oktubre.mp3',
-                  color: Colors.white,
-                  type: 'word'
-              ),
-              LessonContent(
-                  tagalogWord: 'Nobyembre',
-                  engWord: 'November',
-                  icon: FontAwesomeIcons.jedi,
-                  audio: 'assets/audio/Nobyembre.mp3',
-                  color: Colors.white,
-                  type: 'word'
-              ),
-              LessonContent(
-                  tagalogWord: 'Disyembre',
-                  engWord: 'Decemeber',
-                  icon: FontAwesomeIcons.jedi,
-                  audio: 'assets/audio/Disyembre.mp3',
-                  color: Colors.white,
-                  type: 'word'
-              ),
-            ]
-
-          ),
+              name: 'Months One',
+              icon: FontAwesomeIcons.calendar,
+              color: Colors.cyan,
+              backgroundColor: Colors.cyanAccent,
+              lessonContent: [
+                LessonContent(
+                    tagalogWord: 'Enero',
+                    engWord: 'January',
+                    icon: FontAwesomeIcons.jedi,
+                    audio: 'assets/audio/Enero.mp3',
+                    color: Colors.white,
+                    type: 'word'),
+                LessonContent(
+                    tagalogWord: 'Pebrero',
+                    engWord: 'February',
+                    icon: FontAwesomeIcons.jedi,
+                    audio: 'assets/audio/Pebrero.mp3',
+                    color: Colors.white,
+                    type: 'word'),
+                LessonContent(
+                    tagalogWord: 'Marso',
+                    engWord: 'March',
+                    icon: FontAwesomeIcons.jedi,
+                    audio: 'assets/audio/Marso.mp3',
+                    color: Colors.white,
+                    type: 'word'),
+                LessonContent(
+                    tagalogWord: 'Abril',
+                    engWord: 'April',
+                    icon: FontAwesomeIcons.jedi,
+                    audio: 'assets/audio/Abril.mp3',
+                    color: Colors.white,
+                    type: 'word'),
+                LessonContent(
+                    tagalogWord: 'Mayo',
+                    engWord: 'May',
+                    icon: FontAwesomeIcons.jedi,
+                    audio: 'assets/audio/Mayo.mp3',
+                    color: Colors.white,
+                    type: 'word'),
+                LessonContent(
+                    tagalogWord: 'Hunyo',
+                    engWord: 'June',
+                    icon: FontAwesomeIcons.jedi,
+                    audio: 'assets/audio/Hunyo.mp3',
+                    color: Colors.white,
+                    type: 'word'),
+                LessonContent(
+                    tagalogWord: 'Hulyo',
+                    engWord: 'July',
+                    icon: FontAwesomeIcons.jedi,
+                    audio: 'assets/audio/Hulyo.mp3',
+                    color: Colors.white,
+                    type: 'word'),
+                LessonContent(
+                    tagalogWord: 'Agosto',
+                    engWord: 'August',
+                    icon: FontAwesomeIcons.jedi,
+                    audio: 'assets/audio/Agosto.mp3',
+                    color: Colors.white,
+                    type: 'word'),
+                LessonContent(
+                    tagalogWord: 'Septiembre',
+                    engWord: 'September',
+                    icon: FontAwesomeIcons.jedi,
+                    audio: 'assets/audio/Septiembre.mp3',
+                    color: Colors.white,
+                    type: 'word'),
+                LessonContent(
+                    tagalogWord: 'Oktubre',
+                    engWord: 'October',
+                    icon: FontAwesomeIcons.jedi,
+                    audio: 'assets/audio/Oktubre.mp3',
+                    color: Colors.white,
+                    type: 'word'),
+                LessonContent(
+                    tagalogWord: 'Nobyembre',
+                    engWord: 'November',
+                    icon: FontAwesomeIcons.jedi,
+                    audio: 'assets/audio/Nobyembre.mp3',
+                    color: Colors.white,
+                    type: 'word'),
+                LessonContent(
+                    tagalogWord: 'Disyembre',
+                    engWord: 'Decemeber',
+                    icon: FontAwesomeIcons.jedi,
+                    audio: 'assets/audio/Disyembre.mp3',
+                    color: Colors.white,
+                    type: 'word'),
+              ]),
           Lesson(
-            name: 'Months Two',
-            icon: FontAwesomeIcons.calendarDay,
-            color: Colors.cyan,
-            backgroundColor: Colors.cyanAccent,
-            //TODO: Make icons
-            lessonContent: [
-              LessonContent(
-                  tagalogWord: 'Kaarawan',
-                  engWord: 'Birthday',
-                  icon: FontAwesomeIcons.birthdayCake,
-                  audio: 'assets/audio/Kaarawan.mp3',
-                  color: Colors.white,
-                  type: 'word'
-              ),
-              LessonContent(
-                  tagalogWord: 'Ang nanay ko ay ipinanganak noong Oktubre',
-                  engWord: 'My mother was born in October',
-                  icon: FontAwesomeIcons.birthdayCake,
-                  audio: 'assets/audio/Ang nanay ko ay ipinanganak noong Oktubre.mp3',
-                  color: Colors.white,
-                  type: 'phrase'
-              ),
-              LessonContent(
-                  tagalogWord: 'Ang araw ng kapanganakan ko ay Enero',
-                  engWord: 'My birthday is in January',
-                  icon: FontAwesomeIcons.birthdayCake,
-                  audio: 'assets/audio/Ang araw ng kapanganakan ko ay Enero.mp3',
-                  color: Colors.white,
-                  type: 'phrase'
-              ),
-              LessonContent(
-                  tagalogWord: 'Ang kapanganakan ng kapatid kong babae ay Marso',
-                  engWord: 'My sisters birthday is on March',
-                  icon: FontAwesomeIcons.birthdayCake,
-                  audio: 'assets/audio/Ang kapanganakan ng kapatid kong babae ay Marso.mp3',
-                  color: Colors.white,
-                  type: 'phrase'
-              ),
-              LessonContent(
-                  tagalogWord: 'Ang kaarawan ng aking kapatid ay sa Setyembre',
-                  engWord: 'My brothers birthday is on September',
-                  icon: FontAwesomeIcons.birthdayCake,
-                  audio: 'assets/audio/Ang kaarawan ng aking kapatid ay sa Setyembre.mp3',
-                  color: Colors.white,
-                  type: 'phrase'
-              ),
-              LessonContent(
-                  tagalogWord: 'Ang kaarawan ng aking tiyuhin ay sa Hulyo',
-                  engWord: 'My uncles birthday is on July',
-                  icon: FontAwesomeIcons.birthdayCake,
-                  audio: 'assets/audio/Ang kapanganakan ng kapatid kong babae ay Marso.mp3',
-                  color: Colors.white,
-                  type: 'phrase'
-              ),
-              LessonContent(
-                  tagalogWord: 'Ang kaarawan ng aking Tita ay sa Agosto',
-                  engWord: 'My aunties birthday is on August',
-                  icon: FontAwesomeIcons.birthdayCake,
-                  audio: 'assets/audio/Ang kaarawan ng aking Tita ay sa Agosto.mp3',
-                  color: Colors.white,
-                  type: 'phrase'
-              ),
-            ]
-          ),
+              name: 'Months Two',
+              icon: FontAwesomeIcons.calendarDay,
+              color: Colors.cyan,
+              backgroundColor: Colors.cyanAccent,
+              //TODO: Make icons
+              lessonContent: [
+                LessonContent(
+                    tagalogWord: 'Kaarawan',
+                    engWord: 'Birthday',
+                    icon: FontAwesomeIcons.birthdayCake,
+                    audio: 'assets/audio/Kaarawan.mp3',
+                    color: Colors.white,
+                    type: 'word'),
+                LessonContent(
+                    tagalogWord: 'Ang nanay ko ay ipinanganak noong Oktubre',
+                    engWord: 'My mother was born in October',
+                    icon: FontAwesomeIcons.birthdayCake,
+                    audio:
+                        'assets/audio/Ang nanay ko ay ipinanganak noong Oktubre.mp3',
+                    color: Colors.white,
+                    type: 'phrase'),
+                LessonContent(
+                    tagalogWord: 'Ang araw ng kapanganakan ko ay Enero',
+                    engWord: 'My birthday is in January',
+                    icon: FontAwesomeIcons.birthdayCake,
+                    audio:
+                        'assets/audio/Ang araw ng kapanganakan ko ay Enero.mp3',
+                    color: Colors.white,
+                    type: 'phrase'),
+                LessonContent(
+                    tagalogWord:
+                        'Ang kapanganakan ng kapatid kong babae ay Marso',
+                    engWord: 'My sisters birthday is on March',
+                    icon: FontAwesomeIcons.birthdayCake,
+                    audio:
+                        'assets/audio/Ang kapanganakan ng kapatid kong babae ay Marso.mp3',
+                    color: Colors.white,
+                    type: 'phrase'),
+                LessonContent(
+                    tagalogWord:
+                        'Ang kaarawan ng aking kapatid ay sa Setyembre',
+                    engWord: 'My brothers birthday is on September',
+                    icon: FontAwesomeIcons.birthdayCake,
+                    audio:
+                        'assets/audio/Ang kaarawan ng aking kapatid ay sa Setyembre.mp3',
+                    color: Colors.white,
+                    type: 'phrase'),
+                LessonContent(
+                    tagalogWord: 'Ang kaarawan ng aking tiyuhin ay sa Hulyo',
+                    engWord: 'My uncles birthday is on July',
+                    icon: FontAwesomeIcons.birthdayCake,
+                    audio:
+                        'assets/audio/Ang kapanganakan ng kapatid kong babae ay Marso.mp3',
+                    color: Colors.white,
+                    type: 'phrase'),
+                LessonContent(
+                    tagalogWord: 'Ang kaarawan ng aking Tita ay sa Agosto',
+                    engWord: 'My aunties birthday is on August',
+                    icon: FontAwesomeIcons.birthdayCake,
+                    audio:
+                        'assets/audio/Ang kaarawan ng aking Tita ay sa Agosto.mp3',
+                    color: Colors.white,
+                    type: 'phrase'),
+              ]),
           Lesson(
-            name: 'Months Three',
-            icon: FontAwesomeIcons.calendarWeek,
-            color: Colors.cyan,
-            backgroundColor: Colors.cyanAccent,
-            lessonContent: [
-              LessonContent(
-                  tagalogWord: 'Ang kaarawan ko ay ikalawa ng Enero',
-                  engWord: 'My birthday is the 2nd of January',
-                  icon: FontAwesomeIcons.birthdayCake,
-                  audio: 'assets/audio/Ang kaarawan ko ay ikalawa ng Enero.mp3',
-                  color: Colors.white,
-                  type: 'phrase'
-              ),
-              LessonContent(
-                  tagalogWord: 'Ipinanganak ako noong ika-dalawampu\'t tatlo ng Marso dalawang libo at isa',
-                  engWord: 'I was born on the 23rd of March',
-                  icon: FontAwesomeIcons.birthdayCake,
-                  audio: 'assets/audio/Ipinanganak ako noong ika-dalawampu\'t tatlo ng Marso dalawang libo at isa.mp3',
-                  color: Colors.white,
-                  type: 'phrase'
-              ),
-              LessonContent(
-                  tagalogWord: 'Ipinanganak ako noong ika-30, Mayo Labing-siyam walumpu',
-                  engWord: 'I was born on the 30th, May 1980',
-                  icon: FontAwesomeIcons.birthdayCake,
-                  audio: 'assets/audio/Ipinanganak ako noong ika-30, Mayo Labing-siyam walumpu.mp3',
-                  color: Colors.white,
-                  type: 'phrase'
-              ),
-              LessonContent(
-                  tagalogWord: 'Ang aking kaarawan ay ikalabinsiyam ng june',
-                  engWord: 'My birthday is the 19th of June',
-                  icon: FontAwesomeIcons.birthdayCake,
-                  audio: 'assets/audio/Ang aking kaarawan ay ikalabinsiyam ng june.mp3',
-                  color: Colors.white,
-                  type: 'phrase'
-              ),
-              LessonContent(
-                  tagalogWord: 'Ang kaarawan ng aking kapatid ay sa ikalabing-apat ng Nobyembre',
-                  engWord: 'My brothers birthday is the 14th of November',
-                  icon: FontAwesomeIcons.birthdayCake,
-                  audio: 'assets/audio/ang kaarawan ng aking kapatid ay sa ikalabing-apat ng Nobyembre.mp3',
-                  color: Colors.white,
-                  type: 'phrase'
-              ),
-              LessonContent(
-                  tagalogWord: 'Ang kaarawan ng aking kapatid na babae ay ang dalawampu\'t segundo ng Pebrero',
-                  engWord: 'My sisters birthday is the 22nd of Feburary',
-                  icon: FontAwesomeIcons.birthdayCake,
-                  audio: 'assets/audio/Ang kaarawan ng aking kapatid na babae ay ang dalawampu\'t segundo ng Pebrero.mp3',
-                  color: Colors.white,
-                  type: 'phrase'
-              ),
-              LessonContent(
-                  tagalogWord: 'Ang kaarawan ng pinsan ko ay pang-apat ng Mayo',
-                  engWord: 'My cousins birthday is the 4th of May',
-                  icon: FontAwesomeIcons.birthdayCake,
-                  audio: 'assets/audio/Ang kaarawan ng pinsan ko ay pang-apat ng Mayo.mp3',
-                  color: Colors.white,
-                  type: 'phrase'
-              ),
-            ]
-          ),
+              name: 'Months Three',
+              icon: FontAwesomeIcons.calendarWeek,
+              color: Colors.cyan,
+              backgroundColor: Colors.cyanAccent,
+              lessonContent: [
+                LessonContent(
+                    tagalogWord: 'Ang kaarawan ko ay ikalawa ng Enero',
+                    engWord: 'My birthday is the 2nd of January',
+                    icon: FontAwesomeIcons.birthdayCake,
+                    audio:
+                        'assets/audio/Ang kaarawan ko ay ikalawa ng Enero.mp3',
+                    color: Colors.white,
+                    type: 'phrase'),
+                LessonContent(
+                    tagalogWord:
+                        'Ipinanganak ako noong ika-dalawampu\'t tatlo ng Marso dalawang libo at isa',
+                    engWord: 'I was born on the 23rd of March',
+                    icon: FontAwesomeIcons.birthdayCake,
+                    audio:
+                        'assets/audio/Ipinanganak ako noong ika-dalawampu\'t tatlo ng Marso dalawang libo at isa.mp3',
+                    color: Colors.white,
+                    type: 'phrase'),
+                LessonContent(
+                    tagalogWord:
+                        'Ipinanganak ako noong ika-30, Mayo Labing-siyam walumpu',
+                    engWord: 'I was born on the 30th, May 1980',
+                    icon: FontAwesomeIcons.birthdayCake,
+                    audio:
+                        'assets/audio/Ipinanganak ako noong ika-30, Mayo Labing-siyam walumpu.mp3',
+                    color: Colors.white,
+                    type: 'phrase'),
+                LessonContent(
+                    tagalogWord: 'Ang aking kaarawan ay ikalabinsiyam ng june',
+                    engWord: 'My birthday is the 19th of June',
+                    icon: FontAwesomeIcons.birthdayCake,
+                    audio:
+                        'assets/audio/Ang aking kaarawan ay ikalabinsiyam ng june.mp3',
+                    color: Colors.white,
+                    type: 'phrase'),
+                LessonContent(
+                    tagalogWord:
+                        'Ang kaarawan ng aking kapatid ay sa ikalabing-apat ng Nobyembre',
+                    engWord: 'My brothers birthday is the 14th of November',
+                    icon: FontAwesomeIcons.birthdayCake,
+                    audio:
+                        'assets/audio/ang kaarawan ng aking kapatid ay sa ikalabing-apat ng Nobyembre.mp3',
+                    color: Colors.white,
+                    type: 'phrase'),
+                LessonContent(
+                    tagalogWord:
+                        'Ang kaarawan ng aking kapatid na babae ay ang dalawampu\'t segundo ng Pebrero',
+                    engWord: 'My sisters birthday is the 22nd of Feburary',
+                    icon: FontAwesomeIcons.birthdayCake,
+                    audio:
+                        'assets/audio/Ang kaarawan ng aking kapatid na babae ay ang dalawampu\'t segundo ng Pebrero.mp3',
+                    color: Colors.white,
+                    type: 'phrase'),
+                LessonContent(
+                    tagalogWord:
+                        'Ang kaarawan ng pinsan ko ay pang-apat ng Mayo',
+                    engWord: 'My cousins birthday is the 4th of May',
+                    icon: FontAwesomeIcons.birthdayCake,
+                    audio:
+                        'assets/audio/Ang kaarawan ng pinsan ko ay pang-apat ng Mayo.mp3',
+                    color: Colors.white,
+                    type: 'phrase'),
+              ]),
         ],
       ),
       Topic(
