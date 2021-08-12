@@ -1,3 +1,4 @@
+import 'package:avatar_glow/avatar_glow.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_alert/flutter_alert.dart';
@@ -165,7 +166,7 @@ class _LessonDetailState extends State<LessonDetail> {
               ),
               Container(
                 // padding: EdgeInsets.symmetric(vertical: 30.0),
-                margin: EdgeInsets.symmetric(vertical: 30.0),
+                margin: EdgeInsets.symmetric(vertical: 20.0),
                 child: Column(
                   children: [
                     GestureDetector(
@@ -178,10 +179,22 @@ class _LessonDetailState extends State<LessonDetail> {
                       child: Container(
                         padding: EdgeInsets.all(15.0),
                         margin: EdgeInsets.all(20.0),
-                        child: Icon(
-                          widget.lessons.lessonContent[index].icon,
-                          size: 180.0,
-                          color: widget.lessons.lessonContent[index].color,
+                        child: AvatarGlow(
+                          endRadius: 120,
+                          duration: Duration(seconds: 2),
+                          glowColor: Colors.white24,
+                          repeat: true,
+                          repeatPauseDuration: Duration(seconds: 2),
+                          startDelay: Duration(seconds: 1),
+                          child: Material(
+                            //elevation: 4.0,
+                            shape: CircleBorder(),
+                            child: Icon(
+                              widget.lessons.lessonContent[index].icon,
+                              size: 160.0,
+                              color: widget.lessons.lessonContent[index].color,
+                            ),
+                          ),
                         ),
                       ),
                     ),
