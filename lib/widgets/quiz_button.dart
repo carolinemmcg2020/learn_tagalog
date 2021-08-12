@@ -26,7 +26,7 @@ class QuizButton extends StatelessWidget {
                 style: BorderStyle.solid,
                 width: 3.0,
               ),
-              color: colour,
+              color: Colors.transparent,
               borderRadius: BorderRadius.circular(30.0),
             ),
             child: Row(
