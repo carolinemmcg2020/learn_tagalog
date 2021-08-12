@@ -166,7 +166,7 @@ class _LessonDetailState extends State<LessonDetail> {
               ),
               Container(
                 // padding: EdgeInsets.symmetric(vertical: 30.0),
-                margin: EdgeInsets.symmetric(vertical: 20.0),
+                margin: EdgeInsets.symmetric(vertical: 10.0),
                 child: Column(
                   children: [
                     GestureDetector(
