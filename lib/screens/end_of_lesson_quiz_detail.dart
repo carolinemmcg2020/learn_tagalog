@@ -1,5 +1,8 @@
+import 'dart:math';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:just_audio/just_audio.dart';
 import 'package:learn_tagalog/models/lesson.dart';
 import 'package:learn_tagalog/screens/results_detail.dart';
 import 'package:learn_tagalog/widgets/quiz_button.dart';
@@ -21,6 +24,7 @@ class _EndOfLessonQuizDetailState extends State<EndOfLessonQuizDetail> {
   int index = 0;
   bool checked;
   int correctAnswerCount = 0;
+  AudioPlayer player;
 
   //TODO Fix Colour Button Check
   Color buttonColorWrong = Color.fromRGBO(206, 3, 3, 1.0);
@@ -31,6 +35,31 @@ class _EndOfLessonQuizDetailState extends State<EndOfLessonQuizDetail> {
   Color buttonColor2 = Color.fromRGBO(253, 202, 49, 1.0);
   Color buttonColor3 = Color.fromRGBO(253, 202, 49, 1.0);
 
+  @override
+  void initState() {
+    super.initState();
+    player = AudioPlayer();
+  }
+
+  @override
+  void dispose() {
+    player.dispose();
+    super.dispose();
+  }
+
+  T getRandomElement<T>(List<T> list) {
+    final random = new Random();
+    var i = random.nextInt(list.length - 1);
+    return list[i];
+  }
+
+  Future playOption(String optionAudio)async{
+    setState(() async {
+      await player.setAsset(optionAudio);
+      player.play();
+    });
+  }
+
   void nextQuestion() {
     setState(
       () {
@@ -39,7 +68,10 @@ class _EndOfLessonQuizDetailState extends State<EndOfLessonQuizDetail> {
           Navigator.pushReplacement(
             context,
             MaterialPageRoute(
-              builder: (context) => ResultsDetail(userResults: correctAnswerCount,numOfQs: widget.questionContent,),
+              builder: (context) => ResultsDetail(
+                userResults: correctAnswerCount,
+                numOfQs: widget.questionContent,
+              ),
             ),
           );
         } else {
@@ -67,7 +99,7 @@ class _EndOfLessonQuizDetailState extends State<EndOfLessonQuizDetail> {
           print('Correct answer');
 
           checked = true;
-          correctAnswerCount ++;
+          correctAnswerCount++;
         } else {
           print('Incorrect answer!');
           checked = false;
@@ -149,11 +181,13 @@ class _EndOfLessonQuizDetailState extends State<EndOfLessonQuizDetail> {
               ),
               QuizButton(
                 buttonTxt: widget.questionContent[index].engWord,
-                colour: buttonColor,
+                txtColor: buttonColor,
                 onTap: () {
                   setState(() {
+                    playOption(widget.questionContent[index].audio);
                     checkAnswer(widget.questionContent[index].engWord);
                     buttonColourCheck(buttonColor);
+
                   });
                 },
               ),
@@ -162,10 +196,11 @@ class _EndOfLessonQuizDetailState extends State<EndOfLessonQuizDetail> {
               ),
               QuizButton(
                 buttonTxt: widget.questionContent[0].engWord,
-                colour: buttonColor1,
+                txtColor: buttonColor1,
                 onTap: () {
                   setState(
                     () {
+                      playOption(widget.questionContent[0].audio);
                       checkAnswer(widget.questionContent[0].engWord);
                       buttonColourCheck(buttonColor1);
                     },
@@ -177,10 +212,11 @@ class _EndOfLessonQuizDetailState extends State<EndOfLessonQuizDetail> {
               ),
               QuizButton(
                 buttonTxt: widget.questionContent[1].engWord,
-                colour: buttonColor2,
+                txtColor: buttonColor2,
                 onTap: () {
                   setState(
                     () {
+                      playOption(widget.questionContent[1].audio);
                       checkAnswer(widget.questionContent[1].engWord);
                       // buttonColourCheck(buttonColor2);
                       if (checked == true) {
@@ -197,10 +233,11 @@ class _EndOfLessonQuizDetailState extends State<EndOfLessonQuizDetail> {
               ),
               QuizButton(
                 buttonTxt: widget.questionContent[2].engWord,
-                colour: buttonColor3,
+                txtColor: buttonColor3,
                 onTap: () {
                   setState(
                     () {
+                      playOption(widget.questionContent[2].audio);
                       checkAnswer(widget.questionContent[2].engWord);
                       // buttonColourCheck(buttonColor3);
                       if (checked == true) {
