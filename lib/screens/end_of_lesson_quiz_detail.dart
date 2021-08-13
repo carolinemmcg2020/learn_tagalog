@@ -10,8 +10,8 @@ import 'package:learn_tagalog/widgets/theme_background_color.dart';
 import 'package:percent_indicator/linear_percent_indicator.dart';
 
 class EndOfLessonQuizDetail extends StatefulWidget {
-  List<Lesson> questionContent;
-  String quizTitle;
+  final List<Lesson> questionContent;
+  final String quizTitle;
 
   EndOfLessonQuizDetail({this.questionContent, this.quizTitle});
 
@@ -37,6 +37,10 @@ class _EndOfLessonQuizDetailState extends State<EndOfLessonQuizDetail> {
 
   @override
   void initState() {
+    var option1 = getRandomElement(widget.questionContent);
+    var option2 = getRandomElement(widget.questionContent);
+    var option3 = getRandomElement(widget.questionContent);
+    checkOptions(option1, option2, option3);
     super.initState();
     player = AudioPlayer();
   }
@@ -49,15 +53,17 @@ class _EndOfLessonQuizDetailState extends State<EndOfLessonQuizDetail> {
 
   T getRandomElement<T>(List<T> list) {
     final random = new Random();
-    var i = random.nextInt(list.length - 1);
+    var i = random.nextInt(list.length);
+    if(index == i){
+      i++;
+    }
+    print(i);
     return list[i];
   }
 
-  Future playOption(String optionAudio)async{
-    setState(() async {
-      await player.setAsset(optionAudio);
-      player.play();
-    });
+  Future playOption(String optionAudio) async {
+    await player.setAsset(optionAudio);
+    player.play();
   }
 
   void nextQuestion() {
@@ -97,7 +103,6 @@ class _EndOfLessonQuizDetailState extends State<EndOfLessonQuizDetail> {
         if (userAnswer.contains(widget.questionContent[index].engWord) ==
             true) {
           print('Correct answer');
-
           checked = true;
           correctAnswerCount++;
         } else {
@@ -110,8 +115,20 @@ class _EndOfLessonQuizDetailState extends State<EndOfLessonQuizDetail> {
     );
   }
 
+  void checkOptions(Lesson option1, Lesson option2, Lesson option3){
+    if(option1 == option2){
+      print("op1 and op2  are the same");
+    }if(option2 == option3){
+      print("option2 and opt 3  are the same");
+      option2;
+    }if(option3 == option1){
+      print("op3 and op1 are the same");
+      option3;
+    }
+  }
+
   //TODO Fix Colour Button Check
-  Color buttonColourCheck(Color colourChange) {
+  void buttonColourCheck(Color colourChange) {
     setState(
       () {
         if (checked == true) {
@@ -132,6 +149,11 @@ class _EndOfLessonQuizDetailState extends State<EndOfLessonQuizDetail> {
 
   @override
   Widget build(BuildContext context) {
+   // var option = getRandomElement(widget.questionContent);
+    var option1 = getRandomElement(widget.questionContent);
+    var option2 = getRandomElement(widget.questionContent);
+    var option3 = getRandomElement(widget.questionContent);
+
     return Scaffold(
       body: ThemeColor(
         child: SafeArea(
@@ -175,17 +197,117 @@ class _EndOfLessonQuizDetailState extends State<EndOfLessonQuizDetail> {
                           widget.questionContent[index].name +
                           '?',
                       style: TextStyle(fontSize: 23.0),
+                      textAlign: TextAlign.center,
                     ),
                   ),
                 ),
               ),
-              QuizButton(
+              ListView(
+                shrinkWrap: true,
+                reverse: true,
+                children: [
+                  QuizButton(
+                    buttonTxt: widget.questionContent[index].engWord,
+                    txtColor: buttonColor,
+                    onTap: () {
+                      setState(() {
+                        playOption(widget.questionContent[index].audio);
+                        checkAnswer(widget.questionContent[index].engWord);
+                        getRandomElement(widget.questionContent);
+                        buttonColourCheck(buttonColor);
+                      });
+                    },
+                  ),
+                  SizedBox(
+                    height: 30.0,
+                  ),
+                  QuizButton(
+                    buttonTxt: option1.engWord,
+                    txtColor: buttonColor1,
+                    onTap: () {
+                      setState(
+                        () {
+                          playOption(option1.audio);
+                          checkAnswer(option1.engWord);
+                          buttonColourCheck(buttonColor1);
+                        },
+                      );
+                    },
+                  ),
+                  SizedBox(
+                    height: 30.0,
+                  ),
+                  QuizButton(
+                    buttonTxt: option2.engWord,
+                    txtColor: buttonColor2,
+                    onTap: () {
+                      setState(
+                        () {
+                          playOption(option2.audio);
+                          checkAnswer(option2.engWord);
+                          // buttonColourCheck(buttonColor2);
+                          if (checked == true) {
+                            buttonColor2 = buttonColorRight;
+                          } else {
+                            buttonColor2 = buttonColorWrong;
+                          }
+                        },
+                      );
+                    },
+                  ),
+                  SizedBox(
+                    height: 30.0,
+                  ),
+                  QuizButton(
+                    buttonTxt: option3.engWord,
+                    txtColor: buttonColor3,
+                    onTap: () {
+                      setState(
+                        () {
+                          playOption(option3.audio);
+                          checkAnswer(option3.engWord);
+                          buttonColourCheck(buttonColor3);
+                          if (checked == true) {
+                            buttonColor3 = buttonColorRight;
+                          } else {
+                            buttonColor3 = buttonColorWrong;
+                          }
+                        },
+                      );
+                    },
+                  ),
+                ],
+              ),
+              // ListView.builder(
+              //   shrinkWrap: true,
+              //   itemCount: widget.questionContent.length,
+              //   itemBuilder: (BuildContext context, int buttonIndex){
+              //   return Expanded(
+              //     flex: 2,
+              //     child: QuizButton(
+              //       buttonTxt: widget.questionContent[buttonIndex].engWord,
+              //       txtColor: buttonColor,
+              //       onTap: (){
+              //         setState(() {
+              //           buttonIndex++;
+              //           playOption(widget.questionContent[index].audio);
+              //           checkAnswer(widget.questionContent[index].engWord);
+              //           getRandomElement(widget.questionContent);
+              //           buttonColourCheck(buttonColor);
+              //
+              //         });
+              //       },
+              //     ),
+              //   );
+              // },)
+              /* QuizButton(
                 buttonTxt: widget.questionContent[index].engWord,
                 txtColor: buttonColor,
                 onTap: () {
                   setState(() {
                     playOption(widget.questionContent[index].audio);
                     checkAnswer(widget.questionContent[index].engWord);
+                    getRandomElement(widget.questionContent);
                     buttonColourCheck(buttonColor);
 
                   });
@@ -195,13 +317,13 @@ class _EndOfLessonQuizDetailState extends State<EndOfLessonQuizDetail> {
                 height: 30.0,
               ),
               QuizButton(
-                buttonTxt: widget.questionContent[0].engWord,
+                buttonTxt: option1.engWord,
                 txtColor: buttonColor1,
                 onTap: () {
                   setState(
                     () {
-                      playOption(widget.questionContent[0].audio);
-                      checkAnswer(widget.questionContent[0].engWord);
+                      playOption(option1.audio);
+                      checkAnswer(option1.engWord);
                       buttonColourCheck(buttonColor1);
                     },
                   );
@@ -211,13 +333,13 @@ class _EndOfLessonQuizDetailState extends State<EndOfLessonQuizDetail> {
                 height: 30.0,
               ),
               QuizButton(
-                buttonTxt: widget.questionContent[1].engWord,
+                buttonTxt: option2.engWord,
                 txtColor: buttonColor2,
                 onTap: () {
                   setState(
                     () {
-                      playOption(widget.questionContent[1].audio);
-                      checkAnswer(widget.questionContent[1].engWord);
+                      playOption(option2.audio);
+                      checkAnswer(option2.engWord);
                       // buttonColourCheck(buttonColor2);
                       if (checked == true) {
                         buttonColor2 = buttonColorRight;
@@ -232,26 +354,26 @@ class _EndOfLessonQuizDetailState extends State<EndOfLessonQuizDetail> {
                 height: 30.0,
               ),
               QuizButton(
-                buttonTxt: widget.questionContent[2].engWord,
+                buttonTxt: option3.engWord,
                 txtColor: buttonColor3,
                 onTap: () {
                   setState(
                     () {
-                      playOption(widget.questionContent[2].audio);
-                      checkAnswer(widget.questionContent[2].engWord);
-                      // buttonColourCheck(buttonColor3);
-                      if (checked == true) {
+                      playOption(option3.audio);
+                      checkAnswer(option3.engWord);
+                       buttonColourCheck(buttonColor3);
+                      */ /*if (checked == true) {
                         buttonColor3 = buttonColorRight;
                       } else {
                         buttonColor3 = buttonColorWrong;
-                      }
+                      }*/ /*
                     },
                   );
                 },
               ),
               SizedBox(
                 height: 50.0,
-              )
+              )*/
             ],
           ),
         ),
