@@ -132,21 +132,23 @@ class _ReminderState extends State<Reminder> {
                   //TODO: Fix this
                   onPressed: () {
                     print('notification pressed');
-                    // NotificationApi.showNotification(
-                    //     title: 'test reminder',
-                    //     body: 'Don\'t forget to put in some time to study',
-                    //     payload: 'this is a payload'
-                    // );
-                    NotificationApi.showScheduledNotification(
-                      title: 'Scheduled Notification',
-                      body: 'Time to start a lesson!',
-                      payload: 'scheduled_payload',
-                      scheduledDate: DateTime.now().add(Duration(seconds: 2))
+                    NotificationApi.showNotification(
+                        title: 'test reminder',
+                        body: 'Don\'t forget to put in some time to study',
+                        payload: 'this is a payload'
                     );
+                    setState(() {
+                      NotificationApi.showScheduledNotification(
+                          title: 'Scheduled Notification',
+                          body: 'Time to start a lesson!',
+                          payload: 'scheduled_payload',
+                          scheduledDate:
+                              DateTime.now().add(Duration(seconds: 2)));
+                    });
 
                     ScaffoldMessenger.of(context).showSnackBar(
                       const SnackBar(
-                        content: Text('Scheduled in 2 seconds', style: TextStyle(fontSize: 20.0),),
+                        content: Text('Scheduled successfully', style: TextStyle(fontSize: 20.0),),
                       ),
                     );
                   },
