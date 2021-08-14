@@ -59,9 +59,9 @@ class MyApp extends StatelessWidget {
                 accentColor: Colors.orange,
                 canvasColor: Colors.transparent,
                 snackBarTheme: SnackBarThemeData(
-                  backgroundColor: Color.fromRGBO(0, 0, 0, 0.2),
+                  backgroundColor: Color.fromRGBO(0, 0, 0, 0.5),
                   elevation: 40,
-                  contentTextStyle: TextStyle(color: Colors.white),
+                  contentTextStyle: TextStyle(color: Colors.white, fontSize: 18, fontWeight: FontWeight.w500),
                 ),
               ),
         home: WelcomePage(),
