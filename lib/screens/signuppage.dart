@@ -1,5 +1,6 @@
 import 'dart:ui';
 import 'package:flutter/material.dart';
+import 'package:flutter_settings_screens/flutter_settings_screens.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:learn_tagalog/bottom_nav_bar.dart';
 import 'package:learn_tagalog/screens/welcomepage.dart';
@@ -25,6 +26,7 @@ class _SignUpState extends State<SignUp> {
       return "Password should contain more than 5 characters";
     } else{
       isValidated = true;
+      return '';
     }
 
   }
@@ -32,6 +34,7 @@ class _SignUpState extends State<SignUp> {
   @override
   Widget build(BuildContext context) {
     final EmailLoginService emailLoginService = Provider.of<EmailLoginService>(context, listen: false);
+    const keyPassword = 'key-password';
 
     return MaterialApp(
       debugShowCheckedModeBanner: false,
@@ -64,7 +67,7 @@ class _SignUpState extends State<SignUp> {
                   ),
                 ),
                 SizedBox(
-                  height: 50,
+                  height: 40,
                 ),
                 Text(
                   "Please enter your details below",
@@ -74,7 +77,7 @@ class _SignUpState extends State<SignUp> {
                       color: Colors.white),
                 ),
                 SizedBox(
-                  height: 60,
+                  height: 40,
                 ),
                 CustomTextField(
                   hintText: 'abcd123@email.com',
@@ -86,12 +89,13 @@ class _SignUpState extends State<SignUp> {
                     this.email = value.trim();
                   },
                 ),
+
                 CustomTextField(
                   hintText: 'paSsWorD123',
                   icon: FontAwesomeIcons.lock,
                   labelText: 'Password',
                   obscureText: true,
-                 // validateContent: validatePassword(password),
+                 //validateContent: validatePassword(password),
                   onChanged: (value){
                     password = value.trim();
                   },
@@ -107,9 +111,24 @@ class _SignUpState extends State<SignUp> {
                       //TODO: Validation Check to see if the text fields are populated
                       //TODO: Make class which stores username, email and password
                       onTap: () async {
-                        if(!(password.length > 5) && password.isNotEmpty){
+                        if(email.isEmpty && password.isEmpty){
                           isValidated = false;
-                        } else{
+                          ScaffoldMessenger.of(context).showSnackBar(
+                             SnackBar(
+                              content: Text('Enter an email and password!'),
+                            ),
+                          );
+
+                        }
+                        if(password.length < 6 ){
+                          isValidated = false;
+                          ScaffoldMessenger.of(context).showSnackBar(
+                            SnackBar(
+                              content: Text('Enter a password longer than 5 characters'),
+                            ),
+                          );
+                        }
+                        else{
                           isValidated = true;
                           //FirebaseAuth.instance.createUserWithEmailAndPassword(email: _email, password: _password);
                           await emailLoginService.signUpWithEmail(email: email, password: password);
