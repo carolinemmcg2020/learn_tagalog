@@ -112,7 +112,7 @@ class _CollectionState extends State<Collection> {
                                             return Container(
                                               child: Padding(
                                                 padding:
-                                                    const EdgeInsets.all(15.0),
+                                                    const EdgeInsets.all(10.0),
                                                 child: Expanded(
                                                   child: Row(
                                                     children: [
@@ -137,8 +137,7 @@ class _CollectionState extends State<Collection> {
                                                       SizedBox(
                                                         width: 20,
                                                       ),
-                                                      Padding(
-                                                        padding: const EdgeInsets.all(8.0),
+                                                      Expanded(
                                                         child: Text(
                                                           'english word',
                                                           style: TextStyle(
