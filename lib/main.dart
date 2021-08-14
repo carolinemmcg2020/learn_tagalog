@@ -54,7 +54,7 @@ class MyApp extends StatelessWidget {
                 ),
               )
             : ThemeData.dark().copyWith(
-                primaryColor: Colors.white,
+                primaryColor: Colors.blue,
                 brightness: Brightness.light,
                 accentColor: Colors.orange,
                 canvasColor: Colors.transparent,
