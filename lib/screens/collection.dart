@@ -126,8 +126,7 @@ class _CollectionState extends State<Collection> {
                                                       SizedBox(
                                                         width: 40,
                                                       ),
-                                                      Padding(
-                                                        padding: const EdgeInsets.all(8.0),
+                                                      Expanded(
                                                         child: Text(
                                                           collectionContent[index].lessons[contentIndex].name,
                                                           style: TextStyle(
