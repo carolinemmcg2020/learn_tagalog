@@ -26,9 +26,26 @@ class _ReminderState extends State<Reminder> {
   void onClickedNotification(String payload) =>
       Navigator.of(context).push(MaterialPageRoute(builder: (context) => BottomNavBar()));
 
+  String getTimeStringFromDouble(double value) {
+    if (value < 0) return 'Invalid Value';
+    int flooredValue = value.floor();
+    double decimalValue = value - flooredValue;
+    String hourValue = getHourString(flooredValue);
+    String minuteString = getMinuteString(decimalValue);
+
+    return '$hourValue:$minuteString';
+  }
+
+  String getMinuteString(double decimalValue) {
+    return '${(decimalValue * 60).toInt()}'.padLeft(2, '0');
+  }
+
+  String getHourString(int flooredValue) {
+    return '${flooredValue % 24}'.padLeft(2, '0');
+  }
+
   @override
   Widget build(BuildContext context) {
-    // TODO: add functionality
     return Scaffold(
       body: ThemeColor(
         child: SafeArea(
@@ -72,13 +89,13 @@ class _ReminderState extends State<Reminder> {
               Padding(
                 padding: const EdgeInsets.all(50.0),
                 child: Text(
-                  'How many lessons would you like to do in a week?',
+                  'What time would you like set your daily reminders?',
                   style: TextStyle(fontSize: 25.0, fontWeight: FontWeight.w300),
                   textAlign: TextAlign.center,
                 ),
               ),
               SizedBox(
-                height: 90.0,
+                height: 80.0,
               ),
               SliderTheme(
                 data: SliderTheme.of(context).copyWith(
@@ -87,9 +104,9 @@ class _ReminderState extends State<Reminder> {
                 child: Slider(
                   value: _value,
                   min: 0,
-                  max: 20,
-                  divisions: 20,
-                  label: '$_value',
+                  max: 24,
+                  divisions: 96,
+                  label: getTimeStringFromDouble(_value),
                   onChanged: (value) {
                     setState(() {
                       _value = value;
@@ -100,7 +117,7 @@ class _ReminderState extends State<Reminder> {
               Padding(
                 padding: const EdgeInsets.all(40.0),
                 child: Text(
-                  _value.toInt().toString() + ' lessons',
+                  getTimeStringFromDouble(_value),
                   style: TextStyle(
                     fontSize: 32,
                     fontWeight: FontWeight.w500,
@@ -115,10 +132,22 @@ class _ReminderState extends State<Reminder> {
                   //TODO: Fix this
                   onPressed: () {
                     print('notification pressed');
-                    NotificationApi.showNotification(
-                        title: 'test reminder',
-                        body: 'Don\'t forget to put in some time to study',
-                        payload: 'this is a payload'
+                    // NotificationApi.showNotification(
+                    //     title: 'test reminder',
+                    //     body: 'Don\'t forget to put in some time to study',
+                    //     payload: 'this is a payload'
+                    // );
+                    NotificationApi.showScheduledNotification(
+                      title: 'Scheduled Notification',
+                      body: 'Time to start a lesson!',
+                      payload: 'scheduled_payload',
+                      scheduledDate: DateTime.now().add(Duration(seconds: 2))
+                    );
+
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      const SnackBar(
+                        content: Text('Scheduled in 2 seconds', style: TextStyle(fontSize: 20.0),),
+                      ),
                     );
                   },
                   child: Text(
