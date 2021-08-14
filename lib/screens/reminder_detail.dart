@@ -1,7 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:learn_tagalog/services/notificaiton_api.dart';
 import 'package:learn_tagalog/widgets/theme_background_color.dart';
+
+import '../bottom_nav_bar.dart';
 
 class Reminder extends StatefulWidget {
   @override
@@ -10,6 +13,18 @@ class Reminder extends StatefulWidget {
 
 class _ReminderState extends State<Reminder> {
   double _value = 0;
+
+  @override
+  void initState() {
+    NotificationApi.init();
+    listenNotifications();
+    super.initState();
+  }
+  void listenNotifications() =>
+      NotificationApi.onNotifications.stream.listen(onClickedNotification);
+
+  void onClickedNotification(String payload) =>
+      Navigator.of(context).push(MaterialPageRoute(builder: (context) => BottomNavBar()));
 
   @override
   Widget build(BuildContext context) {
@@ -97,7 +112,15 @@ class _ReminderState extends State<Reminder> {
                 height: 60.0,
                 width: 200,
                 child: ElevatedButton(
-                  onPressed: () {},
+                  //TODO: Fix this
+                  onPressed: () {
+                    print('notification pressed');
+                    NotificationApi.showNotification(
+                        title: 'test reminder',
+                        body: 'Don\'t forget to put in some time to study',
+                        payload: 'this is a payload'
+                    );
+                  },
                   child: Text(
                     'Set Reminder',
                     style: TextStyle(

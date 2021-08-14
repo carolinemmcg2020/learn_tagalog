@@ -1,7 +1,5 @@
 import 'package:avatar_glow/avatar_glow.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:google_sign_in/google_sign_in.dart';
 import 'package:learn_tagalog/animation/delayed_animation.dart';
 import 'package:learn_tagalog/bottom_nav_bar.dart';
 import 'package:learn_tagalog/models/loginusermodel.dart';
@@ -73,16 +71,13 @@ class _WelcomePageState extends State<WelcomePage>
                       shape: CircleBorder(),
                       child: CircleAvatar(
                         backgroundColor: Color.fromRGBO(253, 202, 49, 1.0),
-                        child: FlutterLogo(
-                          size: 50.0,
-                        ),
                         radius: 50.0,
                       ),
                     ),
                   ),
                   DelayedAnimation(
                     child: Text(
-                      "Welcome",
+                      "Welcome!",
                       style: TextStyle(
                           fontWeight: FontWeight.bold,
                           fontSize: 35.0,
@@ -92,7 +87,7 @@ class _WelcomePageState extends State<WelcomePage>
                   ),
                   DelayedAnimation(
                     child: Text(
-                      "LearnTagalog",
+                      "Learn Tagalog",
                       style: TextStyle(
                           fontWeight: FontWeight.bold,
                           fontSize: 35.0,
@@ -160,6 +155,11 @@ class _WelcomePageState extends State<WelcomePage>
                             if (success != null) {
                               setState(
                                 () {
+                                  ScaffoldMessenger.of(context).showSnackBar(
+                                    const SnackBar(
+                                      content: Text('Logged in!'),
+                                    ),
+                                  );
                                   Navigator.pushReplacement(
                                     context,
                                     MaterialPageRoute(
@@ -192,7 +192,6 @@ class _WelcomePageState extends State<WelcomePage>
                           ),
                         );
                       },
-
                       child: Text(
                         "I Already have An Account".toUpperCase(),
                         style: TextStyle(

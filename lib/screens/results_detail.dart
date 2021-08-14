@@ -1,18 +1,15 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:learn_tagalog/bottom_nav_bar.dart';
 import 'package:learn_tagalog/models/lesson.dart';
-import 'package:learn_tagalog/screens/end_of_lesson_quiz_detail.dart';
-import 'package:learn_tagalog/screens/lessondetail.dart';
 import 'package:learn_tagalog/widgets/theme_background_color.dart';
 import 'package:percent_indicator/circular_percent_indicator.dart';
 
 class ResultsDetail extends StatelessWidget {
-  int userResults;
+  final int userResults;
   List<Lesson> numOfQs;
 
   bool isVisible = false;
-  String message = '';
+ static const String message = '';
 
   ResultsDetail({this.userResults, this.numOfQs});
 

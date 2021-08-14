@@ -14,7 +14,7 @@ class Topic{
     this.icon,
     this.color,
     this.backgroundColor,
-    this.lessons
+    this.lessons,
 }
 );
 }

@@ -1,6 +1,4 @@
 import 'dart:ui';
-
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:learn_tagalog/bottom_nav_bar.dart';
@@ -19,6 +17,17 @@ class _SignUpState extends State<SignUp> {
 
   String email;
   String password;
+  bool isValidated;
+
+  String validatePassword(String password){
+    if(!(password.length > 5) && password.isNotEmpty){
+      isValidated = false;
+      return "Password should contain more than 5 characters";
+    } else{
+      isValidated = true;
+    }
+
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -82,6 +91,7 @@ class _SignUpState extends State<SignUp> {
                   icon: FontAwesomeIcons.lock,
                   labelText: 'Password',
                   obscureText: true,
+                 // validateContent: validatePassword(password),
                   onChanged: (value){
                     password = value.trim();
                   },
@@ -97,13 +107,19 @@ class _SignUpState extends State<SignUp> {
                       //TODO: Validation Check to see if the text fields are populated
                       //TODO: Make class which stores username, email and password
                       onTap: () async {
-                        //FirebaseAuth.instance.createUserWithEmailAndPassword(email: _email, password: _password);
-                        await emailLoginService.signUpWithEmail(email: email, password: password);
-                        Navigator.of(context).pushReplacement(
-                          MaterialPageRoute(
-                            builder: (context) => BottomNavBar(),
-                          ),
-                        );
+                        if(!(password.length > 5) && password.isNotEmpty){
+                          isValidated = false;
+                        } else{
+                          isValidated = true;
+                          //FirebaseAuth.instance.createUserWithEmailAndPassword(email: _email, password: _password);
+                          await emailLoginService.signUpWithEmail(email: email, password: password);
+                          Navigator.of(context).pushReplacement(
+                            MaterialPageRoute(
+                              builder: (context) => BottomNavBar(),
+                            ),
+                          );
+                        }
+
                       },
                       child: CustomButton(
                         buttonText: 'Sign Up',

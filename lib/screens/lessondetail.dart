@@ -10,7 +10,7 @@ import 'package:learn_tagalog/screens/end_of_lesson_quiz_detail.dart';
 import 'package:percent_indicator/linear_percent_indicator.dart';
 
 class LessonDetail extends StatefulWidget {
-  Lesson lessons;
+  final Lesson lessons;
 
   LessonDetail({this.lessons});
 
@@ -99,7 +99,7 @@ class _LessonDetailState extends State<LessonDetail> {
   double phraseFontSize(){
     if(widget.lessons.lessonContent[index].type == 'phrase'){
       print('fontsize is 30');
-      return 30.0;
+      return 28.0;
     } else {
       print('fontsize is 40');
       return 40.0;
@@ -177,8 +177,8 @@ class _LessonDetailState extends State<LessonDetail> {
                         print('tapped');
                       },
                       child: Container(
-                        padding: EdgeInsets.all(15.0),
-                        margin: EdgeInsets.all(20.0),
+                       // padding: EdgeInsets.all(15.0),
+                       // margin: EdgeInsets.all(10.0),
                         child: AvatarGlow(
                           endRadius: 120,
                           duration: Duration(seconds: 2),
@@ -191,7 +191,7 @@ class _LessonDetailState extends State<LessonDetail> {
                             shape: CircleBorder(),
                             child: Icon(
                               widget.lessons.lessonContent[index].icon,
-                              size: 160.0,
+                              size: 140.0,
                               color: widget.lessons.lessonContent[index].color,
                             ),
                           ),
@@ -223,7 +223,7 @@ class _LessonDetailState extends State<LessonDetail> {
                       ),
                     ),
                     Padding(
-                      padding: const EdgeInsets.all(20.0),
+                      padding: EdgeInsets.all(10.0),
                       child: GestureDetector(
                         onTap: () {
                           nextWord();

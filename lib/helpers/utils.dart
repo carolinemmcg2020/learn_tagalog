@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:learn_tagalog/models/lesson.dart';
 import 'package:learn_tagalog/models/lessoncontent.dart';
-import 'package:learn_tagalog/models/questions.dart';
 import 'package:learn_tagalog/models/topic.dart';
 import 'package:learn_tagalog/number_icons_icons.dart';
 import 'package:learn_tagalog/weekday_icons_icons.dart';
@@ -10,7 +9,6 @@ import 'package:learn_tagalog/weekday_icons_icons.dart';
 class Utils {
   static List<Topic> getMockedCategories() {
     return [
-      //TODO: Fill with lesson content
       Topic(
         name: 'Alphabet',
         icon: FontAwesomeIcons.wordpress,
@@ -29,7 +27,7 @@ class Utils {
                   icon: FontAwesomeIcons.monument,
                   audio: 'assets/audio/Ah.mp3',
                   color: Colors.yellow,
-                  type: 'word',
+                  type: 'letter',
                 ),
                 LessonContent(
                   tagalogWord: 'Ba',
@@ -37,7 +35,7 @@ class Utils {
                   icon: FontAwesomeIcons.monument,
                   audio: 'assets/audio/Ba.mp3',
                   color: Colors.yellow,
-                  type: 'word',
+                  type: 'letter',
                 ),
                 LessonContent(
                   tagalogWord: 'Ka',
@@ -45,7 +43,7 @@ class Utils {
                   icon: FontAwesomeIcons.monument,
                   audio: 'assets/audio/Ka.mp3',
                   color: Colors.yellow,
-                  type: 'word',
+                  type: 'letter',
                 ),
                 LessonContent(
                   tagalogWord: 'Da',
@@ -53,7 +51,7 @@ class Utils {
                   icon: FontAwesomeIcons.monument,
                   audio: 'assets/audio/Da.mp3',
                   color: Colors.yellow,
-                  type: 'word',
+                  type: 'letter',
                 ),
                 LessonContent(
                   tagalogWord: 'Eh',
@@ -61,7 +59,7 @@ class Utils {
                   icon: FontAwesomeIcons.monument,
                   audio: 'assets/audio/Eh.mp3',
                   color: Colors.yellow,
-                  type: 'word',
+                  type: 'letter',
                 ),
                 LessonContent(
                   tagalogWord: 'Ga',
@@ -69,7 +67,7 @@ class Utils {
                   icon: FontAwesomeIcons.monument,
                   audio: 'assets/audio/Ga.mp3',
                   color: Colors.yellow,
-                  type: 'word',
+                  type: 'letter',
                 ),
                 LessonContent(
                   tagalogWord: 'Ha',
@@ -77,30 +75,33 @@ class Utils {
                   icon: FontAwesomeIcons.monument,
                   audio: 'assets/audio/Ha.mp3',
                   color: Colors.yellow,
-                  type: 'word',
+                  type: 'letter',
                 ),
                 LessonContent(
-                    tagalogWord: 'e',
-                    engWord: 'I',
-                    icon: FontAwesomeIcons.monument,
-                    audio: 'assets/audio/E.mp3',
-                    color: Colors.yellow,
-                    type: 'word'),
+                  tagalogWord: 'e',
+                  engWord: 'I',
+                  icon: FontAwesomeIcons.monument,
+                  audio: 'assets/audio/E.mp3',
+                  color: Colors.yellow,
+                  type: 'letter',
+                ),
                 LessonContent(
-                    tagalogWord: 'La',
-                    engWord: 'L',
-                    icon: FontAwesomeIcons.monument,
-                    audio: 'assets/audio/La.mp3',
-                    color: Colors.yellow,
-                    type: 'word'),
+                  tagalogWord: 'La',
+                  engWord: 'L',
+                  icon: FontAwesomeIcons.monument,
+                  audio: 'assets/audio/La.mp3',
+                  color: Colors.yellow,
+                  type: 'letter',
+                ),
                 LessonContent(
-                    tagalogWord: 'Ma',
-                    engWord: 'M',
-                    icon: FontAwesomeIcons.monument,
-                    audio: 'assets/audio/Ma.mp3',
-                    color: Colors.yellow,
-                    type: 'word')
-              ]),
+                  tagalogWord: 'Ma',
+                  engWord: 'M',
+                  icon: FontAwesomeIcons.monument,
+                  audio: 'assets/audio/Ma.mp3',
+                  color: Colors.yellow,
+                  type: 'letter',
+                )
+              ],),
           Lesson(
               name: 'Lesson Two',
               icon: FontAwesomeIcons.bookOpen,
@@ -171,12 +172,6 @@ class Utils {
                     color: Colors.yellow,
                     type: 'word')
               ]),
-          Lesson(
-            name: 'Lesson Three',
-            icon: FontAwesomeIcons.addressBook,
-            color: Color.fromRGBO(124, 180, 2, 1.0),
-            backgroundColor: Color.fromRGBO(171, 236, 49, 1.0),
-          ),
         ],
       ),
       Topic(
@@ -396,7 +391,7 @@ class Utils {
                   icon: FontAwesomeIcons.solidLemon,
                   color: Colors.orange,
                   audio: 'assets/audio/Dalawang orange.mp3',
-                  type: 'word',
+                  type: 'phrase',
                 ),
                 LessonContent(
                   tagalogWord: 'Tatlong mansanas',
@@ -404,7 +399,7 @@ class Utils {
                   icon: FontAwesomeIcons.apple,
                   color: Colors.red,
                   audio: 'assets/audio/Tatlong mansanas.mp3',
-                  type: 'word',
+                  type: 'phrase',
                 ),
                 LessonContent(
                   tagalogWord: 'Apat na tao',
@@ -412,15 +407,15 @@ class Utils {
                   icon: Icons.group_rounded,
                   color: Colors.green,
                   audio: 'assets/audio/Apat na tao.mp3',
-                  type: 'word',
+                  type: 'phrase',
                 ),
                 LessonContent(
-                  tagalogWord: 'Limang pussa',
+                  tagalogWord: 'Limang pusa',
                   engWord: 'Five cats',
                   icon: FontAwesomeIcons.cat,
                   color: Colors.white,
-                  audio: 'assets/audio/Limang pussa.mp3',
-                  type: 'word',
+                  audio: 'assets/audio/Limang pusa.mp3',
+                  type: 'phrase',
                 ),
                 LessonContent(
                   tagalogWord: 'Anim na aso',
@@ -428,7 +423,7 @@ class Utils {
                   icon: FontAwesomeIcons.dog,
                   color: Colors.brown,
                   audio: 'assets/audio/Anim na aso.mp3',
-                  type: 'word',
+                  type: 'phrase',
                 ),
                 LessonContent(
                   tagalogWord: 'Itong tao',
@@ -436,15 +431,15 @@ class Utils {
                   icon: Icons.seven_mp,
                   color: Colors.white,
                   audio: 'assets/audio/Itong tao.mp3',
-                  type: 'word',
+                  type: 'phrase',
                 ),
                 LessonContent(
                   tagalogWord: 'Walong pirasong tsokolate',
-                  engWord: 'Seventy',
+                  engWord: 'Eight pieces of chocolate',
                   icon: Icons.seven_mp,
                   color: Colors.white,
                   audio: 'assets/audio/walong pirasong tsokolate.mp3',
-                  type: 'word',
+                  type: 'phrase',
                 ),
                 LessonContent(
                   tagalogWord: 'Siyam na kotse',
@@ -452,7 +447,7 @@ class Utils {
                   icon: Icons.car_repair,
                   color: Colors.white,
                   audio: 'assets/audio/Siyam na kotse.mp3',
-                  type: 'word',
+                  type: 'phrase',
                 ),
                 LessonContent(
                   tagalogWord: 'Sampung aso',
@@ -460,7 +455,7 @@ class Utils {
                   icon: FontAwesomeIcons.dog,
                   color: Colors.white,
                   audio: 'assets/audio/Sampung aso.mp3',
-                  type: 'word',
+                  type: 'phrase',
                 ),
               ]),
           Lesson(
@@ -468,6 +463,7 @@ class Utils {
               icon: FontAwesomeIcons.sortNumericDown,
               color: Color.fromRGBO(0, 149, 85, 1.0),
               backgroundColor: Colors.green[400],
+              //TODO: Custom Icons
               lessonContent: [
                 LessonContent(
                   tagalogWord: 'Labing isang itik',
@@ -486,7 +482,7 @@ class Utils {
                   type: 'phrase',
                 ),
                 LessonContent(
-                  tagalogWord: 'tatlumpu\'t siyam na taong gulang',
+                  tagalogWord: 'Tatlumpu\'t siyam na taong gulang',
                   engWord: '39 years old',
                   icon: Icons.seven_mp,
                   color: Colors.white,
@@ -498,7 +494,7 @@ class Utils {
                   engWord: 'Forty three pencils',
                   icon: Icons.seven_mp,
                   color: Colors.white,
-                  audio: 'assets/audio/Apat na pu’t tatlo ng lapis.mp3',
+                  audio: 'assets/audio/Apat na pu\'t tatlo ng lapis.mp3',
                   type: 'phrase',
                 ),
                 LessonContent(
@@ -721,7 +717,7 @@ class Utils {
                     engWord: 'Today is Monday',
                     color: Colors.orange,
                     icon: WeekdayIcons.monday_calendar_page,
-                    audio: 'assets/audio/Ngayon ay Lunes.mp3',
+                    audio: 'assets/audio/Ngayun ay Lunes.mp3',
                     type: 'phrase'),
                 LessonContent(
                     tagalogWord: 'Bukas ay Miyerkules',
@@ -790,14 +786,6 @@ class Utils {
                     color: Colors.white,
                     type: 'phrase'),
                 LessonContent(
-                    tagalogWord: 'Magbabakasyon ako ng dalawang linggo',
-                    engWord: 'I am going on holiday for 2 weeks',
-                    icon: FontAwesomeIcons.plane,
-                    audio:
-                        'assets/audio/Magbabakasyon ako ng dalawang linggo.mp3',
-                    color: Colors.white,
-                    type: 'phrase'),
-                LessonContent(
                     tagalogWord: 'Ano ang petsa ngayon?',
                     engWord: 'What is the date today',
                     icon: FontAwesomeIcons.plane,
@@ -805,10 +793,10 @@ class Utils {
                     color: Colors.white,
                     type: 'phrase'),
                 LessonContent(
-                    tagalogWord: 'Ang petsa ngayon ay',
+                    tagalogWord: 'Ang petsa ngayon ay...',
                     engWord: 'Today\'s date is...',
                     icon: FontAwesomeIcons.plane,
-                    audio: 'assets/audio/ang petsa ngayon ay.mp3',
+                    audio: 'assets/audio/Ang petsa ngayon ay.mp3',
                     color: Colors.white,
                     type: 'phrase'),
                 LessonContent(
@@ -973,7 +961,7 @@ class Utils {
                     engWord: 'My uncles birthday is on July',
                     icon: FontAwesomeIcons.birthdayCake,
                     audio:
-                        'assets/audio/Ang kapanganakan ng kapatid kong babae ay Marso.mp3',
+                        'assets/audio/Ang kaarawan ng aking tiyuhin ay sa Hulyo.mp3',
                     color: Colors.white,
                     type: 'phrase'),
                 LessonContent(
@@ -1193,7 +1181,7 @@ class Utils {
               lessonContent: [
                 LessonContent(
                   tagalogWord: 'Itim na sapatos',
-                  engWord: 'Orange hat',
+                  engWord: 'Black shoes',
                   icon: FontAwesomeIcons.shoePrints,
                   color: Colors.black,
                   audio: 'assets/audio/Itim na Sapatos.mp3',
@@ -1227,8 +1215,8 @@ class Utils {
                   tagalogWord: 'Puting medyas',
                   engWord: 'White socks',
                   icon: FontAwesomeIcons.socks,
-                  color: Colors.deepPurple,
-                  audio: 'assets/audio/Puting medyas.mp3',
+                  color: Colors.white,
+                  audio: "assets/audio/Puting medyas.mp3",
                   type: 'phrase',
                 ),
               ]),
@@ -1257,9 +1245,9 @@ class Utils {
                 LessonContent(
                   tagalogWord: 'Suot ko ang orange na t-shirt',
                   engWord: 'I am wearing an orange t-shirt',
-                  icon: FontAwesomeIcons.socks,
-                  color: Colors.deepPurple,
-                  audio: 'assets/audio/suot ko an orange na t-shirt.mp3',
+                  icon: FontAwesomeIcons.tshirt,
+                  color: Colors.orange,
+                  audio: 'assets/audio/Suot ko an orange na t-shirt.mp3',
                   type: 'phrase',
                 ),
                 LessonContent(
@@ -1281,7 +1269,7 @@ class Utils {
                 LessonContent(
                   tagalogWord: 'Suot ko ay dark brown na saptos',
                   engWord: 'I am wearing dark brown shoes',
-                  icon: FontAwesomeIcons.hatWizard,
+                  icon: FontAwesomeIcons.shoePrints,
                   color: Color(0xFF2B1D16),
                   audio: 'assets/audio/Suot ko ay dark brown na saptos.mp3',
                   type: 'phrase',
@@ -1351,7 +1339,7 @@ class Utils {
               ),
               LessonContent(
                 tagalogWord: 'Siya ay may ilaw na berde na mga mata',
-                engWord: 'I have a brown bag',
+                engWord: 'She has light green eyes',
                 icon: FontAwesomeIcons.eye,
                 color: Colors.green,
                 audio: 'assets/audio/Siya ay may ilaw na berde na mga mata.mp3',
@@ -1362,5 +1350,5 @@ class Utils {
         ],
       ),
     ];
-  }
+  } 
 }

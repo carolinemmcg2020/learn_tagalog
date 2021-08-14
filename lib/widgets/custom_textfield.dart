@@ -8,8 +8,9 @@ class CustomTextField extends StatelessWidget {
   bool obscureText;
   TextInputType keyboardType;
   Function onChanged;
+  String validateContent;
 
-  CustomTextField({this.hintText, this.icon, this.labelText, this.obscureText, this.keyboardType, this.onChanged});
+  CustomTextField({this.hintText, this.icon, this.labelText, this.obscureText, this.keyboardType, this.onChanged, this.validateContent});
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -23,6 +24,7 @@ class CustomTextField extends StatelessWidget {
               keyboardType: keyboardType,
               onChanged: onChanged,
               decoration: InputDecoration(
+                errorText: validateContent,
                 hintText: hintText,
                 filled: true,
                 fillColor: Colors.white,

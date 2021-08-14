@@ -1,5 +1,4 @@
 import 'dart:math';
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:just_audio/just_audio.dart';
@@ -54,7 +53,7 @@ class _EndOfLessonQuizDetailState extends State<EndOfLessonQuizDetail> {
   T getRandomElement<T>(List<T> list) {
     final random = new Random();
     var i = random.nextInt(list.length);
-    if(index == i){
+    if (index == i) {
       i++;
     }
     print(i);
@@ -115,13 +114,16 @@ class _EndOfLessonQuizDetailState extends State<EndOfLessonQuizDetail> {
     );
   }
 
-  void checkOptions(Lesson option1, Lesson option2, Lesson option3){
-    if(option1 == option2){
+  //TODO: check this
+  void checkOptions(Lesson option1, Lesson option2, Lesson option3) {
+    if (option1 == option2) {
       print("op1 and op2  are the same");
-    }if(option2 == option3){
+    }
+    if (option2 == option3) {
       print("option2 and opt 3  are the same");
       option2;
-    }if(option3 == option1){
+    }
+    if (option3 == option1) {
       print("op3 and op1 are the same");
       option3;
     }
@@ -149,7 +151,7 @@ class _EndOfLessonQuizDetailState extends State<EndOfLessonQuizDetail> {
 
   @override
   Widget build(BuildContext context) {
-   // var option = getRandomElement(widget.questionContent);
+    // var option = getRandomElement(widget.questionContent);
     var option1 = getRandomElement(widget.questionContent);
     var option2 = getRandomElement(widget.questionContent);
     var option3 = getRandomElement(widget.questionContent);
@@ -190,6 +192,7 @@ class _EndOfLessonQuizDetailState extends State<EndOfLessonQuizDetail> {
                 child: Padding(
                   padding: const EdgeInsets.all(15.0),
                   child: Center(
+                    //TODO: put this in a if statement based on variable type
                     child: Text(
                       'What is the ' +
                           widget.questionContent[index].type +
@@ -278,28 +281,7 @@ class _EndOfLessonQuizDetailState extends State<EndOfLessonQuizDetail> {
                   ),
                 ],
               ),
-              // ListView.builder(
-              //   shrinkWrap: true,
-              //   itemCount: widget.questionContent.length,
-              //   itemBuilder: (BuildContext context, int buttonIndex){
-              //   return Expanded(
-              //     flex: 2,
-              //     child: QuizButton(
-              //       buttonTxt: widget.questionContent[buttonIndex].engWord,
-              //       txtColor: buttonColor,
-              //       onTap: (){
-              //         setState(() {
-              //           buttonIndex++;
-              //           playOption(widget.questionContent[index].audio);
-              //           checkAnswer(widget.questionContent[index].engWord);
-              //           getRandomElement(widget.questionContent);
-              //           buttonColourCheck(buttonColor);
-              //
-              //         });
-              //       },
-              //     ),
-              //   );
-              // },)
+              //TODO: remove this dead code
               /* QuizButton(
                 buttonTxt: widget.questionContent[index].engWord,
                 txtColor: buttonColor,

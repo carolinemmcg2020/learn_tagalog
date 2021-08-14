@@ -3,8 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart' as firebase;
 import 'package:flutter/services.dart';
 import 'package:flutter_settings_screens/flutter_settings_screens.dart';
-import 'package:learn_tagalog/layout/header_page.dart';
-import 'package:learn_tagalog/screens/reminder_detail.dart';
+import 'package:learn_tagalog/screens/header_page.dart';
 import 'package:learn_tagalog/screens/welcomepage.dart';
 import 'package:learn_tagalog/services/email_login_service.dart';
 import 'package:learn_tagalog/services/google_login_service.dart';
@@ -38,29 +37,32 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return ValueChangeObserver<bool>(
       cacheKey: HeaderPage.keyDarkMode,
-      defaultValue: false,
+      defaultValue: true,
       builder: (_, isDarkMode, __) => MaterialApp(
         debugShowCheckedModeBanner: false,
         title: 'Learn Tagalog',
         theme: isDarkMode
-            ? ThemeData.dark().copyWith(
+            ? ThemeData.light().copyWith(
                 //TODO: themes are opposite
                 brightness: Brightness.dark,
                 accentColor: Colors.white,
                 canvasColor: Colors.transparent,
                 snackBarTheme: SnackBarThemeData(
-                  backgroundColor: Colors.transparent,
+                  backgroundColor: Color.fromRGBO(0, 0, 0, 0.2),
                   elevation: 40,
-                  //actionTextColor: Colors.red,
-                  //disabledActionTextColor: Colors.red,
+                  contentTextStyle: TextStyle(color: Colors.white),
                 ),
               )
-            : ThemeData.light().copyWith(
+            : ThemeData.dark().copyWith(
                 primaryColor: Colors.white,
                 brightness: Brightness.light,
                 accentColor: Colors.orange,
                 canvasColor: Colors.transparent,
-
+                snackBarTheme: SnackBarThemeData(
+                  backgroundColor: Color.fromRGBO(0, 0, 0, 0.2),
+                  elevation: 40,
+                  contentTextStyle: TextStyle(color: Colors.white),
+                ),
               ),
         home: WelcomePage(),
       ),

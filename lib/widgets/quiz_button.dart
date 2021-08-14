@@ -4,9 +4,9 @@ import 'package:flutter/material.dart';
 class QuizButton extends StatelessWidget {
   String buttonTxt;
   Function onTap;
-  final Color colour;
+  Color txtColor;
 
-  QuizButton({this.buttonTxt, this.onTap, this.colour = const Color.fromRGBO(253, 202, 49, 1.0),});
+  QuizButton({this.buttonTxt, this.onTap, this.txtColor});
 
   @override
   Widget build(BuildContext context) {
@@ -32,11 +32,12 @@ class QuizButton extends StatelessWidget {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
-                Center(
+                Expanded(
                   child: Text(
-                    buttonTxt,
+                    this.buttonTxt,
+                    textAlign: TextAlign.center,
                     style: TextStyle(
-                      color: Colors.white,
+                      color: this.txtColor,
                       fontFamily: 'Montserrat',
                       fontSize: 16,
                       fontWeight: FontWeight.w600,

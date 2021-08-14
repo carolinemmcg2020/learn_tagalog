@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_settings_screens/flutter_settings_screens.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:learn_tagalog/layout/account_page.dart';
-import 'package:learn_tagalog/layout/header_page.dart';
-import 'package:learn_tagalog/layout/icon_widget.dart';
+import 'package:learn_tagalog/screens/account_page.dart';
+import 'package:learn_tagalog/screens/header_page.dart';
+import 'package:learn_tagalog/widgets/icon_widget.dart';
 import 'package:learn_tagalog/models/loginusermodel.dart';
 import 'package:learn_tagalog/screens/reminder_detail.dart';
 import 'package:learn_tagalog/screens/welcomepage.dart';
@@ -12,7 +12,7 @@ import 'package:learn_tagalog/widgets/theme_background_color.dart';
 import 'package:provider/provider.dart';
 
 class Profile extends StatefulWidget {
-  bool showProfilePic = true;
+ final bool showProfilePic = true;
 
   @override
   _ProfileState createState() => _ProfileState();
