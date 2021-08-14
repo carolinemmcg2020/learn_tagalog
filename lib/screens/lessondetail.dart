@@ -173,8 +173,16 @@ class _LessonDetailState extends State<LessonDetail> {
                       onTap: () async {
                         await player.setAsset(
                             widget.lessons.lessonContent[index].audio);
+                        await player.setSpeed(1);
                         player.play();
                         print('tapped');
+                      },
+                      onDoubleTap: () async{
+                        await player.setAsset(
+                            widget.lessons.lessonContent[index].audio);
+                        await player.setSpeed(0.5);
+                        player.play();
+                        print('double tapped');
                       },
                       child: Container(
                        // padding: EdgeInsets.all(15.0),
