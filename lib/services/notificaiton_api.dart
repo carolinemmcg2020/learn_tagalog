@@ -35,20 +35,23 @@ class NotificationApi {
       _notifications.show(id, title, body, await _notificationDetails(),
           payload: payload);
 
-  static Future showScheduledNotification(
-          {int id = 0,
-          String title,
-          String body,
-          String payload,
-          DateTime scheduledDate}) async =>
+  static Future showScheduledNotification({
+    int id = 0,
+    String title,
+    String body,
+    String payload,
+    DateTime scheduledDate,
+  }) async =>
       _notifications.zonedSchedule(
-          id,
-          title,
-          body,
-          tz.TZDateTime.from(scheduledDate, tz.local),
-          await _notificationDetails(),
-          payload: payload,
-          androidAllowWhileIdle: true,
-          uiLocalNotificationDateInterpretation:
-              UILocalNotificationDateInterpretation.absoluteTime);
+        id,
+        title,
+        body,
+        tz.TZDateTime.from(scheduledDate, tz.local),
+        await _notificationDetails(),
+        payload: payload,
+        androidAllowWhileIdle: true,
+        uiLocalNotificationDateInterpretation:
+            UILocalNotificationDateInterpretation.absoluteTime,
+        matchDateTimeComponents: DateTimeComponents.dayOfWeekAndTime,
+      );
 }
