@@ -4,6 +4,7 @@ import 'package:firebase_core/firebase_core.dart' as firebase;
 import 'package:flutter/services.dart';
 import 'package:flutter_settings_screens/flutter_settings_screens.dart';
 import 'package:learn_tagalog/screens/header_page.dart';
+import 'package:learn_tagalog/screens/reminder_detail.dart';
 import 'package:learn_tagalog/screens/welcomepage.dart';
 import 'package:learn_tagalog/services/email_login_service.dart';
 import 'package:learn_tagalog/services/google_login_service.dart';
@@ -15,6 +16,7 @@ Future main() async {
 
   await firebase.Firebase.initializeApp();
   await Settings.init(cacheProvider: SharePreferenceCache());
+
 
   runApp(
     MultiProvider(
@@ -43,7 +45,6 @@ class MyApp extends StatelessWidget {
         title: 'Learn Tagalog',
         theme: isDarkMode
             ? ThemeData.light().copyWith(
-                //TODO: themes are opposite
                 brightness: Brightness.dark,
                 accentColor: Colors.white,
                 canvasColor: Colors.transparent,
