@@ -20,11 +20,12 @@ class _ReminderState extends State<Reminder> {
     listenNotifications();
     super.initState();
   }
+
   void listenNotifications() =>
       NotificationApi.onNotifications.stream.listen(onClickedNotification);
 
-  void onClickedNotification(String payload) =>
-      Navigator.of(context).push(MaterialPageRoute(builder: (context) => BottomNavBar()));
+  void onClickedNotification(String payload) => Navigator.of(context)
+      .push(MaterialPageRoute(builder: (context) => BottomNavBar()));
 
   String getTimeStringFromDouble(double value) {
     if (value < 0) return 'Invalid Value';
@@ -46,6 +47,10 @@ class _ReminderState extends State<Reminder> {
 
   @override
   Widget build(BuildContext context) {
+    var hour = _value.floor();
+    var min = _value - hour;
+    String timeString = '${getHourString(hour)}:${getMinuteString(min)}';
+
     return Scaffold(
       body: ThemeColor(
         child: SafeArea(
@@ -105,7 +110,7 @@ class _ReminderState extends State<Reminder> {
                   value: _value,
                   min: 0,
                   max: 24,
-                  divisions: 96,
+                  divisions: 1440,
                   label: getTimeStringFromDouble(_value),
                   onChanged: (value) {
                     setState(() {
@@ -131,24 +136,30 @@ class _ReminderState extends State<Reminder> {
                 child: ElevatedButton(
                   //TODO: Fix this
                   onPressed: () {
-                    print('notification pressed');
-                    NotificationApi.showNotification(
-                        title: 'test reminder',
-                        body: 'Don\'t forget to put in some time to study',
-                        payload: 'this is a payload'
+                    print(int.parse(getHourString(hour)));
+                    print(int.parse(getMinuteString(min)));
+                    // NotificationApi.showNotification(
+                    //     title: 'Friendly Reminder',
+                    //     body: 'Don\'t forget to put in some time to study',
+                    //     payload: 'this is a payload'
+                    // );
+
+                    NotificationApi.showScheduledNotification(
+                        title: 'Scheduled Notification',
+                        body: 'Time to start a lesson!',
+                        payload: 'scheduled_payload',
+                        // scheduledDate: DateTime.now().add(Duration(seconds: 5))
+                       // scheduledHour: int.parse(getHourString(hour)),
+                       // scheduledMin: int.parse(getMinuteString(min)));
                     );
-                    setState(() {
-                      NotificationApi.showScheduledNotification(
-                          title: 'Scheduled Notification',
-                          body: 'Time to start a lesson!',
-                          payload: 'scheduled_payload',
-                          scheduledDate:
-                              DateTime.now().add(Duration(seconds: 2)));
-                    });
+
 
                     ScaffoldMessenger.of(context).showSnackBar(
-                      const SnackBar(
-                        content: Text('Scheduled successfully', style: TextStyle(fontSize: 20.0),),
+                      SnackBar(
+                        content: Text(
+                          'Scheduled in 5 seconds successfully',
+                          style: TextStyle(fontSize: 20.0),
+                        ),
                       ),
                     );
                   },
