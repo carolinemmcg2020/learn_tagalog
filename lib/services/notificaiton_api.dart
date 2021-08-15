@@ -1,5 +1,6 @@
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:rxdart/rxdart.dart';
+import 'package:timezone/data/latest.dart' as tz;
 import 'package:timezone/timezone.dart' as tz;
 
 class NotificationApi {
@@ -24,6 +25,9 @@ class NotificationApi {
     );
     final settings = InitializationSettings(android: android, iOS: iOS);
 
+    tz.initializeTimeZones();
+
+
     await _notifications.initialize(settings,
         onSelectNotification: (payload) async {
       onNotifications.add(payload);
@@ -40,18 +44,47 @@ class NotificationApi {
     String title,
     String body,
     String payload,
-    DateTime scheduledDate,
+  // int scheduledHour,
+   //int scheduledMin,
   }) async =>
       _notifications.zonedSchedule(
         id,
         title,
         body,
-        tz.TZDateTime.from(scheduledDate, tz.local),
+        _scheduledDaily(Time(13,08)),
         await _notificationDetails(),
         payload: payload,
         androidAllowWhileIdle: true,
         uiLocalNotificationDateInterpretation:
             UILocalNotificationDateInterpretation.absoluteTime,
-        matchDateTimeComponents: DateTimeComponents.dayOfWeekAndTime,
+        matchDateTimeComponents: DateTimeComponents.time,
       );
+
+  static tz.TZDateTime _scheduledDaily(Time time) {
+    final now = tz.TZDateTime.now(tz.local);
+    final scheduledDate = tz.TZDateTime(
+      tz.local,
+      now.year,
+      now.month,
+      now.day,
+      time.hour,
+      time.minute,
+      time.second,
+    );
+
+    return scheduledDate.isBefore(now) ? scheduledDate.add(Duration(days: 1)) : scheduledDate;
+  }
+
+
+  static List<tz.TZDateTime> _scheduleWeekly(Time time,
+      {List<int> days}) {
+    return days.map((day) {
+      tz.TZDateTime scheduledDate = _scheduledDaily(time);
+
+      while (day != scheduledDate.weekday) {
+        scheduledDate = scheduledDate.add(Duration(days: 1));
+      }
+      return scheduledDate;
+    }).toList();
+  }
 }
