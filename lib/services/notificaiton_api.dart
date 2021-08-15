@@ -16,6 +16,7 @@ class NotificationApi {
     );
   }
 
+
   static Future init({bool initScheduled = false}) async {
     final android = AndroidInitializationSettings('@mipmap/ic_launcher');
     final iOS = IOSInitializationSettings(
@@ -25,8 +26,9 @@ class NotificationApi {
     );
     final settings = InitializationSettings(android: android, iOS: iOS);
 
-    tz.initializeTimeZones();
-
+     tz.initializeTimeZones();
+    var localTime = tz.getLocation('Europe/London');
+    tz.setLocalLocation(localTime);
 
     await _notifications.initialize(settings,
         onSelectNotification: (payload) async {
@@ -44,14 +46,14 @@ class NotificationApi {
     String title,
     String body,
     String payload,
-  // int scheduledHour,
-   //int scheduledMin,
+  int scheduledHour,
+   int scheduledMin,
   }) async =>
       _notifications.zonedSchedule(
         id,
         title,
         body,
-        _scheduledDaily(Time(13,08)),
+        _scheduledDaily(Time(scheduledHour,scheduledMin)),
         await _notificationDetails(),
         payload: payload,
         androidAllowWhileIdle: true,
