@@ -110,7 +110,7 @@ class _ReminderState extends State<Reminder> {
                   value: _value,
                   min: 0,
                   max: 24,
-                  divisions: 1440,
+                  divisions: 1441,
                   label: getTimeStringFromDouble(_value),
                   onChanged: (value) {
                     setState(() {
@@ -145,13 +145,13 @@ class _ReminderState extends State<Reminder> {
                     // );
 
                     NotificationApi.showScheduledNotification(
-                        title: 'Scheduled Notification',
+                        title: 'Let\'s make a habit',
                         body: 'Time to start a lesson!',
                         payload: 'scheduled_payload',
                         // scheduledDate: DateTime.now().add(Duration(seconds: 5))
-                       // scheduledHour: int.parse(getHourString(hour)),
-                       // scheduledMin: int.parse(getMinuteString(min)));
-                    );
+                       scheduledHour: int.parse(getHourString(hour)),
+                        scheduledMin: int.parse(getMinuteString(min)));
+
 
 
                     ScaffoldMessenger.of(context).showSnackBar(
