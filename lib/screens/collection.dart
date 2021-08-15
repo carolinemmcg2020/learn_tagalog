@@ -1,37 +1,30 @@
 import 'package:flutter/material.dart';
 import 'package:learn_tagalog/helpers/utils.dart';
+import 'package:learn_tagalog/models/lesson.dart';
 import 'package:learn_tagalog/models/topic.dart';
 import 'package:learn_tagalog/widgets/theme_background_color.dart';
 
 
 class Collection extends StatefulWidget {
-/*
-  Lesson collectionContent;
+  List<Topic> collectionContent = Utils.getMockedCategories();
 
-  Collection({this.collectionContent});
-*/
+ // List<Lesson> collectionContents ;
+
+ // Collection({this.collectionContents});
+
 
   @override
   _CollectionState createState() => _CollectionState();
 }
 
 class _CollectionState extends State<Collection> {
-  List<Topic> collectionContent = Utils.getMockedCategories();
+
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: true,
       body: ThemeColor(
-        /*decoration: BoxDecoration(
-          gradient: LinearGradient(
-            begin: Alignment.bottomLeft,
-            end: Alignment.topRight,
-            colors: [
-              Colors.red.shade600,
-              Colors.purple.shade300,
-            ],
-          ),
-        ),*/
         child: SafeArea(
           child: Column(
             mainAxisSize: MainAxisSize.max,
@@ -54,7 +47,7 @@ class _CollectionState extends State<Collection> {
               Expanded(
                 child: ListView.builder(
                   shrinkWrap: true,
-                  itemCount: collectionContent.length,
+                  itemCount: widget.collectionContent.length,
                   itemBuilder: (BuildContext context, int index) {
                     return Container(
                       child: Column(
@@ -62,10 +55,10 @@ class _CollectionState extends State<Collection> {
                           Row(
                             children: [
                               Padding(
-                                padding: const EdgeInsets.only(
+                                padding:  EdgeInsets.only(
                                     left: 15.0, top: 15.0),
                                 child: Text(
-                                  collectionContent[index].name,
+                                  widget.collectionContent[index].name,
                                   style: TextStyle(
                                     fontSize: 24.0,
                                     fontWeight: FontWeight.bold,
@@ -77,23 +70,22 @@ class _CollectionState extends State<Collection> {
                           SizedBox(
                             child: ListView.builder(
                               shrinkWrap: true,
-                              physics: ClampingScrollPhysics(),
-                              itemCount: collectionContent[index].lessons.length,
+                              physics: NeverScrollableScrollPhysics(),
+                              itemCount: widget.collectionContent[index].lessons.length,
                               itemBuilder: (BuildContext context, int ind) {
+                                Lesson collectionContents = widget.collectionContent[index].lessons[ind];
                                 return Container(
                                   child: Column(
                                     children: [
                                       Row(
                                         children: [
                                           Padding(
-                                            padding: const EdgeInsets.only(
+                                            padding:  EdgeInsets.only(
                                                 left: 15.0,
                                                 bottom: 5.0,
                                                 top: 5.0),
                                             child: Text(
-                                              collectionContent[index]
-                                                  .lessons[ind]
-                                                  .name,
+                                                widget.collectionContent[index].lessons[ind].name,
                                               style: TextStyle(
                                                   fontWeight: FontWeight.w300,
                                                   fontSize: 20.0,
@@ -105,62 +97,62 @@ class _CollectionState extends State<Collection> {
                                       SizedBox(
                                         child: ListView.builder(
                                           shrinkWrap: true,
+                                          physics: NeverScrollableScrollPhysics(),
                                           itemCount:
-                                              collectionContent[index].lessons.length,
+                                          collectionContents.lessonContent.length,
                                           itemBuilder: (BuildContext context,
                                               int contentIndex) {
                                             return Container(
-                                              child: Padding(
-                                                padding:
-                                                    const EdgeInsets.all(10.0),
-                                                child: Expanded(
-                                                  child: Row(
-                                                    children: [
-                                                      Padding(
-                                                        padding: const EdgeInsets.all(8.0),
-                                                        child: Icon(
-                                                          collectionContent[index].lessons[contentIndex].icon,
-                                                          size: 35.0,
-                                                        ),
+                                              child: Expanded(
+                                                child: Row(
+                                                  children: [
+                                                    Padding(
+                                                      padding:  EdgeInsets.all(8.0),
+                                                      child: Icon(
+                                                        collectionContents.lessonContent[contentIndex].icon,
+                                                        size: 35.0,
+                                                        color: collectionContents.lessonContent[contentIndex].color,
                                                       ),
-                                                      SizedBox(
-                                                        width: 40,
+                                                    ),
+                                                    SizedBox(
+                                                      width: 40,
+                                                    ),
+                                                    Expanded(
+                                                      child: Text(
+                                                        collectionContents.lessonContent[contentIndex].name,
+                                                        style: TextStyle(
+                                                            fontSize: 18.0),
+                                                        textAlign: TextAlign.center,
                                                       ),
-                                                      Expanded(
-                                                        child: Text(
-                                                          collectionContent[index].lessons[contentIndex].name,
-                                                          style: TextStyle(
-                                                              fontSize: 18.0),
-                                                        ),
+                                                    ),
+                                                    SizedBox(
+                                                      width: 20,
+                                                    ),
+                                                    Expanded(
+                                                      child: Text(
+                                                        collectionContents.lessonContent[contentIndex].engWord,
+                                                        style: TextStyle(
+                                                            fontSize: 18.0),
+                                                        textAlign: TextAlign.center,
                                                       ),
-                                                      SizedBox(
-                                                        width: 20,
-                                                      ),
-                                                      Expanded(
-                                                        child: Text(
-                                                          'english word',
-                                                          style: TextStyle(
-                                                              fontSize: 18.0),
-                                                        ),
-                                                      ),
-                                                      // SizedBox(
-                                                      //   width: 30,
-                                                      // ),
-                                                      // Padding(
-                                                      //   padding: const EdgeInsets.all(8.0),
-                                                      //   child: Expanded(
-                                                      //     child: TextButton(
-                                                      //       onPressed: () {},
-                                                      //       child: Icon(
-                                                      //         FontAwesomeIcons
-                                                      //             .playCircle,
-                                                      //         size: 35.0,
-                                                      //       ),
-                                                      //     ),
-                                                      //   ),
-                                                      // ),
-                                                    ],
-                                                  ),
+                                                    ),
+                                                    // SizedBox(
+                                                    //   width: 30,
+                                                    // ),
+                                                    // Padding(
+                                                    //   padding: const EdgeInsets.all(8.0),
+                                                    //   child: Expanded(
+                                                    //     child: TextButton(
+                                                    //       onPressed: () {},
+                                                    //       child: Icon(
+                                                    //         FontAwesomeIcons
+                                                    //             .playCircle,
+                                                    //         size: 35.0,
+                                                    //       ),
+                                                    //     ),
+                                                    //   ),
+                                                    // ),
+                                                  ],
                                                 ),
                                               ),
                                             );
