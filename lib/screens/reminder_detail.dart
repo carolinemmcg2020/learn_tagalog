@@ -145,7 +145,7 @@ class _ReminderState extends State<Reminder> {
                     ScaffoldMessenger.of(context).showSnackBar(
                       SnackBar(
                         content: Text(
-                          'Scheduled in 5 seconds successfully',
+                          'Scheduled every day at $timeString successfully',
                           style: TextStyle(fontSize: 20.0),
                         ),
                       ),
