@@ -134,25 +134,13 @@ class _ReminderState extends State<Reminder> {
                 height: 60.0,
                 width: 200,
                 child: ElevatedButton(
-                  //TODO: Fix this
                   onPressed: () {
-                    print(int.parse(getHourString(hour)));
-                    print(int.parse(getMinuteString(min)));
-                    // NotificationApi.showNotification(
-                    //     title: 'Friendly Reminder',
-                    //     body: 'Don\'t forget to put in some time to study',
-                    //     payload: 'this is a payload'
-                    // );
 
                     NotificationApi.showScheduledNotification(
                         title: 'Let\'s make a habit',
                         body: 'Time to start a lesson!',
-                        payload: 'scheduled_payload',
-                        // scheduledDate: DateTime.now().add(Duration(seconds: 5))
                        scheduledHour: int.parse(getHourString(hour)),
                         scheduledMin: int.parse(getMinuteString(min)));
-
-
 
                     ScaffoldMessenger.of(context).showSnackBar(
                       SnackBar(
