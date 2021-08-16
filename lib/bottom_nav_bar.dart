@@ -1,15 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:learn_tagalog/screens/collection.dart';
-import 'package:learn_tagalog/screens/profile.dart';
+import 'package:learn_tagalog/screens/profile_detail.dart';
 import 'package:learn_tagalog/screens/topics_detail.dart';
-
 import 'models/lesson.dart';
 
 
 class BottomNavBar extends StatefulWidget {
- /* List<Topic> categories = Utils.getMockedCategories();
-  BottomNavBar({this.categories});*/
+
   @override
   _BottomNavBarState createState() => _BottomNavBarState();
 }
@@ -23,7 +21,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
   final _pageOptions = [
     Topics(),
     Collection(),
-    Profile(),
+    ProfilePage(),
   ];
 
   static const List<Widget> _pages = <Widget>[
