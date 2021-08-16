@@ -14,14 +14,14 @@ import 'package:learn_tagalog/widgets/theme_background_color.dart';
 import 'package:provider/provider.dart';
 
 
-class Profile extends StatefulWidget {
+class ProfilePage extends StatefulWidget {
   final bool showProfilePic = true;
 
   @override
-  _ProfileState createState() => _ProfileState();
+  _ProfilePageState createState() => _ProfilePageState();
 }
 
-class _ProfileState extends State<Profile> {
+class _ProfilePageState extends State<ProfilePage> {
   FirebaseAuth auth = FirebaseAuth.instance;
   String email = "";
 
