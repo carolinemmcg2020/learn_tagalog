@@ -8,7 +8,6 @@ class CustomCloseButton extends StatelessWidget{
   CustomCloseButton({this.onTap});
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
     return Row(
       children: [
         GestureDetector(
