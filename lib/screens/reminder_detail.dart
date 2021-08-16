@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:learn_tagalog/services/notificaiton_api.dart';
+import 'package:learn_tagalog/services/notificaiton_service.dart';
 import 'package:learn_tagalog/widgets/theme_background_color.dart';
 
 import '../bottom_nav_bar.dart';
@@ -16,13 +16,13 @@ class _ReminderState extends State<Reminder> {
 
   @override
   void initState() {
-    NotificationApi.init();
+    NotificationService.init();
     listenNotifications();
     super.initState();
   }
 
   void listenNotifications() =>
-      NotificationApi.onNotifications.stream.listen(onClickedNotification);
+      NotificationService.onNotifications.stream.listen(onClickedNotification);
 
   void onClickedNotification(String payload) => Navigator.of(context)
       .push(MaterialPageRoute(builder: (context) => BottomNavBar()));
@@ -135,11 +135,10 @@ class _ReminderState extends State<Reminder> {
                 width: 200,
                 child: ElevatedButton(
                   onPressed: () {
-
-                    NotificationApi.showScheduledNotification(
+                    NotificationService.showScheduledNotification(
                         title: 'Let\'s make a habit',
                         body: 'Time to start a lesson!',
-                       scheduledHour: int.parse(getHourString(hour)),
+                        scheduledHour: int.parse(getHourString(hour)),
                         scheduledMin: int.parse(getMinuteString(min)));
 
                     ScaffoldMessenger.of(context).showSnackBar(

@@ -4,9 +4,11 @@ import 'package:flutter/widgets.dart';
 import 'package:flutter_alert/flutter_alert.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:just_audio/just_audio.dart';
+import 'package:learn_tagalog/bottom_nav_bar.dart';
 import 'package:learn_tagalog/models/lesson.dart';
 import 'package:learn_tagalog/models/topic.dart';
 import 'package:learn_tagalog/screens/end_of_lesson_quiz_detail.dart';
+import 'package:learn_tagalog/widgets/custom_alert_dialog.dart';
 import 'package:percent_indicator/linear_percent_indicator.dart';
 
 class LessonDetail extends StatefulWidget {
@@ -42,7 +44,30 @@ class _LessonDetailState extends State<LessonDetail> {
     percent = 0.0;
   }
 
-  void alertDialog() {
+  void nextWord() {
+    setState(
+      () {
+        if (index >= widget.lessons.lessonContent.length - 1) {
+          print('button pressed');
+          finishedAlertDialog();
+        } else {
+          if (index < widget.lessons.lessonContent.length - 1) {
+            index++;
+          }
+        }
+      },
+    );
+  }
+
+  double phraseFontSize(){
+    if(widget.lessons.lessonContent[index].type == "phrase"){
+      return 28.0;
+    } else {
+      return 40.0;
+    }
+  }
+
+  void finishedAlertDialog() {
     showAlert(
       context: context,
       title: 'Review lesson?',
@@ -70,7 +95,7 @@ class _LessonDetailState extends State<LessonDetail> {
           text: 'Redo',
           onPressed: () {
             setState(
-              () {
+                  () {
                 reset();
               },
             );
@@ -81,29 +106,26 @@ class _LessonDetailState extends State<LessonDetail> {
     );
   }
 
-  void nextWord() {
-    setState(
-      () {
-        if (index >= widget.lessons.lessonContent.length - 1) {
-          print('button pressed');
-          alertDialog();
-        } else {
-          if (index < widget.lessons.lessonContent.length - 1) {
-            index++;
-          }
-        }
-      },
-    );
-  }
-
-  double phraseFontSize(){
-    if(widget.lessons.lessonContent[index].type == 'phrase'){
-      print('fontsize is 30');
-      return 28.0;
-    } else {
-      print('fontsize is 40');
-      return 40.0;
-    }
+  alertDialog(BuildContext context) {
+    showDialog(
+        context: context,
+        builder: (BuildContext alertContext) {
+          return CustomAlertDialog(
+            title: "Exit this lesson",
+            content: "Are you sure want to exit this lesson? You will loose progress, if you confirm",
+            button1Text: 'Yes',
+            btn1Func: () {
+              Navigator.pushAndRemoveUntil(
+                  context,
+                  MaterialPageRoute(builder: (context) => BottomNavBar()),
+                      (route) => false);
+            },
+            button2Text: 'No',
+            btn2Func: () {
+              Navigator.of(alertContext, rootNavigator: true).pop();
+            },
+          );
+        });
   }
 
   @override
@@ -124,7 +146,7 @@ class _LessonDetailState extends State<LessonDetail> {
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: Text(
-                  'Lesson Topic: ' + widget.lessons.name,
+                  "Lesson Topic: " + widget.lessons.name,
                   style: TextStyle(
                       fontSize: 22.0,
                       fontWeight: FontWeight.w300,
@@ -144,6 +166,7 @@ class _LessonDetailState extends State<LessonDetail> {
                           widget.lessons.lessonContent.length.toDouble(),
                     ),
                   ),
+                  //TODO: Refactor
                   Container(
                     padding: EdgeInsets.fromLTRB(10.0, 0.0, 20.0, 10.0),
                     // margin: EdgeInsets.symmetric(vertical: 10.0),
@@ -151,7 +174,7 @@ class _LessonDetailState extends State<LessonDetail> {
                       children: [
                         GestureDetector(
                           onTap: () {
-                            Navigator.pop(context);
+                            alertDialog(context);
                           },
                           child: Icon(
                             FontAwesomeIcons.times,
@@ -175,18 +198,14 @@ class _LessonDetailState extends State<LessonDetail> {
                             widget.lessons.lessonContent[index].audio);
                         await player.setSpeed(1);
                         player.play();
-                        print('tapped');
                       },
                       onDoubleTap: () async{
                         await player.setAsset(
                             widget.lessons.lessonContent[index].audio);
                         await player.setSpeed(0.5);
                         player.play();
-                        print('double tapped');
                       },
                       child: Container(
-                       // padding: EdgeInsets.all(15.0),
-                       // margin: EdgeInsets.all(10.0),
                         child: AvatarGlow(
                           endRadius: 120,
                           duration: Duration(seconds: 2),
