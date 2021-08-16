@@ -3,13 +3,15 @@ import 'package:flutter/material.dart';
 class ThemeColor extends StatelessWidget{
 
   Widget child;
+  EdgeInsets padding;
 
-  ThemeColor({this.child});
+  ThemeColor({this.child, this.padding});
 
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
     return Container(
+      padding: padding,
       decoration: BoxDecoration(
         gradient: LinearGradient(
           begin: Alignment.bottomLeft,

@@ -20,11 +20,6 @@ class _BottomNavBarState extends State<BottomNavBar> {
   int _selectedIndex = 0;
   int index = 0;
 
-/*  void initState(){
-    content = widget.categories[index].lessons[index];
-  }*/
-
-
   final _pageOptions = [
     Topics(),
     Collection(),

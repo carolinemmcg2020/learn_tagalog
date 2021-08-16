@@ -1,8 +1,10 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_settings_screens/flutter_settings_screens.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:learn_tagalog/screens/account_page.dart';
 import 'package:learn_tagalog/screens/header_page.dart';
+import 'package:learn_tagalog/services/email_login_service.dart';
 import 'package:learn_tagalog/widgets/icon_widget.dart';
 import 'package:learn_tagalog/models/loginusermodel.dart';
 import 'package:learn_tagalog/screens/reminder_detail.dart';
@@ -11,14 +13,28 @@ import 'package:learn_tagalog/services/google_login_service.dart';
 import 'package:learn_tagalog/widgets/theme_background_color.dart';
 import 'package:provider/provider.dart';
 
+
 class Profile extends StatefulWidget {
- final bool showProfilePic = true;
+  final bool showProfilePic = true;
 
   @override
   _ProfileState createState() => _ProfileState();
 }
 
 class _ProfileState extends State<Profile> {
+  FirebaseAuth auth = FirebaseAuth.instance;
+  String email = "";
+
+  @override
+  void initState() {
+    super.initState();
+    getCurrentUser();
+  }
+
+  Future<void> getCurrentUser() async {
+    email = auth.currentUser.email;
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -40,7 +56,6 @@ class _ProfileState extends State<Profile> {
                   AccountPage(),
                   buildReminder(context),
                   buildLogout(context),
-                  buildDeleteAccount(),
                 ],
               ),
               const SizedBox(
@@ -71,14 +86,14 @@ class _ProfileState extends State<Profile> {
         icon: FontAwesomeIcons.bell,
         color: Colors.amber,
       ),
-      onTap: (){
+      onTap: () {
         Navigator.push(
           context,
           MaterialPageRoute(
             builder: (context) => Reminder(),
           ),
         );
-      } ,
+      },
     );
   }
 
@@ -97,9 +112,11 @@ class _ProfileState extends State<Profile> {
       ),
       onTap: () {
         //TODO: Invoke an Alert before user logs out
-        if (userModel != null) {
+        if (userModel != null || email != null) {
           Settings.clearCache();
           loginService.singOut();
+          //logOutEmail();
+          context.read<EmailLoginService>().signOut();
 
           ScaffoldMessenger.of(context).showSnackBar(
             const SnackBar(
@@ -107,12 +124,10 @@ class _ProfileState extends State<Profile> {
             ),
           );
 
-          Navigator.pushReplacement(
-            context,
-            MaterialPageRoute(
-              builder: (context) => WelcomePage(),
-            ),
-          );
+          Navigator.pushAndRemoveUntil(
+              context,
+              MaterialPageRoute(builder: (context) => WelcomePage()),
+              (route) => false);
         } else {
           ScaffoldMessenger.of(context).showSnackBar(
             const SnackBar(
@@ -124,20 +139,6 @@ class _ProfileState extends State<Profile> {
     );
   }
 
-  Widget buildDeleteAccount() => SimpleSettingsTile(
-        title: "Delete Account",
-        subtitle: '',
-        leading: IconWidget(
-          icon: Icons.delete,
-          color: Colors.pink,
-        ),
-        //TODO: delete account from firebase
-        onTap: () => ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(
-            content: Text('Clicked Delete Account'),
-          ),
-        ),
-      );
 
   Widget buildReportBug(BuildContext context) => SimpleSettingsTile(
         title: "Report Bug",

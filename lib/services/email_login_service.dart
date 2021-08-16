@@ -1,21 +1,17 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter/material.dart';
 import 'package:learn_tagalog/models/email_login_user_model.dart';
 
 class EmailLoginService {
   EmailLoginService(this._firebaseAuth);
 
   final FirebaseAuth _firebaseAuth;
+  EmailUserModel emailUserModel = EmailUserModel();
   final userRef = FirebaseFirestore.instance.collection("users");
 
-  EmailUserModel _userModel;
+  Stream<User> get authStateChanges => _firebaseAuth.authStateChanges();
 
-  EmailUserModel get loggedInUserModel => _userModel;
-
-  //Stream<User> get authStateChanges => _firebaseAuth.authStateChanges();
-
-  Future<String> signInWithEmail({String email, String password}) async {
+  Future<String> signIn({String email, String password}) async {
     try {
       await _firebaseAuth.signInWithEmailAndPassword(
           email: email, password: password);
@@ -23,7 +19,7 @@ class EmailLoginService {
       return "Signed In";
     } on FirebaseAuthException catch (e) {
       if (e.code == 'user-not-found') {
-        return "No user fuond for that email.";
+        return "No user found for that email.";
       } else if (e.code == 'wrong-password') {
         return "Wrong password provided for that user.";
       } else {
@@ -32,19 +28,11 @@ class EmailLoginService {
     }
   }
 
-  Future<String> signUpWithEmail({String email, String password}) async {
+  Future<String> signUp({String email, String password}) async {
     try {
       await _firebaseAuth.createUserWithEmailAndPassword(
           email: email, password: password);
 
-      UserCredential userCreds = await FirebaseAuth.instance
-          .createUserWithEmailAndPassword(email: email, password: password);
-      if (userCreds != null) {
-        //await userRef.doc(userCreds.user.uid).set(_userModel.toMap(_userModel));
-        _userModel = EmailUserModel(
-            email: userCreds.user.email, uid: userCreds.user.uid);
-      }
-      //TODO Make model class for email sign ups
       return "Signed Up!";
     } on FirebaseAuthException catch (e) {
       if (e.code == 'weak-password') {
@@ -59,7 +47,26 @@ class EmailLoginService {
     }
   }
 
-  Future<void> signEmailOut() async {
+  Future<void> signOut() async {
     await _firebaseAuth.signOut();
+  }
+
+  Future<void> addUserToDB(
+      {String uid,
+      String displayName,
+      String email,
+      DateTime timestamp}) async {
+    emailUserModel = EmailUserModel(
+        uid: uid, displayName: displayName, email: email, timestamp: timestamp);
+
+    await userRef.doc(uid).set(emailUserModel.toMap(emailUserModel));
+  }
+
+  Future<EmailUserModel> getUserFromDB({String uid}) async {
+    final DocumentSnapshot doc = await userRef.doc(uid).get();
+
+    print(doc.data());
+
+    return EmailUserModel.fromMap(doc.data());
   }
 }

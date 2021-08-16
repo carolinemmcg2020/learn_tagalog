@@ -1,10 +1,12 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 
 class EmailUserModel{
   String email;
   String uid;
-  String username;
+  String displayName;
+  DateTime timestamp;
 
-  EmailUserModel({this.email, this.uid, this.username});
+  EmailUserModel({this.email, this.uid, this.displayName, this.timestamp});
 
   Map toMap(EmailUserModel emailUser) {
 
@@ -12,14 +14,20 @@ class EmailUserModel{
 
     data["uid"] = emailUser.uid;
     data["email"] = emailUser.email;
-    data["username"] = emailUser.username;
+    data["displayName"] = emailUser.displayName;
+    data["timestamp"] = emailUser.timestamp;
 
     return data;
   }
 
   EmailUserModel.fromMap(Map<String, dynamic> mapData){
     this.uid = mapData["uid"];
-    this.username = mapData["username"];
+    this.displayName = mapData["displayName"];
     this.email = mapData["email"];
   }
+
+ factory EmailUserModel.fromDocument(DocumentSnapshot doc) {
+   return EmailUserModel(
+       uid: doc["uid"], email: doc["email"], displayName: doc["displayName"]);
+ }
 }
