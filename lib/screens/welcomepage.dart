@@ -3,13 +3,13 @@ import 'package:flutter/material.dart';
 import 'package:learn_tagalog/animation/delayed_animation.dart';
 import 'package:learn_tagalog/bottom_nav_bar.dart';
 import 'package:learn_tagalog/models/loginusermodel.dart';
-import 'package:learn_tagalog/screens/signuppage.dart';
+import 'package:learn_tagalog/screens/login_detail.dart';
+import 'package:learn_tagalog/screens/register_detail.dart';
 import 'package:learn_tagalog/services/google_login_service.dart';
 import 'package:learn_tagalog/widgets/custom_button.dart';
 import 'package:learn_tagalog/widgets/theme_background_color.dart';
 import 'package:provider/provider.dart';
 
-import 'loginpage.dart';
 
 class WelcomePage extends StatefulWidget {
   @override
@@ -126,7 +126,7 @@ class _WelcomePageState extends State<WelcomePage>
                             Navigator.pushReplacement(
                               context,
                               MaterialPageRoute(
-                                builder: (context) => SignUp(),
+                                builder: (context) => RegisterPage(),
                               ),
                             );
                           },
