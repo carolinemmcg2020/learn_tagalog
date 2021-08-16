@@ -13,21 +13,12 @@ class LessonCard extends StatelessWidget {
       onTap: () {
         this.onCardClick();
       },
-      //TODO fix card layout
       child: Container(
         width: 140,
         margin: EdgeInsets.all(10.0),
         decoration: BoxDecoration(
           color: this.lesson.color,
           borderRadius: BorderRadius.circular(20.0),
-          // gradient: LinearGradient(
-          //     begin: Alignment.topRight,
-          //     end: Alignment.bottomLeft,
-          //     colors: [
-          //       categories[index].color,
-          //       categories[index].backgroundColor,
-          //     ]
-          // )
         ),
         child: Column(
           children: [
