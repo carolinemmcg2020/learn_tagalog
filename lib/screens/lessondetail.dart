@@ -1,4 +1,3 @@
-import 'package:avatar_glow/avatar_glow.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_alert/flutter_alert.dart';
@@ -9,6 +8,8 @@ import 'package:learn_tagalog/models/lesson.dart';
 import 'package:learn_tagalog/models/topic.dart';
 import 'package:learn_tagalog/screens/end_of_lesson_quiz_detail.dart';
 import 'package:learn_tagalog/widgets/custom_alert_dialog.dart';
+import 'package:learn_tagalog/widgets/custom_close_button.dart';
+import 'package:learn_tagalog/widgets/custom_lesson_icon.dart';
 import 'package:percent_indicator/linear_percent_indicator.dart';
 
 class LessonDetail extends StatefulWidget {
@@ -166,24 +167,16 @@ class _LessonDetailState extends State<LessonDetail> {
                           widget.lessons.lessonContent.length.toDouble(),
                     ),
                   ),
-                  //TODO: Refactor
                   Container(
                     padding: EdgeInsets.fromLTRB(10.0, 0.0, 20.0, 10.0),
                     // margin: EdgeInsets.symmetric(vertical: 10.0),
-                    child: Row(
-                      children: [
-                        GestureDetector(
-                          onTap: () {
-                            alertDialog(context);
-                          },
-                          child: Icon(
-                            FontAwesomeIcons.times,
-                            size: 40.0,
-                            color: Colors.white,
-                          ),
-                        ),
-                      ],
-                    ),
+                    child:CustomCloseButton(
+                      onTap: (){
+                        setState(() {
+                          alertDialog(context);
+                        });
+                      },
+                    )
                   ),
                 ],
               ),
@@ -192,7 +185,7 @@ class _LessonDetailState extends State<LessonDetail> {
                 margin: EdgeInsets.symmetric(vertical: 10.0),
                 child: Column(
                   children: [
-                    GestureDetector(
+                    CustomLessonIcon(
                       onTap: () async {
                         await player.setAsset(
                             widget.lessons.lessonContent[index].audio);
@@ -205,25 +198,8 @@ class _LessonDetailState extends State<LessonDetail> {
                         await player.setSpeed(0.5);
                         player.play();
                       },
-                      child: Container(
-                        child: AvatarGlow(
-                          endRadius: 120,
-                          duration: Duration(seconds: 2),
-                          glowColor: Colors.white24,
-                          repeat: true,
-                          repeatPauseDuration: Duration(seconds: 2),
-                          startDelay: Duration(seconds: 1),
-                          child: Material(
-                            //elevation: 4.0,
-                            shape: CircleBorder(),
-                            child: Icon(
-                              widget.lessons.lessonContent[index].icon,
-                              size: 140.0,
-                              color: widget.lessons.lessonContent[index].color,
-                            ),
-                          ),
-                        ),
-                      ),
+                      icon: widget.lessons.lessonContent[index].icon,
+                      iconColor: widget.lessons.lessonContent[index].color,
                     ),
                     Padding(
                       padding: const EdgeInsets.all(8.0),
