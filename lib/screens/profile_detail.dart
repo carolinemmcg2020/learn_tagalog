@@ -5,6 +5,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:learn_tagalog/screens/account_page.dart';
 import 'package:learn_tagalog/screens/header_page.dart';
 import 'package:learn_tagalog/services/email_login_service.dart';
+import 'package:learn_tagalog/widgets/custom_alert_dialog.dart';
 import 'package:learn_tagalog/widgets/icon_widget.dart';
 import 'package:learn_tagalog/models/loginusermodel.dart';
 import 'package:learn_tagalog/screens/reminder_detail.dart';
@@ -12,7 +13,6 @@ import 'package:learn_tagalog/screens/welcomepage.dart';
 import 'package:learn_tagalog/services/google_login_service.dart';
 import 'package:learn_tagalog/widgets/theme_background_color.dart';
 import 'package:provider/provider.dart';
-
 
 class ProfilePage extends StatefulWidget {
   final bool showProfilePic = true;
@@ -33,6 +33,51 @@ class _ProfilePageState extends State<ProfilePage> {
 
   Future<void> getCurrentUser() async {
     email = auth.currentUser.email;
+  }
+
+  alertDialog(BuildContext context) {
+    showDialog(
+        context: context,
+        builder: (BuildContext alertContext) {
+          return CustomAlertDialog(
+            title: 'Logout',
+            content: 'Are you sure want to Logout?',
+            button1Text: 'Yes',
+            btn1Func: () {
+              final GoogleLoginService loginService =
+                  Provider.of<GoogleLoginService>(context, listen: false);
+
+              LoginUserModel userModel = loginService.loggedInUserModel;
+
+              if (userModel != null || email != null) {
+                Settings.clearCache();
+                loginService.singOut();
+                context.read<EmailLoginService>().signOut();
+
+                ScaffoldMessenger.of(context).showSnackBar(
+                  const SnackBar(
+                    content: Text('User Logged Out!'),
+                  ),
+                );
+
+                Navigator.pushAndRemoveUntil(
+                    context,
+                    MaterialPageRoute(builder: (context) => WelcomePage()),
+                    (route) => false);
+              } else {
+                ScaffoldMessenger.of(context).showSnackBar(
+                  const SnackBar(
+                    content: Text('No user Logged in '),
+                  ),
+                );
+              }
+            },
+            button2Text: 'No',
+            btn2Func: () {
+              Navigator.of(alertContext, rootNavigator: true).pop();
+            },
+          );
+        });
   }
 
   @override
@@ -98,11 +143,6 @@ class _ProfilePageState extends State<ProfilePage> {
   }
 
   Widget buildLogout(BuildContext context) {
-    final GoogleLoginService loginService =
-        Provider.of<GoogleLoginService>(context, listen: false);
-
-    LoginUserModel userModel = loginService.loggedInUserModel;
-
     return SimpleSettingsTile(
       title: "Logout",
       subtitle: '',
@@ -111,34 +151,12 @@ class _ProfilePageState extends State<ProfilePage> {
         color: Colors.blueAccent,
       ),
       onTap: () {
-        //TODO: Invoke an Alert before user logs out
-        if (userModel != null || email != null) {
-          Settings.clearCache();
-          loginService.singOut();
-          //logOutEmail();
-          context.read<EmailLoginService>().signOut();
-
-          ScaffoldMessenger.of(context).showSnackBar(
-            const SnackBar(
-              content: Text('User Logged Out!'),
-            ),
-          );
-
-          Navigator.pushAndRemoveUntil(
-              context,
-              MaterialPageRoute(builder: (context) => WelcomePage()),
-              (route) => false);
-        } else {
-          ScaffoldMessenger.of(context).showSnackBar(
-            const SnackBar(
-              content: Text('No user Logged in '),
-            ),
-          );
-        }
+        setState(() {
+          alertDialog(context);
+        });
       },
     );
   }
-
 
   Widget buildReportBug(BuildContext context) => SimpleSettingsTile(
         title: "Report Bug",
