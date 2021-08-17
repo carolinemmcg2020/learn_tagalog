@@ -81,9 +81,9 @@ class QuizBrain {
     int numOfQs = lessonBank.length - 1;
 
     if (option1 == option2 || option1 == _lessonNumber) {
-      if (!(option1 == numOfQs)) {
+      if (!(option1 >= numOfQs)) {
         option1++;
-      } else if (option1 == option3 || !(option1 == numOfQs)) {
+      } else if (option1 == option3 || !(option1 >= numOfQs)) {
         if (option1 == _lessonNumber) {
           option1++;
         }
@@ -92,10 +92,10 @@ class QuizBrain {
       option1--;
     }
 
-    if (option2 == option3 || !(option2 == numOfQs)) {
+    if (option2 == option3 || !(option2 >= numOfQs)) {
       if (option2 == 0) {
         option2++;
-      } else if (option2 == option1 || !(option2 == numOfQs)) {
+      } else if (option2 == option1 || !(option2 >= numOfQs)) {
         if (option2 == _lessonNumber) {
           option2++;
         }
@@ -103,10 +103,10 @@ class QuizBrain {
     } else if (option2 != 0) {
       option2--;
     }
-    if (option3 == option1 || !(option3 == numOfQs)) {
+    if (option3 == option1 || !(option3 >= numOfQs)) {
       if (option3 == 0) {
         option3++;
-      } else if (option3 == option2 || !(option3 == numOfQs)) {
+      } else if (option3 == option2 || !(option3 >= numOfQs)) {
         if (option3 == 0 || option3 == _lessonNumber) {
           option3++;
         }
