@@ -4,6 +4,7 @@ import 'package:learn_tagalog/alphabet_letters_icons.dart';
 import 'package:learn_tagalog/models/lesson.dart';
 import 'package:learn_tagalog/models/lessoncontent.dart';
 import 'package:learn_tagalog/models/topic.dart';
+import 'package:learn_tagalog/months_icon_icons.dart';
 import 'package:learn_tagalog/number_icons_icons.dart';
 import 'package:learn_tagalog/weekday_icons_icons.dart';
 
@@ -17,7 +18,7 @@ class Utils {
         backgroundColor: Color.fromRGBO(171, 236, 49, 1.0),
         lessons: [
           Lesson(
-              name: 'Lesson One',
+              name: 'Alphabet One',
               icon: FontAwesomeIcons.pencilAlt,
               color: Color.fromRGBO(124, 180, 2, 1.0),
               backgroundColor: Color.fromRGBO(171, 236, 49, 1.0),
@@ -104,7 +105,7 @@ class Utils {
                 )
               ],),
           Lesson(
-              name: 'Lesson Two',
+              name: 'Alphabet Two',
               icon: FontAwesomeIcons.bookOpen,
               color: Color.fromRGBO(124, 180, 2, 1.0),
               backgroundColor: Color.fromRGBO(171, 236, 49, 1.0),
@@ -182,7 +183,7 @@ class Utils {
         backgroundColor: Colors.green[400],
         lessons: [
           Lesson(
-              name: 'Lesson One',
+              name: 'Numbers One',
               icon: FontAwesomeIcons.sortAmountUp,
               color: Color.fromRGBO(0, 149, 85, 1.0),
               backgroundColor: Colors.green[400],
@@ -269,7 +270,7 @@ class Utils {
                 )
               ]),
           Lesson(
-            name: 'Lesson Two',
+            name: 'Numbers Two',
             icon: FontAwesomeIcons.listOl,
             color: Color.fromRGBO(0, 149, 85, 1.0),
             backgroundColor: Colors.green[400],
@@ -373,7 +374,7 @@ class Utils {
             ],
           ),
           Lesson(
-              name: 'Lesson Three',
+              name: 'Numbers Three',
               icon: FontAwesomeIcons.calculator,
               color: Color.fromRGBO(0, 149, 85, 1.0),
               backgroundColor: Colors.green[400],
@@ -460,7 +461,7 @@ class Utils {
                 ),
               ]),
           Lesson(
-              name: 'Lesson Four',
+              name: 'Numbers Four',
               icon: FontAwesomeIcons.sortNumericDown,
               color: Color.fromRGBO(0, 149, 85, 1.0),
               backgroundColor: Colors.green[400],
@@ -548,7 +549,7 @@ class Utils {
                 ),
               ]),
           Lesson(
-            name: 'Lesson Five',
+            name: 'Numbers Five',
             icon: FontAwesomeIcons.pencilRuler,
             color: Color.fromRGBO(0, 149, 85, 1.0),
             backgroundColor: Colors.green[400],
@@ -642,7 +643,6 @@ class Utils {
           ),
         ],
       ),
-      //TODO: Make Custom Icons
       Topic(
         name: 'Days of the Week',
         icon: FontAwesomeIcons.plane,
@@ -650,7 +650,7 @@ class Utils {
         backgroundColor: Colors.redAccent,
         lessons: [
           Lesson(
-              name: 'Lesson One',
+              name: 'Days One',
               icon: FontAwesomeIcons.bicycle,
               color: Colors.red[700],
               backgroundColor: Colors.redAccent,
@@ -708,7 +708,7 @@ class Utils {
                     type: 'word'),
               ]),
           Lesson(
-              name: 'Lesson Two',
+              name: 'Days Two',
               icon: FontAwesomeIcons.tractor,
               color: Colors.red[700],
               backgroundColor: Colors.redAccent,
@@ -766,7 +766,7 @@ class Utils {
                     type: 'phrase'),
               ]),
           Lesson(
-              name: 'Lesson Three',
+              name: 'Days Three',
               icon: FontAwesomeIcons.spaceShuttle,
               color: Colors.red[700],
               backgroundColor: Colors.redAccent,
@@ -827,84 +827,84 @@ class Utils {
                 LessonContent(
                     tagalogWord: 'Enero',
                     engWord: 'January',
-                    icon: FontAwesomeIcons.jedi,
+                    icon: MonthsIcon.jan,
                     audio: 'assets/audio/Enero.mp3',
                     color: Colors.white,
                     type: 'word'),
                 LessonContent(
                     tagalogWord: 'Pebrero',
                     engWord: 'February',
-                    icon: FontAwesomeIcons.jedi,
+                    icon: MonthsIcon.feb,
                     audio: 'assets/audio/Pebrero.mp3',
                     color: Colors.white,
                     type: 'word'),
                 LessonContent(
                     tagalogWord: 'Marso',
                     engWord: 'March',
-                    icon: FontAwesomeIcons.jedi,
+                    icon: MonthsIcon.mar,
                     audio: 'assets/audio/Marso.mp3',
                     color: Colors.white,
                     type: 'word'),
                 LessonContent(
                     tagalogWord: 'Abril',
                     engWord: 'April',
-                    icon: FontAwesomeIcons.jedi,
+                    icon: MonthsIcon.apr,
                     audio: 'assets/audio/Abril.mp3',
                     color: Colors.white,
                     type: 'word'),
                 LessonContent(
                     tagalogWord: 'Mayo',
                     engWord: 'May',
-                    icon: FontAwesomeIcons.jedi,
+                    icon: MonthsIcon.may,
                     audio: 'assets/audio/Mayo.mp3',
                     color: Colors.white,
                     type: 'word'),
                 LessonContent(
                     tagalogWord: 'Hunyo',
                     engWord: 'June',
-                    icon: FontAwesomeIcons.jedi,
+                    icon: MonthsIcon.jun,
                     audio: 'assets/audio/Hunyo.mp3',
                     color: Colors.white,
                     type: 'word'),
                 LessonContent(
                     tagalogWord: 'Hulyo',
                     engWord: 'July',
-                    icon: FontAwesomeIcons.jedi,
+                    icon: MonthsIcon.jul,
                     audio: 'assets/audio/Hulyo.mp3',
                     color: Colors.white,
                     type: 'word'),
                 LessonContent(
                     tagalogWord: 'Agosto',
                     engWord: 'August',
-                    icon: FontAwesomeIcons.jedi,
+                    icon: MonthsIcon.aug,
                     audio: 'assets/audio/Agosto.mp3',
                     color: Colors.white,
                     type: 'word'),
                 LessonContent(
                     tagalogWord: 'Septiembre',
                     engWord: 'September',
-                    icon: FontAwesomeIcons.jedi,
+                    icon:MonthsIcon.sep,
                     audio: 'assets/audio/Septiembre.mp3',
                     color: Colors.white,
                     type: 'word'),
                 LessonContent(
                     tagalogWord: 'Oktubre',
                     engWord: 'October',
-                    icon: FontAwesomeIcons.jedi,
+                    icon: MonthsIcon.oct,
                     audio: 'assets/audio/Oktubre.mp3',
                     color: Colors.white,
                     type: 'word'),
                 LessonContent(
                     tagalogWord: 'Nobyembre',
                     engWord: 'November',
-                    icon: FontAwesomeIcons.jedi,
+                    icon: MonthsIcon.nov,
                     audio: 'assets/audio/Nobyembre.mp3',
                     color: Colors.white,
                     type: 'word'),
                 LessonContent(
                     tagalogWord: 'Disyembre',
                     engWord: 'Decemeber',
-                    icon: FontAwesomeIcons.jedi,
+                    icon: MonthsIcon.dec,
                     audio: 'assets/audio/Disyembre.mp3',
                     color: Colors.white,
                     type: 'word'),
