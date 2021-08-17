@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:learn_tagalog/alphabet_letters_icons.dart';
 import 'package:learn_tagalog/models/lesson.dart';
 import 'package:learn_tagalog/models/lessoncontent.dart';
 import 'package:learn_tagalog/models/topic.dart';
@@ -24,7 +25,7 @@ class Utils {
                 LessonContent(
                   tagalogWord: 'Ah',
                   engWord: 'A',
-                  icon: FontAwesomeIcons.monument,
+                  icon: AlphabetLetters.alpha_a,
                   audio: 'assets/audio/Ah.mp3',
                   color: Colors.yellow,
                   type: 'letter',
@@ -32,7 +33,7 @@ class Utils {
                 LessonContent(
                   tagalogWord: 'Ba',
                   engWord: 'B',
-                  icon: FontAwesomeIcons.monument,
+                  icon: AlphabetLetters.alpha_b,
                   audio: 'assets/audio/Ba.mp3',
                   color: Colors.yellow,
                   type: 'letter',
@@ -40,7 +41,7 @@ class Utils {
                 LessonContent(
                   tagalogWord: 'Ka',
                   engWord: 'C',
-                  icon: FontAwesomeIcons.monument,
+                  icon: AlphabetLetters.alpha_c,
                   audio: 'assets/audio/Ka.mp3',
                   color: Colors.yellow,
                   type: 'letter',
@@ -48,7 +49,7 @@ class Utils {
                 LessonContent(
                   tagalogWord: 'Da',
                   engWord: 'D',
-                  icon: FontAwesomeIcons.monument,
+                  icon: AlphabetLetters.alpha_d,
                   audio: 'assets/audio/Da.mp3',
                   color: Colors.yellow,
                   type: 'letter',
@@ -56,7 +57,7 @@ class Utils {
                 LessonContent(
                   tagalogWord: 'Eh',
                   engWord: 'E',
-                  icon: FontAwesomeIcons.monument,
+                  icon: AlphabetLetters.alpha_e,
                   audio: 'assets/audio/Eh.mp3',
                   color: Colors.yellow,
                   type: 'letter',
@@ -64,7 +65,7 @@ class Utils {
                 LessonContent(
                   tagalogWord: 'Ga',
                   engWord: 'G',
-                  icon: FontAwesomeIcons.monument,
+                  icon: AlphabetLetters.alpha_g,
                   audio: 'assets/audio/Ga.mp3',
                   color: Colors.yellow,
                   type: 'letter',
@@ -72,7 +73,7 @@ class Utils {
                 LessonContent(
                   tagalogWord: 'Ha',
                   engWord: 'H',
-                  icon: FontAwesomeIcons.monument,
+                  icon: AlphabetLetters.alpha_h,
                   audio: 'assets/audio/Ha.mp3',
                   color: Colors.yellow,
                   type: 'letter',
@@ -80,7 +81,7 @@ class Utils {
                 LessonContent(
                   tagalogWord: 'e',
                   engWord: 'I',
-                  icon: FontAwesomeIcons.monument,
+                  icon: AlphabetLetters.alpha_i,
                   audio: 'assets/audio/E.mp3',
                   color: Colors.yellow,
                   type: 'letter',
@@ -88,7 +89,7 @@ class Utils {
                 LessonContent(
                   tagalogWord: 'La',
                   engWord: 'L',
-                  icon: FontAwesomeIcons.monument,
+                  icon: AlphabetLetters.alpha_l,
                   audio: 'assets/audio/La.mp3',
                   color: Colors.yellow,
                   type: 'letter',
@@ -96,7 +97,7 @@ class Utils {
                 LessonContent(
                   tagalogWord: 'Ma',
                   engWord: 'M',
-                  icon: FontAwesomeIcons.monument,
+                  icon: AlphabetLetters.alpha_m,
                   audio: 'assets/audio/Ma.mp3',
                   color: Colors.yellow,
                   type: 'letter',
@@ -111,63 +112,63 @@ class Utils {
                 LessonContent(
                     tagalogWord: 'Na',
                     engWord: 'N',
-                    icon: FontAwesomeIcons.monument,
+                    icon: AlphabetLetters.alpha_n,
                     audio: 'assets/audio/Na.mp3',
                     color: Colors.yellow,
                     type: 'word'),
                 LessonContent(
                     tagalogWord: 'Oh',
                     engWord: 'O',
-                    icon: FontAwesomeIcons.monument,
+                    icon: AlphabetLetters.alpha_o,
                     audio: 'assets/audio/Oh.mp3',
                     color: Colors.yellow,
                     type: 'word'),
                 LessonContent(
                     tagalogWord: 'Pah',
                     engWord: 'P',
-                    icon: FontAwesomeIcons.monument,
+                    icon: AlphabetLetters.alpha_p,
                     audio: 'assets/audio/Pa.mp3',
                     color: Colors.yellow,
                     type: 'word'),
                 LessonContent(
                     tagalogWord: 'Ra',
                     engWord: 'R',
-                    icon: FontAwesomeIcons.monument,
+                    icon: AlphabetLetters.alpha_r,
                     audio: 'assets/audio/Ra.mp3',
                     color: Colors.yellow,
                     type: 'word'),
                 LessonContent(
                     tagalogWord: 'Sa',
                     engWord: 'S',
-                    icon: FontAwesomeIcons.monument,
+                    icon: AlphabetLetters.alpha_s,
                     audio: 'assets/audio/Sa.mp3',
                     color: Colors.yellow,
                     type: 'word'),
                 LessonContent(
                     tagalogWord: 'Ta',
                     engWord: 'T',
-                    icon: FontAwesomeIcons.monument,
+                    icon: AlphabetLetters.alpha_t,
                     audio: 'assets/audio/Ta.mp3',
                     color: Colors.yellow,
                     type: 'word'),
                 LessonContent(
                     tagalogWord: 'Ooh',
                     engWord: 'U',
-                    icon: FontAwesomeIcons.monument,
+                    icon: AlphabetLetters.alpha_u,
                     audio: 'assets/audio/ooh.mp3',
                     color: Colors.yellow,
                     type: 'word'),
                 LessonContent(
                     tagalogWord: 'Wa',
                     engWord: 'W',
-                    icon: FontAwesomeIcons.monument,
+                    icon: AlphabetLetters.alpha_w,
                     audio: 'assets/audio/wah.mp3',
                     color: Colors.yellow,
                     type: 'word'),
                 LessonContent(
                     tagalogWord: 'Ya',
                     engWord: 'Y',
-                    icon: FontAwesomeIcons.monument,
+                    icon: AlphabetLetters.alpha_y,
                     audio: 'assets/audio/Ya.mp3',
                     color: Colors.yellow,
                     type: 'word')
