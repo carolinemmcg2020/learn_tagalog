@@ -1051,7 +1051,7 @@ class Utils {
         lessons: [
           Lesson(
               name: 'Colours One',
-              icon: FontAwesomeIcons.bicycle,
+              icon: FontAwesomeIcons.paintBrush,
               color: Colors.deepOrange,
               backgroundColor: Colors.orangeAccent,
               lessonContent: [
@@ -1100,7 +1100,7 @@ class Utils {
               ]),
           Lesson(
               name: 'Colours Two',
-              icon: FontAwesomeIcons.tractor,
+              icon: FontAwesomeIcons.paintRoller,
               color: Colors.deepOrange,
               backgroundColor: Colors.orangeAccent,
               lessonContent: [
@@ -1128,7 +1128,7 @@ class Utils {
               ]),
           Lesson(
               name: 'Colours Three',
-              icon: FontAwesomeIcons.spaceShuttle,
+              icon: FontAwesomeIcons.hatWizard,
               color: Colors.deepOrange,
               backgroundColor: Colors.orangeAccent,
               lessonContent: [
@@ -1175,7 +1175,7 @@ class Utils {
               ]),
           Lesson(
               name: 'Colours Four',
-              icon: FontAwesomeIcons.plane,
+              icon: FontAwesomeIcons.shoppingBag,
               color: Colors.deepOrange,
               backgroundColor: Colors.orangeAccent,
               lessonContent: [
@@ -1222,7 +1222,7 @@ class Utils {
               ]),
           Lesson(
               name: 'Colours Five',
-              icon: FontAwesomeIcons.car,
+              icon: FontAwesomeIcons.tshirt,
               color: Colors.deepOrange,
               backgroundColor: Colors.orangeAccent,
               lessonContent: [
@@ -1293,7 +1293,7 @@ class Utils {
               ]),
           Lesson(
             name: 'Colours Six',
-            icon: FontAwesomeIcons.train,
+            icon: FontAwesomeIcons.suitcase,
             color: Colors.deepOrange,
             backgroundColor: Colors.orangeAccent,
             lessonContent: [
