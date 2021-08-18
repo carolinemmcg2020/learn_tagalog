@@ -10,7 +10,6 @@ class RegisterPage extends StatefulWidget {
   @override
   _RegisterPageState createState() => _RegisterPageState();
 }
-//TODO: Refactor, delete other signup page
 class _RegisterPageState extends State<RegisterPage> {
   bool _obscureText = true;
   String _username, _email, _password;

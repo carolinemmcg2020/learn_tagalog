@@ -76,7 +76,6 @@ class Topics extends StatelessWidget {
                                 return LessonCard(
                                   lesson: categories[index].lessons[ind],
                                   onCardClick: () {
-                                    //TODO: Refactor
                                     showDialog(
                                       context: context,
                                       builder: (BuildContext alertContext) {

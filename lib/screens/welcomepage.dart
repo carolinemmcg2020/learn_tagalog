@@ -184,7 +184,6 @@ class _WelcomePageState extends State<WelcomePage>
                   DelayedAnimation(
                     child: GestureDetector(
                       onTap: () {
-                        //TODO: Navigate to the login page
                         Navigator.push(
                           context,
                           MaterialPageRoute(

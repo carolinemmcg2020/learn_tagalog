@@ -12,7 +12,6 @@ class LoginPage extends StatefulWidget {
   @override
   _LoginPageState createState() => _LoginPageState();
 }
-//TODO: Refactor, delete other login page.
 class _LoginPageState extends State<LoginPage> {
   bool _obscureText = true;
   String _email, _password;

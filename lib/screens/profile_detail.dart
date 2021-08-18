@@ -157,7 +157,7 @@ class _ProfilePageState extends State<ProfilePage> {
       },
     );
   }
-
+//TODO: Remove these
   Widget buildReportBug(BuildContext context) => SimpleSettingsTile(
         title: "Report Bug",
         subtitle: '',
