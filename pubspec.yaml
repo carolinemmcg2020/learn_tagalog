@@ -113,6 +113,14 @@ flutter:
     - family: NumberIcons
       fonts:
          - asset: assets/fonts/NumberIcons.ttf
+
+    - family: AlphabetLetters
+      fonts:
+         - asset: assets/fonts/AlphabetLetters.ttf
+
+    - family: MonthsIcon
+      fonts:
+        - asset: assets/fonts/MonthsIcon.ttf
   #   - family: Trajan Pro
   #     fonts:
   #       - asset: fonts/TrajanPro.ttf
