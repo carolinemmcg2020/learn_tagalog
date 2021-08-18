@@ -5,15 +5,28 @@ import 'package:learn_tagalog/utilities/results_logic.dart';
 import 'package:learn_tagalog/widgets/theme_background_color.dart';
 import 'package:percent_indicator/circular_percent_indicator.dart';
 
-class ResultsDetail extends StatelessWidget {
+class ResultsDetail extends StatefulWidget {
   final int userResults;
   List<Lesson> numOfQs;
 
-  bool isVisible = false;
  static const String message = '';
- ResultLogic resultLogic = ResultLogic();
 
   ResultsDetail({this.userResults, this.numOfQs});
+
+  @override
+  _ResultsDetailState createState() => _ResultsDetailState();
+}
+
+class _ResultsDetailState extends State<ResultsDetail> {
+  bool isVisible = false;
+
+ ResultLogic resultLogic;
+
+ @override
+ void initState(){
+   super.initState();
+   resultLogic = ResultLogic();
+ }
 
   Widget buildButton(BuildContext context) {
     if (isVisible) {
@@ -97,8 +110,8 @@ class ResultsDetail extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var percent = (userResults / numOfQs.length).toDouble();
-    int percentText = (userResults / numOfQs.length * 100).toInt();
+    var percent = (widget.userResults / widget.numOfQs.length).toDouble();
+    int percentText = (widget.userResults / widget.numOfQs.length * 100).toInt();
 
     return Scaffold(
       body: ThemeColor(
@@ -131,7 +144,7 @@ class ResultsDetail extends StatelessWidget {
                 ),
               ),
               Visibility(
-                visible: resultLogic.failMessage(userResults, numOfQs),
+                visible: resultLogic.failMessage(widget.userResults, widget.numOfQs),
                 child: Text(
                   'You should review the lesson content again before continuing to the next lesson',
                   textAlign: TextAlign.center,
@@ -144,7 +157,7 @@ class ResultsDetail extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.all(20.0),
                 child: Text(
-                  resultLogic.resultMessage(userResults, numOfQs),
+                  resultLogic.resultMessage(widget.userResults, widget.numOfQs),
                   style: TextStyle(fontSize: 28.0, fontWeight: FontWeight.w300),
                   textAlign: TextAlign.center,
                 ),
