@@ -91,6 +91,10 @@ flutter:
   assets:
     - assets/audio/
     - assets/audio/alphabet/
+    - assets/audio/numbers/
+    - assets/audio/days_of_the_week/
+    - assets/audio/months/
+    - assets/audio/colours/
     - assets/custom_icon/
   #   - images/a_dot_burr.jpeg
   #   - images/a_dot_ham.jpeg
