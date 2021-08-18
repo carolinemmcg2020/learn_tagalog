@@ -7,8 +7,9 @@ class CustomLessonIcon extends StatelessWidget {
   Function onDoubleTap;
   IconData icon;
   Color iconColor;
-
-CustomLessonIcon({this.onTap, this.onDoubleTap, this.icon, this.iconColor});
+  double iconSize;
+  double glowRadius;
+CustomLessonIcon({this.onTap, this.onDoubleTap, this.icon, this.iconColor, this.iconSize, this.glowRadius});
 
   @override
   Widget build(BuildContext context) {
@@ -17,7 +18,7 @@ CustomLessonIcon({this.onTap, this.onDoubleTap, this.icon, this.iconColor});
       onDoubleTap: onDoubleTap,
       child: Container(
         child: AvatarGlow(
-          endRadius: 120,
+          endRadius: glowRadius,
           duration: Duration(seconds: 2),
           glowColor: Colors.white24,
           repeat: true,
@@ -28,7 +29,7 @@ CustomLessonIcon({this.onTap, this.onDoubleTap, this.icon, this.iconColor});
             shape: CircleBorder(),
             child: Icon(
               icon,
-              size: 140.0,
+              size: iconSize,
               color: iconColor,
             ),
           ),
