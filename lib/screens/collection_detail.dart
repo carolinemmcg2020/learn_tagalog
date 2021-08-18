@@ -8,11 +8,6 @@ import 'package:learn_tagalog/widgets/theme_background_color.dart';
 class Collection extends StatefulWidget {
   List<Topic> collectionContent = Utils.getMockedCategories();
 
- // List<Lesson> collectionContents ;
-
- // Collection({this.collectionContents});
-
-
   @override
   _CollectionState createState() => _CollectionState();
 }
@@ -107,7 +102,7 @@ class _CollectionState extends State<Collection> {
                                                 child: Row(
                                                   children: [
                                                     Padding(
-                                                      padding:  EdgeInsets.all(8.0),
+                                                      padding:  EdgeInsets.all(18.0),
                                                       child: Icon(
                                                         collectionContents.lessonContent[contentIndex].icon,
                                                         size: 35.0,
