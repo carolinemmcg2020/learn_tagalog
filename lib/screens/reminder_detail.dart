@@ -5,7 +5,7 @@ import 'package:learn_tagalog/services/notificaiton_service.dart';
 import 'package:learn_tagalog/utilities/reminder_logic.dart';
 import 'package:learn_tagalog/widgets/theme_background_color.dart';
 
-import '../bottom_nav_bar.dart';
+import 'bottom_nav_bar.dart';
 
 class Reminder extends StatefulWidget {
   @override

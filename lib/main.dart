@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart' as firebase;
 import 'package:flutter/services.dart';
 import 'package:flutter_settings_screens/flutter_settings_screens.dart';
-import 'package:learn_tagalog/bottom_nav_bar.dart';
+import 'package:learn_tagalog/screens/bottom_nav_bar.dart';
 import 'package:learn_tagalog/screens/header_page.dart';
 import 'package:learn_tagalog/screens/welcome_detail.dart';
 import 'package:learn_tagalog/services/email_login_service.dart';

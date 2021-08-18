@@ -3,7 +3,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:learn_tagalog/screens/collection_detail.dart';
 import 'package:learn_tagalog/screens/profile_detail.dart';
 import 'package:learn_tagalog/screens/topics_detail.dart';
-import 'models/lesson.dart';
+import '../models/lesson.dart';
 
 
 class BottomNavBar extends StatefulWidget {
