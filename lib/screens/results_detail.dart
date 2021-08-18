@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:learn_tagalog/models/lesson.dart';
+import 'package:learn_tagalog/utilities/results_logic.dart';
 import 'package:learn_tagalog/widgets/theme_background_color.dart';
 import 'package:percent_indicator/circular_percent_indicator.dart';
 
@@ -10,30 +11,9 @@ class ResultsDetail extends StatelessWidget {
 
   bool isVisible = false;
  static const String message = '';
+ ResultLogic resultLogic = ResultLogic();
 
   ResultsDetail({this.userResults, this.numOfQs});
-
-  String resultMessage() {
-    if (userResults > ((numOfQs.length * 7) * 0.1)) {
-      isVisible = false;
-      print(isVisible);
-      return 'Great results! You can move to the next Lesson';
-    } else if (userResults >= numOfQs.length / 2) {
-      return 'Well Done! You may want to review the content later';
-    } else {
-      isVisible = true;
-      print(isVisible);
-      return 'Try again!';
-    }
-  }
-
-  bool failMessage() {
-    if (userResults >= numOfQs.length / 2) {
-      return isVisible = false;
-    } else {
-      return isVisible = true;
-    }
-  }
 
   Widget buildButton(BuildContext context) {
     if (isVisible) {
@@ -144,14 +124,14 @@ class ResultsDetail extends StatelessWidget {
                   circularStrokeCap: CircularStrokeCap.round,
                   percent: percent,
                   center: Text(
-                    '$percentText\%',
+                    "$percentText\%",
                     style:
                         TextStyle(fontSize: 60.0, fontWeight: FontWeight.w500),
                   ),
                 ),
               ),
               Visibility(
-                visible: failMessage(),
+                visible: resultLogic.failMessage(userResults, numOfQs),
                 child: Text(
                   'You should review the lesson content again before continuing to the next lesson',
                   textAlign: TextAlign.center,
@@ -164,7 +144,7 @@ class ResultsDetail extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.all(20.0),
                 child: Text(
-                  resultMessage(),
+                  resultLogic.resultMessage(userResults, numOfQs),
                   style: TextStyle(fontSize: 28.0, fontWeight: FontWeight.w300),
                   textAlign: TextAlign.center,
                 ),
@@ -172,43 +152,6 @@ class ResultsDetail extends StatelessWidget {
               SizedBox(
                 height: 20,
               ),
-              /*SizedBox(
-                width: 100,
-                child: ClipRect(
-                  child: Stack(
-                    children: [
-                      Positioned.fill(
-                        child: Container(
-                          decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(10.0),
-                              gradient: LinearGradient(
-                                colors: <Color>[
-                                  Color(0xFF0D47A1),
-                                  Color(0xFF1976D2),
-                                  Color(0xFF42A5F5),
-                                ],
-                              )),
-                        ),
-                      ),
-                      Center(
-                        child: TextButton(
-                          style: TextButton.styleFrom(
-                            padding: const EdgeInsets.all(16.0),
-                            primary: Colors.white,
-                            textStyle: const TextStyle(fontSize: 20),
-                          ),
-                          onPressed: () {
-                            Navigator.pop(context);
-                          },
-                          child: const Text(
-                            'Exit',
-                          ),
-                        ),
-                      )
-                    ],
-                  ),
-                ),
-              )*/
               buildButton(context),
             ],
           ),
