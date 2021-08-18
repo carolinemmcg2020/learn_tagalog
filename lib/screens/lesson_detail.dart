@@ -200,6 +200,8 @@ class _LessonDetailState extends State<LessonDetail> {
                       },
                       icon: widget.lessons.lessonContent[index].icon,
                       iconColor: widget.lessons.lessonContent[index].color,
+                      iconSize: 140.0,
+                      glowRadius: 120.0,
                     ),
                     Padding(
                       padding: const EdgeInsets.all(8.0),
