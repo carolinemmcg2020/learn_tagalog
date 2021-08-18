@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:learn_tagalog/alphabet_letters_icons.dart';
+import 'package:learn_tagalog/custom/alphabet_letters_icons.dart';
 import 'package:learn_tagalog/models/lesson.dart';
 import 'package:learn_tagalog/models/lesson_content.dart';
 import 'package:learn_tagalog/models/topic.dart';
-import 'package:learn_tagalog/months_icon_icons.dart';
-import 'package:learn_tagalog/number_icons_icons.dart';
-import 'package:learn_tagalog/weekday_icons_icons.dart';
+import 'package:learn_tagalog/custom/months_icon_icons.dart';
+import 'package:learn_tagalog/custom/number_icons_icons.dart';
+import 'package:learn_tagalog/custom/weekday_icons_icons.dart';
 
 class Utils {
   static List<Topic> getMockedCategories() {
