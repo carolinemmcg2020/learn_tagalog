@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:learn_tagalog/custom/alphabet_letters_icons.dart';
+import 'package:learn_tagalog/custom/days_icons_icons.dart';
 import 'package:learn_tagalog/models/lesson.dart';
 import 'package:learn_tagalog/models/lesson_content.dart';
 import 'package:learn_tagalog/models/topic.dart';
 import 'package:learn_tagalog/custom/months_icon_icons.dart';
 import 'package:learn_tagalog/custom/number_icons_icons.dart';
-import 'package:learn_tagalog/custom/weekday_icons_icons.dart';
 
 class Utils {
   static List<Topic> getMockedCategories() {
@@ -659,28 +659,28 @@ class Utils {
                     tagalogWord: 'Lunes',
                     engWord: 'Monday',
                     color: Colors.orange,
-                    icon: WeekdayIcons.monday_calendar_page,
+                    icon: DaysIcons.monday_calendar_page,
                     audio: 'assets/audio/Lunes.mp3',
                     type: 'word'),
                 LessonContent(
                     tagalogWord: 'Martes',
                     engWord: 'Tuesday',
                     color: Colors.orange,
-                    icon: WeekdayIcons.tuesday_daily_calendar_page,
+                    icon: DaysIcons.tuesday_daily_calendar_page,
                     audio: 'assets/audio/Martes.mp3',
                     type: 'word'),
                 LessonContent(
                     tagalogWord: 'Miyerkules',
                     engWord: 'Wednesday',
                     color: Colors.orange,
-                    icon: WeekdayIcons.wednesday_calendar_daily_page,
+                    icon: DaysIcons.wednesday_calendar_daily_page,
                     audio: 'assets/audio/Miyerkules.mp3',
                     type: 'word'),
                 LessonContent(
                     tagalogWord: 'Huwebes',
                     engWord: 'Thursday',
                     color: Colors.orange,
-                    icon: WeekdayIcons
+                    icon: DaysIcons
                         .thursday_calendar_daily_page_interface_symbol,
                     audio: 'assets/audio/Huwebes.mp3',
                     type: 'word'),
@@ -688,14 +688,14 @@ class Utils {
                     tagalogWord: 'Biyernes',
                     engWord: 'Friday',
                     color: Colors.orange,
-                    icon: WeekdayIcons.friday_daily_calendar_page,
+                    icon: DaysIcons.friday_daily_calendar_page,
                     audio: 'assets/audio/Biyernes.mp3',
                     type: 'word'),
                 LessonContent(
                     tagalogWord: 'Sabado',
                     engWord: 'Saturday',
                     color: Colors.orange,
-                    icon: WeekdayIcons
+                    icon: DaysIcons
                         .saturday_calendar_daily_page_interface_symbol,
                     audio: 'assets/audio/Sabado.mp3',
                     type: 'word'),
@@ -703,7 +703,7 @@ class Utils {
                     tagalogWord: 'Linggo',
                     engWord: 'Sunday',
                     color: Colors.orange,
-                    icon: WeekdayIcons.sunday_daily_calendar_page,
+                    icon: DaysIcons.sunday_daily_calendar_page,
                     audio: 'assets/audio/Linggo.mp3',
                     type: 'word'),
               ]),
@@ -717,51 +717,51 @@ class Utils {
                     tagalogWord: 'Ngayon ay Lunes',
                     engWord: 'Today is Monday',
                     color: Colors.orange,
-                    icon: WeekdayIcons.monday_calendar_page,
+                    icon: DaysIcons.monday_calendar_page,
                     audio: 'assets/audio/Ngayun ay Lunes.mp3',
                     type: 'phrase'),
                 LessonContent(
                     tagalogWord: 'Bukas ay Miyerkules',
                     engWord: 'Tomorrow',
                     color: Colors.orange,
-                    icon: WeekdayIcons.tuesday_daily_calendar_page,
+                    icon: DaysIcons.tuesday_daily_calendar_page,
                     audio: 'assets/audio/Bukas ay Miyerkules.mp3',
                     type: 'phrase'),
                 LessonContent(
                     tagalogWord: 'Ngayon ay Huwebes',
                     engWord: 'Today is Thursday',
                     color: Colors.orange,
-                    icon: WeekdayIcons.wednesday_calendar_daily_page,
+                    icon: DaysIcons.thursday_calendar_daily_page_interface_symbol,
                     audio: 'assets/audio/Ngayon ay Huwebes.mp3',
                     type: 'phrase'),
                 LessonContent(
                     tagalogWord: 'Ngayon ay Biyernes',
                     engWord: 'Today is Friday',
                     color: Colors.orange,
-                    icon: WeekdayIcons
-                        .thursday_calendar_daily_page_interface_symbol,
+                    icon: DaysIcons
+                        .friday_daily_calendar_page,
                     audio: 'assets/audio/Ngayon ay Biyernes.mp3',
                     type: 'phrase'),
                 LessonContent(
                     tagalogWord: 'Bukas ay Sabado',
                     engWord: 'Tomorrow is Saturday',
                     color: Colors.orange,
-                    icon: WeekdayIcons.friday_daily_calendar_page,
+                    icon: DaysIcons.saturday_calendar_daily_page_interface_symbol,
                     audio: 'assets/audio/Bukas ay Sabado.mp3',
                     type: 'phrase'),
                 LessonContent(
                     tagalogWord: 'Kahapon ay Martes',
                     engWord: 'Yesterday was Tuesday',
                     color: Colors.orange,
-                    icon: WeekdayIcons
-                        .saturday_calendar_daily_page_interface_symbol,
+                    icon: DaysIcons
+                        .tuesday_daily_calendar_page,
                     audio: 'assets/audio/Kahapon ay Martes.mp3',
                     type: 'phrase'),
                 LessonContent(
                     tagalogWord: 'Ngayon ay Linggo',
                     engWord: 'Today is Sunday',
                     color: Colors.orange,
-                    icon: WeekdayIcons.sunday_daily_calendar_page,
+                    icon:DaysIcons.sunday_daily_calendar_page,
                     audio: 'assets/audio/Ngayon ay Linggo.mp3',
                     type: 'phrase'),
               ]),
