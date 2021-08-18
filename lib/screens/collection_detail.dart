@@ -2,18 +2,30 @@ import 'package:flutter/material.dart';
 import 'package:learn_tagalog/helpers/utils.dart';
 import 'package:learn_tagalog/models/lesson.dart';
 import 'package:learn_tagalog/models/topic.dart';
+import 'package:learn_tagalog/utilities/collection_logic.dart';
+import 'package:learn_tagalog/widgets/custom_lesson_icon.dart';
 import 'package:learn_tagalog/widgets/theme_background_color.dart';
 
-
 class Collection extends StatefulWidget {
-  List<Topic> collectionContent = Utils.getMockedCategories();
+  final List<Topic> collectionContent = Utils.getMockedCategories();
 
   @override
   _CollectionState createState() => _CollectionState();
 }
 
 class _CollectionState extends State<Collection> {
+  CollectionLogic collectionLogic;
 
+  @override
+  void initState() {
+    super.initState();
+    collectionLogic = CollectionLogic();
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -50,8 +62,7 @@ class _CollectionState extends State<Collection> {
                           Row(
                             children: [
                               Padding(
-                                padding:  EdgeInsets.only(
-                                    left: 15.0, top: 15.0),
+                                padding: EdgeInsets.only(left: 15.0, top: 15.0),
                                 child: Text(
                                   widget.collectionContent[index].name,
                                   style: TextStyle(
@@ -66,21 +77,24 @@ class _CollectionState extends State<Collection> {
                             child: ListView.builder(
                               shrinkWrap: true,
                               physics: NeverScrollableScrollPhysics(),
-                              itemCount: widget.collectionContent[index].lessons.length,
+                              itemCount: widget
+                                  .collectionContent[index].lessons.length,
                               itemBuilder: (BuildContext context, int ind) {
-                                Lesson collectionContents = widget.collectionContent[index].lessons[ind];
+                                Lesson collectionContents = widget
+                                    .collectionContent[index].lessons[ind];
                                 return Container(
                                   child: Column(
                                     children: [
                                       Row(
                                         children: [
                                           Padding(
-                                            padding:  EdgeInsets.only(
+                                            padding: EdgeInsets.only(
                                                 left: 15.0,
                                                 bottom: 5.0,
                                                 top: 5.0),
                                             child: Text(
-                                                widget.collectionContent[index].lessons[ind].name,
+                                              widget.collectionContent[index]
+                                                  .lessons[ind].name,
                                               style: TextStyle(
                                                   fontWeight: FontWeight.w300,
                                                   fontSize: 20.0,
@@ -92,9 +106,10 @@ class _CollectionState extends State<Collection> {
                                       SizedBox(
                                         child: ListView.builder(
                                           shrinkWrap: true,
-                                          physics: NeverScrollableScrollPhysics(),
-                                          itemCount:
-                                          collectionContents.lessonContent.length,
+                                          physics:
+                                              NeverScrollableScrollPhysics(),
+                                          itemCount: collectionContents
+                                              .lessonContent.length,
                                           itemBuilder: (BuildContext context,
                                               int contentIndex) {
                                             return Container(
@@ -102,11 +117,27 @@ class _CollectionState extends State<Collection> {
                                                 child: Row(
                                                   children: [
                                                     Padding(
-                                                      padding:  EdgeInsets.all(18.0),
-                                                      child: Icon(
-                                                        collectionContents.lessonContent[contentIndex].icon,
-                                                        size: 35.0,
-                                                        color: collectionContents.lessonContent[contentIndex].color,
+                                                      padding:
+                                                          EdgeInsets.all(12.0),
+                                                      child: CustomLessonIcon(
+                                                        icon: collectionContents
+                                                            .lessonContent[
+                                                                contentIndex]
+                                                            .icon,
+                                                        iconColor:
+                                                            collectionContents
+                                                                .lessonContent[
+                                                                    contentIndex]
+                                                                .color,
+                                                        iconSize: 35.0,
+                                                        glowRadius: 25.0,
+                                                        onTap: () {
+                                                          collectionLogic.playAudio(
+                                                              collectionContents
+                                                                  .lessonContent[
+                                                                      contentIndex]
+                                                                  .audio);
+                                                        },
                                                       ),
                                                     ),
                                                     SizedBox(
@@ -114,10 +145,14 @@ class _CollectionState extends State<Collection> {
                                                     ),
                                                     Expanded(
                                                       child: Text(
-                                                        collectionContents.lessonContent[contentIndex].name,
+                                                        collectionContents
+                                                            .lessonContent[
+                                                                contentIndex]
+                                                            .name,
                                                         style: TextStyle(
                                                             fontSize: 18.0),
-                                                        textAlign: TextAlign.center,
+                                                        textAlign:
+                                                            TextAlign.center,
                                                       ),
                                                     ),
                                                     SizedBox(
@@ -125,10 +160,14 @@ class _CollectionState extends State<Collection> {
                                                     ),
                                                     Expanded(
                                                       child: Text(
-                                                        collectionContents.lessonContent[contentIndex].engWord,
+                                                        collectionContents
+                                                            .lessonContent[
+                                                                contentIndex]
+                                                            .engWord,
                                                         style: TextStyle(
                                                             fontSize: 18.0),
-                                                        textAlign: TextAlign.center,
+                                                        textAlign:
+                                                            TextAlign.center,
                                                       ),
                                                     ),
                                                     // SizedBox(
