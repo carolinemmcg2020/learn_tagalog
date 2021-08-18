@@ -1,7 +1,7 @@
 import 'dart:math';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'lesson.dart';
+import '../models/lesson.dart';
 
 class QuizBrain {
   int _lessonNumber = 0;

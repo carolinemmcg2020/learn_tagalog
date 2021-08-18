@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:learn_tagalog/services/notificaiton_service.dart';
+import 'package:learn_tagalog/utilities/reminder_logic.dart';
 import 'package:learn_tagalog/widgets/theme_background_color.dart';
 
 import '../bottom_nav_bar.dart';
@@ -12,13 +13,16 @@ class Reminder extends StatefulWidget {
 }
 
 class _ReminderState extends State<Reminder> {
-  double _value = 0;
+  double _value = 9.48;
+
+  ReminderLogic reminderLogic;
 
   @override
   void initState() {
     NotificationService.init();
     listenNotifications();
     super.initState();
+    reminderLogic = ReminderLogic();
   }
 
   void listenNotifications() =>
@@ -27,7 +31,7 @@ class _ReminderState extends State<Reminder> {
   void onClickedNotification(String payload) => Navigator.of(context)
       .push(MaterialPageRoute(builder: (context) => BottomNavBar()));
 
-  String getTimeStringFromDouble(double value) {
+/*  String getTimeStringFromDouble(double value) {
     if (value < 0) return 'Invalid Value';
     int flooredValue = value.floor();
     double decimalValue = value - flooredValue;
@@ -43,13 +47,13 @@ class _ReminderState extends State<Reminder> {
 
   String getHourString(int flooredValue) {
     return '${flooredValue % 24}'.padLeft(2, '0');
-  }
+  }*/
 
   @override
   Widget build(BuildContext context) {
     var hour = _value.floor();
     var min = _value - hour;
-    String timeString = '${getHourString(hour)}:${getMinuteString(min)}';
+    String timeString = '${reminderLogic.getHourString(hour)}:${reminderLogic.getMinuteString(min)}';
 
     return Scaffold(
       body: ThemeColor(
@@ -111,7 +115,7 @@ class _ReminderState extends State<Reminder> {
                   min: 0,
                   max: 24,
                   divisions: 1441,
-                  label: getTimeStringFromDouble(_value),
+                  label: reminderLogic.getTimeStringFromDouble(_value),
                   onChanged: (value) {
                     setState(() {
                       _value = value;
@@ -122,7 +126,7 @@ class _ReminderState extends State<Reminder> {
               Padding(
                 padding: const EdgeInsets.all(40.0),
                 child: Text(
-                  getTimeStringFromDouble(_value),
+                  reminderLogic.getTimeStringFromDouble(_value),
                   style: TextStyle(
                     fontSize: 32,
                     fontWeight: FontWeight.w500,
@@ -138,8 +142,8 @@ class _ReminderState extends State<Reminder> {
                     NotificationService.showScheduledNotification(
                         title: 'Let\'s make a habit',
                         body: 'Time to start a lesson!',
-                        scheduledHour: int.parse(getHourString(hour)),
-                        scheduledMin: int.parse(getMinuteString(min)));
+                        scheduledHour: int.parse(reminderLogic.getHourString(hour)),
+                        scheduledMin: int.parse(reminderLogic.getMinuteString(min)));
 
                     ScaffoldMessenger.of(context).showSnackBar(
                       SnackBar(

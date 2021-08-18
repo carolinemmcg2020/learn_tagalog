@@ -2,7 +2,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:learn_tagalog/bottom_nav_bar.dart';
 import 'package:learn_tagalog/screens/register_detail.dart';
-import 'package:learn_tagalog/screens/welcomepage.dart';
+import 'package:learn_tagalog/screens/welcome_detail.dart';
 import 'package:learn_tagalog/services/email_login_service.dart';
 import 'package:learn_tagalog/widgets/custom_button.dart';
 import 'package:learn_tagalog/widgets/theme_background_color.dart';

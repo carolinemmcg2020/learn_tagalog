@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:learn_tagalog/alphabet_letters_icons.dart';
 import 'package:learn_tagalog/models/lesson.dart';
-import 'package:learn_tagalog/models/lessoncontent.dart';
+import 'package:learn_tagalog/models/lesson_content.dart';
 import 'package:learn_tagalog/models/topic.dart';
 import 'package:learn_tagalog/months_icon_icons.dart';
 import 'package:learn_tagalog/number_icons_icons.dart';

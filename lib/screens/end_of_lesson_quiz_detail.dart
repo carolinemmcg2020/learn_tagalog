@@ -3,7 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:just_audio/just_audio.dart';
 import 'package:learn_tagalog/models/lesson.dart';
-import 'package:learn_tagalog/models/quiz_brain.dart';
+import 'package:learn_tagalog/utilities/quiz_brain.dart';
 import 'package:learn_tagalog/screens/results_detail.dart';
 import 'package:learn_tagalog/widgets/quiz_button.dart';
 import 'package:learn_tagalog/widgets/theme_background_color.dart';

@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_settings_screens/flutter_settings_screens.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:learn_tagalog/widgets/icon_widget.dart';
-import 'package:learn_tagalog/models/loginusermodel.dart';
+import 'package:learn_tagalog/models/login_user_model.dart';
 import 'package:learn_tagalog/services/google_login_service.dart';
 import 'package:provider/provider.dart';
 

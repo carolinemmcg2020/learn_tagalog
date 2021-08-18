@@ -2,7 +2,7 @@ import 'package:avatar_glow/avatar_glow.dart';
 import 'package:flutter/material.dart';
 import 'package:learn_tagalog/animation/delayed_animation.dart';
 import 'package:learn_tagalog/bottom_nav_bar.dart';
-import 'package:learn_tagalog/models/loginusermodel.dart';
+import 'package:learn_tagalog/models/login_user_model.dart';
 import 'package:learn_tagalog/screens/login_detail.dart';
 import 'package:learn_tagalog/screens/register_detail.dart';
 import 'package:learn_tagalog/services/google_login_service.dart';
