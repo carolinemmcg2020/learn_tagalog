@@ -181,10 +181,6 @@ class _LoginPageState extends State<LoginPage> {
         _isSubmitting = false;
       });
     }
-
-//    setState(() {
-//      _isSubmitting = false;
-//    });
   }
 
   _showSuccessSnack(String message) async {

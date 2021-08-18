@@ -12,7 +12,7 @@ class RegisterPage extends StatefulWidget {
 }
 class _RegisterPageState extends State<RegisterPage> {
   bool _obscureText = true;
-  String _username, _email, _password;
+  String _email, _password;
   bool _isSubmitting;
 
   final _formKey = GlobalKey<FormState>();
@@ -34,7 +34,7 @@ class _RegisterPageState extends State<RegisterPage> {
               child: Column(
                 children: [
                   _showTitle(),
-                  _showUsernameInput(),
+                 // _showUsernameInput(),
                   _showEmailInput(),
                   _showPasswordInput(),
                   _showFormActions()
@@ -54,7 +54,7 @@ class _RegisterPageState extends State<RegisterPage> {
     );
   }
 
-  _showUsernameInput() {
+/*  _showUsernameInput() {
     return Padding(
       padding: EdgeInsets.only(top: 20),
       child: TextFormField(
@@ -70,7 +70,7 @@ class _RegisterPageState extends State<RegisterPage> {
             )),
       ),
     );
-  }
+  }*/
 
   _showEmailInput() {
     return Padding(
