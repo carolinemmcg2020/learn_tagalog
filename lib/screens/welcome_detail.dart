@@ -10,7 +10,6 @@ import 'package:learn_tagalog/widgets/custom_button.dart';
 import 'package:learn_tagalog/widgets/theme_background_color.dart';
 import 'package:provider/provider.dart';
 
-
 class WelcomePage extends StatefulWidget {
   @override
   _WelcomePageState createState() => _WelcomePageState();
@@ -53,7 +52,6 @@ class _WelcomePageState extends State<WelcomePage>
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
-        //backgroundColor: Color(0xFF8185E2),
         body: ThemeColor(
           child: SafeArea(
             child: Center(
@@ -67,12 +65,16 @@ class _WelcomePageState extends State<WelcomePage>
                     repeatPauseDuration: Duration(seconds: 2),
                     startDelay: Duration(seconds: 1),
                     child: Material(
+                      color: Colors.transparent,
                       elevation: 8.0,
                       shape: CircleBorder(),
-                      child: CircleAvatar(
-                        backgroundColor: Color.fromRGBO(253, 202, 49, 1.0),
-                        radius: 50.0,
-                      ),
+                      child: Container(
+                        color: Colors.transparent,
+                        child: Image.asset(
+                          "assets/splash_800.png",
+                          fit: BoxFit.scaleDown,
+                        ),
+                      )
                     ),
                   ),
                   DelayedAnimation(
@@ -131,7 +133,7 @@ class _WelcomePageState extends State<WelcomePage>
                             );
                           },
                           child: CustomButton(
-                            buttonText: 'Sign Up',
+                            buttonText: "Register",
                           ),
                         ),
                       ),
@@ -157,7 +159,7 @@ class _WelcomePageState extends State<WelcomePage>
                                 () {
                                   ScaffoldMessenger.of(context).showSnackBar(
                                     const SnackBar(
-                                      content: Text('Logged in!'),
+                                      content: Text("Logged in!"),
                                     ),
                                   );
                                   Navigator.pushReplacement(
@@ -171,7 +173,7 @@ class _WelcomePageState extends State<WelcomePage>
                             }
                           },
                           child: CustomButton(
-                            buttonText: 'Sign in with Google',
+                            buttonText: "Sign in with Google",
                           ),
                         ),
                       ),
