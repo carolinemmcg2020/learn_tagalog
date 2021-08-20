@@ -12,16 +12,17 @@ class Utils {
   static List<Topic> getMockedCategories() {
     return [
       Topic(
-        name: 'Alphabet',
+        name: "Alphabet",
         icon: FontAwesomeIcons.wordpress,
         color: Color.fromRGBO(124, 180, 2, 1.0),
         backgroundColor: Color.fromRGBO(171, 236, 49, 1.0),
         lessons: [
           Lesson(
-              name: 'Alphabet One',
+              name: "Alphabet One",
               icon: FontAwesomeIcons.pencilAlt,
               color: Color.fromRGBO(124, 180, 2, 1.0),
               backgroundColor: Color.fromRGBO(171, 236, 49, 1.0),
+              difficulty: "Easy",
               lessonContent: [
                 LessonContent(
                   tagalogWord: 'Ah',
@@ -105,10 +106,11 @@ class Utils {
                 )
               ],),
           Lesson(
-              name: 'Alphabet Two',
+              name: "Alphabet Two",
               icon: FontAwesomeIcons.bookOpen,
               color: Color.fromRGBO(124, 180, 2, 1.0),
               backgroundColor: Color.fromRGBO(171, 236, 49, 1.0),
+              difficulty: "Easy",
               lessonContent: [
                 LessonContent(
                     tagalogWord: 'Na',
@@ -187,6 +189,7 @@ class Utils {
               icon: FontAwesomeIcons.sortAmountUp,
               color: Color.fromRGBO(0, 149, 85, 1.0),
               backgroundColor: Colors.green[400],
+              difficulty: "Easy",
               lessonContent: [
                 LessonContent(
                   tagalogWord: 'Isa',
@@ -274,6 +277,7 @@ class Utils {
             icon: FontAwesomeIcons.listOl,
             color: Color.fromRGBO(0, 149, 85, 1.0),
             backgroundColor: Colors.green[400],
+            difficulty: "Easy",
             lessonContent: [
               LessonContent(
                 tagalogWord: 'Zero',
@@ -378,6 +382,7 @@ class Utils {
               icon: FontAwesomeIcons.calculator,
               color: Color.fromRGBO(0, 149, 85, 1.0),
               backgroundColor: Colors.green[400],
+              difficulty: "Medium",
               lessonContent: [
                 LessonContent(
                   tagalogWord: 'Isang saging',
@@ -465,6 +470,7 @@ class Utils {
               icon: FontAwesomeIcons.sortNumericDown,
               color: Color.fromRGBO(0, 149, 85, 1.0),
               backgroundColor: Colors.green[400],
+              difficulty: "Medium",
               //TODO: Custom Icons
               lessonContent: [
                 LessonContent(
@@ -553,6 +559,7 @@ class Utils {
             icon: FontAwesomeIcons.pencilRuler,
             color: Color.fromRGBO(0, 149, 85, 1.0),
             backgroundColor: Colors.green[400],
+            difficulty: "Hard",
             lessonContent: [
               LessonContent(
                 tagalogWord: 'Si Megan ay dalawang pusa',
@@ -654,6 +661,7 @@ class Utils {
               icon: FontAwesomeIcons.bicycle,
               color: Colors.red[700],
               backgroundColor: Colors.redAccent,
+              difficulty: "Easy",
               lessonContent: [
                 LessonContent(
                     tagalogWord: 'Lunes',
@@ -712,6 +720,7 @@ class Utils {
               icon: FontAwesomeIcons.tractor,
               color: Colors.red[700],
               backgroundColor: Colors.redAccent,
+              difficulty: "Medium",
               lessonContent: [
                 LessonContent(
                     tagalogWord: 'Ngayon ay Lunes',
@@ -770,6 +779,7 @@ class Utils {
               icon: FontAwesomeIcons.spaceShuttle,
               color: Colors.red[700],
               backgroundColor: Colors.redAccent,
+              difficulty: "Hard",
               lessonContent: [
                 LessonContent(
                     tagalogWord: 'Ako ay magbabakasyon sa Martes',
@@ -823,6 +833,7 @@ class Utils {
               icon: FontAwesomeIcons.calendar,
               color: Colors.cyan,
               backgroundColor: Colors.cyanAccent,
+              difficulty: "Easy",
               lessonContent: [
                 LessonContent(
                     tagalogWord: 'Enero',
@@ -914,6 +925,7 @@ class Utils {
               icon: FontAwesomeIcons.calendarDay,
               color: Colors.cyan,
               backgroundColor: Colors.cyanAccent,
+              difficulty: "Medium",
               lessonContent: [
                 LessonContent(
                     tagalogWord: 'Kaarawan',
@@ -978,6 +990,7 @@ class Utils {
               icon: FontAwesomeIcons.calendarWeek,
               color: Colors.cyan,
               backgroundColor: Colors.cyanAccent,
+              difficulty: "Hard",
               lessonContent: [
                 LessonContent(
                     tagalogWord: 'Ang kaarawan ko ay ikalawa ng Enero',
@@ -1054,6 +1067,7 @@ class Utils {
               icon: FontAwesomeIcons.paintBrush,
               color: Colors.deepOrange,
               backgroundColor: Colors.orangeAccent,
+              difficulty: "Easy",
               lessonContent: [
                 LessonContent(
                     tagalogWord: 'Puti',
@@ -1103,6 +1117,7 @@ class Utils {
               icon: FontAwesomeIcons.paintRoller,
               color: Colors.deepOrange,
               backgroundColor: Colors.orangeAccent,
+              difficulty: "Easy",
               lessonContent: [
                 LessonContent(
                     tagalogWord: 'Violet',
@@ -1125,12 +1140,20 @@ class Utils {
                     color: Colors.grey,
                     audio: 'assets/audio/Abo.mp3',
                     type: 'word'),
+                LessonContent(
+                    tagalogWord: 'Berde',
+                    engWord: 'Green',
+                    icon: Icons.circle,
+                    color: Colors.green,
+                    audio: 'assets/audio/Berde.mp3',
+                    type: 'word'),
               ]),
           Lesson(
               name: 'Colours Three',
               icon: FontAwesomeIcons.hatWizard,
               color: Colors.deepOrange,
               backgroundColor: Colors.orangeAccent,
+              difficulty: "Medium",
               lessonContent: [
                 LessonContent(
                   tagalogWord: 'Pulang Sweater',
@@ -1178,6 +1201,7 @@ class Utils {
               icon: FontAwesomeIcons.shoppingBag,
               color: Colors.deepOrange,
               backgroundColor: Colors.orangeAccent,
+              difficulty: "Medium",
               lessonContent: [
                 LessonContent(
                   tagalogWord: 'Itim na sapatos',
@@ -1225,6 +1249,7 @@ class Utils {
               icon: FontAwesomeIcons.tshirt,
               color: Colors.deepOrange,
               backgroundColor: Colors.orangeAccent,
+              difficulty: "Hard",
               lessonContent: [
                 LessonContent(
                   tagalogWord: 'Suot ko ay asul na medyas',
@@ -1296,6 +1321,7 @@ class Utils {
             icon: FontAwesomeIcons.suitcase,
             color: Colors.deepOrange,
             backgroundColor: Colors.orangeAccent,
+            difficulty: "Hard",
             lessonContent: [
               LessonContent(
                 tagalogWord: 'Meron akong brown na bag',

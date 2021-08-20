@@ -6,11 +6,21 @@ import 'package:learn_tagalog/widgets/lessoncard.dart';
 import 'package:learn_tagalog/widgets/theme_background_color.dart';
 
 class Topics extends StatelessWidget {
-  List<Topic> categories = Utils.getMockedCategories();
+  List<Topic> topic = Utils.getMockedCategories();
 
   Topic selectedCategory;
 
   Topics({this.selectedCategory});
+
+  double getDifficulty(int index, int ind){
+    if(topic[index].lessons[ind].difficulty == "Easy"){
+      return 0.2;
+    }else if(topic[index].lessons[ind].difficulty == "Medium"){
+      return 0.5;
+    } else{
+      return 1.0;
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -35,7 +45,7 @@ class Topics extends StatelessWidget {
               Expanded(
                 child: ListView.builder(
                   shrinkWrap: true,
-                  itemCount: categories.length,
+                  itemCount: topic.length,
                   itemBuilder: (BuildContext context, int index) {
                     return Container(
                       child: Column(
@@ -48,7 +58,7 @@ class Topics extends StatelessWidget {
                               Padding(
                                 padding: const EdgeInsets.only(left: 15.0),
                                 child: Text(
-                                  categories[index].name,
+                                  topic[index].name,
                                   style: TextStyle(
                                     fontSize: 20.0,
                                     fontWeight: FontWeight.bold,
@@ -71,10 +81,11 @@ class Topics extends StatelessWidget {
                                 bottom: 10.0,
                               ),
                               shrinkWrap: true,
-                              itemCount: categories[index].lessons.length,
+                              itemCount: topic[index].lessons.length,
                               itemBuilder: (BuildContext context, int ind) {
                                 return LessonCard(
-                                  lesson: categories[index].lessons[ind],
+                                  lesson: topic[index].lessons[ind],
+                                  difficulty: getDifficulty(index, ind),
                                   onCardClick: () {
                                     showDialog(
                                       context: context,
@@ -96,7 +107,7 @@ class Topics extends StatelessWidget {
                                                       MaterialPageRoute(
                                                         builder: (alertContext) =>
                                                             LessonDetail(
-                                                              lessons: categories[index]
+                                                              lessons: topic[index]
                                                                   .lessons[ind],
                                                             ),
                                                       ),

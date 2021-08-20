@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:learn_tagalog/models/topic.dart';
+import 'package:percent_indicator/linear_percent_indicator.dart';
 
 class LessonCard extends StatelessWidget {
   Function onCardClick;
   Topic lesson;
+  double difficulty;
 
-  LessonCard({this.lesson, this.onCardClick});
+  LessonCard({this.lesson, this.onCardClick, this.difficulty});
 
   @override
   Widget build(BuildContext context) {
@@ -23,7 +25,7 @@ class LessonCard extends StatelessWidget {
         child: Column(
           children: [
             SizedBox(
-              height: 30.0,
+              height: 20.0,
             ),
             Center(
               child: Icon(
@@ -39,6 +41,28 @@ class LessonCard extends StatelessWidget {
               this.lesson.name,
               style: TextStyle(fontSize: 18.0, fontWeight: FontWeight.bold),
             ),
+            SizedBox(height: 10,),
+            Row(
+              children: [
+                SizedBox(
+                  width: 5,
+                ),
+                SizedBox(
+                  width: 60,
+                  child: LinearPercentIndicator(
+                    lineHeight: 5.0,
+                    backgroundColor: Colors.grey.shade300,
+                    progressColor: Colors.amber,
+                    percent: difficulty,
+                  ),
+                ),
+                Text(
+                  this.lesson.difficulty,
+                  style: TextStyle(fontSize: 15.0),
+                  textAlign: TextAlign.center,
+                )
+              ],
+            )
           ],
         ),
       ),

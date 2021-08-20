@@ -7,6 +7,7 @@ class Topic{
   Color color;
   Color backgroundColor;
   List<Topic> lessons;
+  String difficulty;
 
   Topic(
   {
@@ -15,6 +16,7 @@ class Topic{
     this.color,
     this.backgroundColor,
     this.lessons,
+    this.difficulty,
 }
 );
 }

@@ -15,6 +15,7 @@ class Lesson extends Topic {
     IconData icon,
     Color color,
     Color backgroundColor,
+    String difficulty,
     this.lessonContent,
     this.audio,
     this.engWord,
@@ -26,6 +27,7 @@ class Lesson extends Topic {
     icon: icon,
     color: color,
     backgroundColor: backgroundColor,
+    difficulty: difficulty,
   );
 
 
