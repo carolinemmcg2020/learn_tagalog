@@ -35,51 +35,6 @@ class _ProfilePageState extends State<ProfilePage> {
     email = auth.currentUser.email;
   }
 
-  alertDialog(BuildContext context) {
-    showDialog(
-        context: context,
-        builder: (BuildContext alertContext) {
-          return CustomAlertDialog(
-            title: 'Logout',
-            content: 'Are you sure want to Logout?',
-            button1Text: 'Yes',
-            btn1Func: () {
-              final GoogleLoginService loginService =
-                  Provider.of<GoogleLoginService>(context, listen: false);
-
-              LoginUserModel userModel = loginService.loggedInUserModel;
-
-              if (userModel != null || email != null) {
-                Settings.clearCache();
-                loginService.singOut();
-                context.read<EmailLoginService>().signOut();
-
-                ScaffoldMessenger.of(context).showSnackBar(
-                  const SnackBar(
-                    content: Text('User Logged Out!'),
-                  ),
-                );
-
-                Navigator.pushAndRemoveUntil(
-                    context,
-                    MaterialPageRoute(builder: (context) => WelcomePage()),
-                    (route) => false);
-              } else {
-                ScaffoldMessenger.of(context).showSnackBar(
-                  const SnackBar(
-                    content: Text('No user Logged in '),
-                  ),
-                );
-              }
-            },
-            button2Text: 'No',
-            btn2Func: () {
-              Navigator.of(alertContext, rootNavigator: true).pop();
-            },
-          );
-        });
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -157,7 +112,7 @@ class _ProfilePageState extends State<ProfilePage> {
       },
     );
   }
-//TODO: Remove these
+
   Widget buildReportBug(BuildContext context) => SimpleSettingsTile(
         title: "Report Bug",
         subtitle: '',
@@ -185,4 +140,49 @@ class _ProfilePageState extends State<ProfilePage> {
           ),
         ),
       );
+
+  alertDialog(BuildContext context) {
+    showDialog(
+        context: context,
+        builder: (BuildContext alertContext) {
+          return CustomAlertDialog(
+            title: 'Logout',
+            content: 'Are you sure want to Logout?',
+            button1Text: 'Yes',
+            btn1Func: () {
+              final GoogleLoginService loginService =
+                  Provider.of<GoogleLoginService>(context, listen: false);
+
+              LoginUserModel userModel = loginService.loggedInUserModel;
+
+              if (userModel != null || email != null) {
+                Settings.clearCache();
+                loginService.singOut();
+                context.read<EmailLoginService>().signOut();
+
+                ScaffoldMessenger.of(context).showSnackBar(
+                  const SnackBar(
+                    content: Text('User Logged Out!'),
+                  ),
+                );
+
+                Navigator.pushAndRemoveUntil(
+                    context,
+                    MaterialPageRoute(builder: (context) => WelcomePage()),
+                    (route) => false);
+              } else {
+                ScaffoldMessenger.of(context).showSnackBar(
+                  const SnackBar(
+                    content: Text('No user Logged in '),
+                  ),
+                );
+              }
+            },
+            button2Text: 'No',
+            btn2Func: () {
+              Navigator.of(alertContext, rootNavigator: true).pop();
+            },
+          );
+        });
+  }
 }
