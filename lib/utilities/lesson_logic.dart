@@ -39,6 +39,7 @@ class LessonLogic {
   playAudio() async {
     await player.setAsset(lessonContent[index].audio);
     await player.setSpeed(1);
+    print(await player.setAsset(lessonContent[index].audio));
     player.play();
   }
 
@@ -51,11 +52,11 @@ class LessonLogic {
   void reset() {
     index = 0;
     progressPercent = 0.0;
-    player.dispose();
+
   }
 
   int nextWord() {
-    if (index < lessonContent.length - 1) {
+    if (index < lessonContent.length) {
       index++;
       progressPercent++;
     }
@@ -72,7 +73,7 @@ class LessonLogic {
   }
 
   void finishedAlertDialog(BuildContext context, EndOfLessonQuizDetail quiz ) {
-    if (index >= lessonContent.length - 1) {
+    if (index >= lessonContent.length) {
       reset();
       print('button pressed');
       showAlert(
@@ -95,9 +96,9 @@ class LessonLogic {
           AlertAction(
             text: 'Redo',
             onPressed: () {
-              //reset();
-              index = 0;
-              progressPercent = 0.0;
+              reset();
+              // index = 0;
+              // progressPercent = 0.0;
               print('pressed redo' + ' ' + index.toString());
             },
           )
@@ -106,7 +107,7 @@ class LessonLogic {
     }
   }
   bool isFinished(){
-    if(index == lessonContent.length - 1){
+    if(index >= lessonContent.length){
       return true;
     }else{
       return false;
