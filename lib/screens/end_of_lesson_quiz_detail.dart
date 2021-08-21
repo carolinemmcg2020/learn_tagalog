@@ -49,7 +49,7 @@ class _EndOfLessonQuizDetailState extends State<EndOfLessonQuizDetail> {
 
   showResults() {
     if (quizBrain.isFinished() == true) {
-      Future.delayed(Duration(seconds: 1), () {
+      Future.delayed(Duration(seconds: 2), () {
         Navigator.pushReplacement(
           context,
           MaterialPageRoute(
@@ -111,7 +111,7 @@ class _EndOfLessonQuizDetailState extends State<EndOfLessonQuizDetail> {
                 padding: const EdgeInsets.all(8.0),
                 child: Center(
                   child: Text(
-                    widget.quizTitle + ' Review Quiz',
+                    widget.quizTitle + " Review Quiz",
                     style: TextStyle(fontSize: 20.0),
                   ),
                 ),
