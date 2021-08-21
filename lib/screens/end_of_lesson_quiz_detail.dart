@@ -21,7 +21,6 @@ class EndOfLessonQuizDetail extends StatefulWidget {
 
 class _EndOfLessonQuizDetailState extends State<EndOfLessonQuizDetail> {
   double _progress = 0.0;
-  int index = 0;
   int correctAnswerCount = 0;
   AudioPlayer player;
 
@@ -47,22 +46,6 @@ class _EndOfLessonQuizDetailState extends State<EndOfLessonQuizDetail> {
     player.play();
   }
 
-  showResults() {
-    if (quizBrain.isFinished() == true) {
-      Future.delayed(Duration(seconds: 2), () {
-        Navigator.pushReplacement(
-          context,
-          MaterialPageRoute(
-            builder: (context) => ResultsDetail(
-              userResults: correctAnswerCount,
-              numOfQs: widget.questionContent,
-            ),
-          ),
-        );
-      });
-    }
-  }
-
   void checkAnswer(String userAnswer) {
     setState(
       () {
@@ -80,6 +63,7 @@ class _EndOfLessonQuizDetailState extends State<EndOfLessonQuizDetail> {
           );
           correctAnswerCount++;
           _progress++;
+
         } else {
           ScaffoldMessenger.of(context).showSnackBar(
             SnackBar(
@@ -91,11 +75,15 @@ class _EndOfLessonQuizDetailState extends State<EndOfLessonQuizDetail> {
             ),
           );
         }
-        quizBrain.nextQuestion();
+        quizBrain.nextQuestion(context, ResultsDetail(
+          userResults: correctAnswerCount,
+          numOfQs: widget.questionContent.length,
+        ));
         quizBrain.checkOptions();
+
       },
     );
-    showResults();
+    //showResults();
   }
 
   @override
@@ -137,11 +125,11 @@ class _EndOfLessonQuizDetailState extends State<EndOfLessonQuizDetail> {
                   padding: const EdgeInsets.all(15.0),
                   child: Center(
                     child: Text(
-                      'What is the ' +
+                      "What is the " +
                           quizBrain.getType() +
-                          ' for ' +
+                          " for " +
                           quizBrain.getTagalogText() +
-                          '?',
+                          "?",
                       style: TextStyle(fontSize: 23.0),
                       textAlign: TextAlign.center,
                     ),
@@ -158,6 +146,7 @@ class _EndOfLessonQuizDetailState extends State<EndOfLessonQuizDetail> {
                       setState(() {
                         playOption(quizBrain.getAudio());
                         checkAnswer(quizBrain.getEnglishText());
+                        print(_progress / widget.questionContent.length.toDouble());
                       });
                     },
                   ),
