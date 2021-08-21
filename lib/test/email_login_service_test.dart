@@ -131,7 +131,7 @@ void main() {
           "No user found for that email.");
     });
 
-    test("sign in password exeception", () async {
+    test("sign in password exception", () async {
       final EmailLoginService emailLoginService =
           EmailLoginService(mockEmailFirebaseAuth);
 
