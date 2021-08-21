@@ -50,14 +50,14 @@ class _LessonDetailState extends State<LessonDetail> {
             title: "Exit this lesson",
             content:
                 "Are you sure want to exit this lesson? You will loose progress, if you confirm",
-            button1Text: 'Yes',
+            button1Text: "Yes",
             btn1Func: () {
               Navigator.pushAndRemoveUntil(
                   context,
                   MaterialPageRoute(builder: (context) => BottomNavBar()),
                   (route) => false);
             },
-            button2Text: 'No',
+            button2Text: "No",
             btn2Func: () {
               Navigator.of(alertContext, rootNavigator: true).pop();
             },
@@ -174,6 +174,7 @@ class _LessonDetailState extends State<LessonDetail> {
                                     quizTitle: widget.lessons.name,
                                   )
                                  );
+
                              // percent++;
                             },
                           );
