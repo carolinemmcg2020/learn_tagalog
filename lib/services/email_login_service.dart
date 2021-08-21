@@ -3,17 +3,17 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:learn_tagalog/models/email_login_user_model.dart';
 
 class EmailLoginService {
-  EmailLoginService(this._firebaseAuth);
+  EmailLoginService(this.firebaseAuth);
 
-  final FirebaseAuth _firebaseAuth;
+  final FirebaseAuth firebaseAuth;
   EmailUserModel emailUserModel = EmailUserModel();
   final userRef = FirebaseFirestore.instance.collection("users");
 
-  Stream<User> get authStateChanges => _firebaseAuth.authStateChanges();
+  Stream<User> get authStateChanges => firebaseAuth.authStateChanges();
 
   Future<String> signIn({String email, String password}) async {
     try {
-      await _firebaseAuth.signInWithEmailAndPassword(
+      await firebaseAuth.signInWithEmailAndPassword(
           email: email, password: password);
 
       return "Signed In";
@@ -23,14 +23,14 @@ class EmailLoginService {
       } else if (e.code == 'wrong-password') {
         return "Wrong password provided for that user.";
       } else {
-        return "Something went wrong";
+        return "Something went wrong.";
       }
     }
   }
 
   Future<String> signUp({String email, String password}) async {
     try {
-      await _firebaseAuth.createUserWithEmailAndPassword(
+      await firebaseAuth.createUserWithEmailAndPassword(
           email: email, password: password);
 
       return "Signed Up!";
@@ -47,8 +47,13 @@ class EmailLoginService {
     }
   }
 
-  Future<void> signOut() async {
-    await _firebaseAuth.signOut();
+  Future<String> signOut() async {
+    try{
+      await firebaseAuth.signOut();
+      return "Signed out!";
+    } on FirebaseAuthException catch (e){
+      return "Something went wrong.";
+    }
   }
 
   Future<void> addUserToDB(
