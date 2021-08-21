@@ -1,10 +1,11 @@
 import 'dart:math';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:learn_tagalog/screens/results_detail.dart';
 import '../models/lesson.dart';
 
 class QuizBrain {
-  int _lessonNumber = 0;
+  int lessonNumber = 0;
   int option1;
   int option2;
   int option3;
@@ -12,23 +13,23 @@ class QuizBrain {
   List<Lesson> lessonBank = [];
 
   String getTagalogText() {
-    return lessonBank[_lessonNumber].name;
+    return lessonBank[lessonNumber].name;
   }
 
   String getEnglishText() {
-    return lessonBank[_lessonNumber].engWord;
+    return lessonBank[lessonNumber].engWord;
   }
 
   String getAudio() {
-    return lessonBank[_lessonNumber].audio;
+    return lessonBank[lessonNumber].audio;
   }
 
   IconData getIcon() {
-    return lessonBank[_lessonNumber].icon;
+    return lessonBank[lessonNumber].icon;
   }
 
   String getType() {
-    return lessonBank[_lessonNumber].type;
+    return lessonBank[lessonNumber].type;
   }
 
   int getOpt1Index() {
@@ -43,31 +44,34 @@ class QuizBrain {
     return option3;
   }
 
-  void nextQuestion() {
-    if (_lessonNumber < lessonBank.length - 1) {
-      _lessonNumber++;
-    }
-  }
+  void nextQuestion(BuildContext context, Widget resultsPage) {
+    // if (lessonNumber < lessonBank.length) {
+    //   lessonNumber++;
+    // }
 
-  bool checkAnswer(String userAnswer) {
-    if (userAnswer.contains(lessonBank[_lessonNumber].engWord) == true) {
-      print('Correct answer');
-      nextQuestion();
-      return true;
-      // correctAnswerCount++;
+    if (lessonNumber >= lessonBank.length - 1) {
+      print('end of list');
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(
+          builder: (context) => resultsPage,
+        ),
+      );
     } else {
-      print('Incorrect answer!');
-
-      return false;
+      if (lessonNumber < lessonBank.length - 1) {
+        lessonNumber++;
+      }
     }
   }
+
+
 
   int getRandomElement<T>(List<T> list) {
     final random = new Random();
     var i = random.nextInt(list.length);
-    if (_lessonNumber == i && !(_lessonNumber >= list.length)) {
+    if (lessonNumber == i && !(lessonNumber >= list.length)) {
       i++;
-    } else if (_lessonNumber == i && _lessonNumber == list.length) {
+    } else if (lessonNumber == i && lessonNumber == list.length) {
       i--;
     }
     print(i);
@@ -80,11 +84,11 @@ class QuizBrain {
     option3 = getRandomElement(lessonBank);
     int numOfQs = lessonBank.length - 1;
 
-    if (option1 == option2 || option1 == _lessonNumber) {
+    if (option1 == option2 || option1 == lessonNumber) {
       if (!(option1 >= numOfQs)) {
         option1++;
       } else if (option1 == option3 || !(option1 >= numOfQs)) {
-        if (option1 == _lessonNumber) {
+        if (option1 == lessonNumber) {
           option1++;
         }
       }
@@ -96,7 +100,7 @@ class QuizBrain {
       if (option2 == 0) {
         option2++;
       } else if (option2 == option1 || !(option2 >= numOfQs)) {
-        if (option2 == _lessonNumber) {
+        if (option2 == lessonNumber) {
           option2++;
         }
       }
@@ -107,24 +111,24 @@ class QuizBrain {
       if (option3 == 0) {
         option3++;
       } else if (option3 == option2 || !(option3 >= numOfQs)) {
-        if (option3 == 0 || option3 == _lessonNumber) {
+        if (option3 == 0 || option3 == lessonNumber) {
           option3++;
         }
       }
     } else if (option3 != 0) {
       option3--;
     }
-    print("new opt1: $option1");
-    print("new opt2: $option2");
-    print("new opt3: $option3");
+    // print("new opt1: $option1");
+    // print("new opt2: $option2");
+    // print("new opt3: $option3");
   }
 
   void reset() {
-    _lessonNumber = 0;
+    lessonNumber = 0;
   }
 
   bool isFinished() {
-    if (_lessonNumber == lessonBank.length - 1) {
+    if (lessonNumber >= lessonBank.length - 1) {
       print('now printing true');
       return true;
     } else {
