@@ -1,5 +1,6 @@
 import 'dart:math';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import '../models/lesson.dart';
 
 class QuizBrain {
@@ -43,9 +44,6 @@ class QuizBrain {
   }
 
   void nextQuestion(BuildContext context, Widget resultsPage) {
-    // if (lessonNumber < lessonBank.length) {
-    //   lessonNumber++;
-    // }
 
     if (lessonNumber >= lessonBank.length - 1) {
       print('end of list');
