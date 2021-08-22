@@ -79,7 +79,7 @@ class _WelcomePageState extends State<WelcomePage>
                   ),
                   DelayedAnimation(
                     child: Text(
-                      "Welcome!",
+                      "Learn Tagalog",
                       style: TextStyle(
                           fontWeight: FontWeight.bold,
                           fontSize: 35.0,
@@ -89,10 +89,10 @@ class _WelcomePageState extends State<WelcomePage>
                   ),
                   DelayedAnimation(
                     child: Text(
-                      "Learn Tagalog",
+                      "Learn Anywhere!",
                       style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          fontSize: 35.0,
+                          fontWeight: FontWeight.w200,
+                          fontSize: 30.0,
                           color: color),
                     ),
                     delay: delayedAmount + 2000,
