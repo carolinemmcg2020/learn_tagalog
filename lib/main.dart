@@ -16,7 +16,6 @@ Future main() async {
   WidgetsFlutterBinding.ensureInitialized();
   SystemChrome.setEnabledSystemUIOverlays([]);
 
-
   await firebase.Firebase.initializeApp();
   await Settings.init(cacheProvider: SharePreferenceCache());
 

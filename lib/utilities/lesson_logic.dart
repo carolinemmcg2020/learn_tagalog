@@ -65,7 +65,7 @@ class LessonLogic {
   }
 
   double phraseFontSize() {
-    if (lessonContent[index].type == "phrase") {
+    if (lessonContent[index].type == 'phrase') {
       return 28.0;
     } else {
       return 40.0;

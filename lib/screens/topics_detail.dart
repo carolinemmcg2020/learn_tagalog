@@ -13,9 +13,9 @@ class Topics extends StatelessWidget {
   Topics({this.selectedCategory});
 
   double getDifficulty(int index, int ind){
-    if(topic[index].lessons[ind].difficulty == "Easy"){
+    if(topic[index].lessons[ind].difficulty == 'Easy'){
       return 0.2;
-    }else if(topic[index].lessons[ind].difficulty == "Medium"){
+    }else if(topic[index].lessons[ind].difficulty == 'Medium'){
       return 0.5;
     } else{
       return 1.0;

@@ -1,4 +1,3 @@
-import 'package:learn_tagalog/models/lesson.dart';
 
 class ResultLogic {
 

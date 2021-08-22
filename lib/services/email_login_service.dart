@@ -16,14 +16,14 @@ class EmailLoginService {
       await firebaseAuth.signInWithEmailAndPassword(
           email: email, password: password);
 
-      return "Signed In";
+      return 'Signed In';
     } on FirebaseAuthException catch (e) {
       if (e.code == 'user-not-found') {
-        return "No user found for that email.";
+        return 'No user found for that email.';
       } else if (e.code == 'wrong-password') {
-        return "Wrong password provided for that user.";
+        return 'Wrong password provided for that user.';
       } else {
-        return "Something went wrong.";
+        return 'Something went wrong.';
       }
     }
   }
@@ -33,14 +33,14 @@ class EmailLoginService {
       await firebaseAuth.createUserWithEmailAndPassword(
           email: email, password: password);
 
-      return "Signed Up!";
+      return 'Signed Up!';
     } on FirebaseAuthException catch (e) {
       if (e.code == 'weak-password') {
-        return "The password that you have provided is too weak.";
+        return 'The password that you have provided is too weak.';
       } else if (e.code == 'email-already-in-use') {
-        return "The account already exists for that email.";
+        return 'The account already exists for that email.';
       } else {
-        return "Something went wrong.";
+        return 'Something went wrong.';
       }
     } catch (e) {
       print(e);
@@ -50,9 +50,9 @@ class EmailLoginService {
   Future<String> signOut() async {
     try{
       await firebaseAuth.signOut();
-      return "Signed out!";
+      return 'Signed out!';
     } on FirebaseAuthException catch (e){
-      return "Something went wrong.";
+      return 'Something went wrong.';
     }
   }
 

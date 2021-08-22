@@ -45,7 +45,7 @@ class AccountPage extends StatelessWidget {
   );
 
   Widget buildAccountInfo(BuildContext context) => SimpleSettingsTile(
-    title: "Account Info",
+    title: 'Account Info',
     subtitle: '',
     leading: IconWidget(icon: Icons.text_snippet, color: Colors.purple,),
     onTap: () => ScaffoldMessenger.of(context).showSnackBar(

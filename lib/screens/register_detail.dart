@@ -49,7 +49,7 @@ class _RegisterPageState extends State<RegisterPage> {
 
   _showTitle() {
     return Text(
-      "Register",
+      'Register',
       style: TextStyle(fontSize: 72, fontWeight: FontWeight.bold),
     );
   }
@@ -59,11 +59,11 @@ class _RegisterPageState extends State<RegisterPage> {
       padding: EdgeInsets.only(top: 20),
       child: TextFormField(
         onSaved: (val) => _username = val,
-        validator: (val) => val.length < 6 ? "Username is too short." : null,
+        validator: (val) => val.length < 6 ? 'Username is too short.' : null,
         decoration: InputDecoration(
             border: OutlineInputBorder(),
-            labelText: "Username",
-            hintText: "Enter Valid Username",
+            labelText: 'Username',
+            hintText: 'Enter Valid Username',
             icon: Icon(
               Icons.face,
               color: Colors.grey,
@@ -77,11 +77,11 @@ class _RegisterPageState extends State<RegisterPage> {
       padding: EdgeInsets.only(top: 20),
       child: TextFormField(
         onSaved: (val) => _email = val.trim(),
-        validator: (val) => !val.contains("@") ? "Invalid Email" : null,
+        validator: (val) => !val.contains('@') ? 'Invalid Email' : null,
         decoration: InputDecoration(
             border: OutlineInputBorder(),
-            labelText: "Email",
-            hintText: "Enter Valid Email",
+            labelText: 'Email',
+            hintText: 'Enter Valid Email',
             icon: Icon(
               Icons.mail,
               color: Colors.grey,
@@ -95,7 +95,7 @@ class _RegisterPageState extends State<RegisterPage> {
       padding: EdgeInsets.only(top: 20),
       child: TextFormField(
         onSaved: (val) => _password = val,
-        validator: (val) => val.length < 6 ? "Password Is Too Short" : null,
+        validator: (val) => val.length < 6 ? 'Password Is Too Short' : null,
         obscureText: _obscureText,
         decoration: InputDecoration(
             suffixIcon: GestureDetector(
@@ -108,8 +108,8 @@ class _RegisterPageState extends State<RegisterPage> {
                   Icon(_obscureText ? Icons.visibility_off : Icons.visibility),
             ),
             border: OutlineInputBorder(),
-            labelText: "Password",
-            hintText: "Enter Valid Password",
+            labelText: 'Password',
+            hintText: 'Enter Valid Password',
             icon: Icon(
               Icons.lock,
               color: Colors.grey,
@@ -131,13 +131,13 @@ class _RegisterPageState extends State<RegisterPage> {
               : GestureDetector(
                   onTap: _submit,
                   child: CustomButton(
-                    buttonText: "Register",
+                    buttonText: 'Register',
                     margin: EdgeInsets.only(left: 80, right: 80, top: 20),
                   ),
                 ),
           FlatButton(
             child: Text(
-              "Existing User? Login",
+              'Existing User? Login',
               style: TextStyle(color: Colors.blue.shade400),
             ),
             onPressed: () {
@@ -158,7 +158,7 @@ class _RegisterPageState extends State<RegisterPage> {
       _form.save();
       _registerUser();
     } else {
-      print("Form is Invalid");
+      print('Form is Invalid');
     }
   }
 
@@ -171,13 +171,13 @@ class _RegisterPageState extends State<RegisterPage> {
         .read<EmailLoginService>()
         .signUp(email: _email, password: _password);
 
-    logMessage == "Signed Up"
+    logMessage == 'Signed Up'
         ? _showSuccessSnack(logMessage)
         : _showErrorSnack(logMessage);
 
     print(logMessage);
 
-    if (logMessage == "Signed Up") {
+    if (logMessage == 'Signed Up') {
       createUserInFirestore();
     } else {
       setState(() {
@@ -191,7 +191,7 @@ class _RegisterPageState extends State<RegisterPage> {
   _showSuccessSnack(String message) {
     final snackbar = SnackBar(
       content: Text(
-        "$message",
+        '$message',
         style: TextStyle(color: Colors.green),
       ),
     );
@@ -202,7 +202,7 @@ class _RegisterPageState extends State<RegisterPage> {
   _showErrorSnack(String message) {
     final snackbar = SnackBar(
       content: Text(
-        "$message",
+        '$message',
         style: TextStyle(color: Colors.red),
       ),
     );

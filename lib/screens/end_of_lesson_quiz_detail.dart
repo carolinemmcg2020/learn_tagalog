@@ -99,7 +99,7 @@ class _EndOfLessonQuizDetailState extends State<EndOfLessonQuizDetail> {
                 padding: const EdgeInsets.all(8.0),
                 child: Center(
                   child: Text(
-                    widget.quizTitle + " Review Quiz",
+                    widget.quizTitle + ' Review Quiz',
                     style: TextStyle(fontSize: 20.0),
                   ),
                 ),
@@ -125,11 +125,11 @@ class _EndOfLessonQuizDetailState extends State<EndOfLessonQuizDetail> {
                   padding: const EdgeInsets.all(15.0),
                   child: Center(
                     child: Text(
-                      "What is the " +
+                      'What is the ' +
                           quizBrain.getType() +
-                          " for " +
+                          ' for ' +
                           quizBrain.getTagalogText() +
-                          "?",
+                          '?',
                       style: TextStyle(fontSize: 23.0),
                       textAlign: TextAlign.center,
                     ),

@@ -9,7 +9,7 @@ class MockNotification extends Mock implements FlutterLocalNotificationsPlugin{}
 void main(){
   final MockNotification mockNotification = MockNotification();
 
-  test("notification", () async {
+  test('notification', () async {
     final NotificationService notificationService = NotificationService();
 
   });

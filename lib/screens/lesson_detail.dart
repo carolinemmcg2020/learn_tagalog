@@ -47,17 +47,17 @@ class _LessonDetailState extends State<LessonDetail> {
         context: context,
         builder: (BuildContext alertContext) {
           return CustomAlertDialog(
-            title: "Exit this lesson",
+            title: 'Exit this lesson',
             content:
-                "Are you sure want to exit this lesson? You will loose progress, if you confirm",
-            button1Text: "Yes",
+                'Are you sure want to exit this lesson? You will loose progress, if you confirm',
+            button1Text: 'Yes',
             btn1Func: () {
               Navigator.pushAndRemoveUntil(
                   context,
                   MaterialPageRoute(builder: (context) => BottomNavBar()),
                   (route) => false);
             },
-            button2Text: "No",
+            button2Text: 'No',
             btn2Func: () {
               Navigator.of(alertContext, rootNavigator: true).pop();
             },
@@ -83,7 +83,7 @@ class _LessonDetailState extends State<LessonDetail> {
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: Text(
-                  "Lesson Topic: " + widget.lessons.name,
+                  'Lesson Topic: ' + widget.lessons.name,
                   style: TextStyle(
                       fontSize: 22.0,
                       fontWeight: FontWeight.w300,
@@ -124,7 +124,7 @@ class _LessonDetailState extends State<LessonDetail> {
                         lessonLogic.playAudio();
                       },
                       onDoubleTap: () {
-                        print("double tapped");
+                        print('double tapped');
                         lessonLogic.playHalfSpeed();
                       },
                       icon: lessonLogic.getIcon(),

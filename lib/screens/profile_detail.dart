@@ -99,7 +99,7 @@ class _ProfilePageState extends State<ProfilePage> {
 
   Widget buildLogout(BuildContext context) {
     return SimpleSettingsTile(
-      title: "Logout",
+      title: 'Logout',
       subtitle: '',
       leading: IconWidget(
         icon: Icons.logout,
@@ -114,7 +114,7 @@ class _ProfilePageState extends State<ProfilePage> {
   }
 
   Widget buildReportBug(BuildContext context) => SimpleSettingsTile(
-        title: "Report Bug",
+        title: 'Report Bug',
         subtitle: '',
         leading: IconWidget(
           icon: Icons.bug_report,
@@ -128,7 +128,7 @@ class _ProfilePageState extends State<ProfilePage> {
       );
 
   Widget buildSendFeedback(BuildContext context) => SimpleSettingsTile(
-        title: "Send Feedback",
+        title: 'Send Feedback',
         subtitle: '',
         leading: IconWidget(
           icon: Icons.thumb_up,

@@ -1,6 +1,5 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:learn_tagalog/models/lesson.dart';
 import 'package:learn_tagalog/utilities/results_logic.dart';
 import 'package:learn_tagalog/widgets/theme_background_color.dart';
 import 'package:percent_indicator/circular_percent_indicator.dart';
@@ -59,7 +58,7 @@ class _ResultsDetailState extends State<ResultsDetail> {
                     Navigator.pop(context);
                   },
                   child: const Text(
-                    "Back to Lessons",
+                    'Back to Lessons',
                   ),
                 ),
               )
@@ -97,7 +96,7 @@ class _ResultsDetailState extends State<ResultsDetail> {
                     Navigator.pop(context);
                   },
                   child: const Text(
-                    "Exit",
+                    'Exit',
                   ),
                 ),
               )
@@ -123,7 +122,7 @@ class _ResultsDetailState extends State<ResultsDetail> {
                 child: Padding(
                   padding: const EdgeInsets.all(10.0),
                   child: Text(
-                    "Results",
+                    'Results',
                     style: TextStyle(fontSize: 28.0),
                   ),
                 ),
@@ -137,7 +136,7 @@ class _ResultsDetailState extends State<ResultsDetail> {
                   circularStrokeCap: CircularStrokeCap.round,
                   percent: percent,
                   center: Text(
-                    "$percentText\%",
+                    '$percentText\%',
                     style:
                         TextStyle(fontSize: 60.0, fontWeight: FontWeight.w500),
                   ),
@@ -146,7 +145,7 @@ class _ResultsDetailState extends State<ResultsDetail> {
               Visibility(
                 visible: resultLogic.failMessage(widget.userResults, widget.numOfQs),
                 child: Text(
-                  "You should review the lesson content again before continuing to the next lesson",
+                  'You should review the lesson content again before continuing to the next lesson',
                   textAlign: TextAlign.center,
                   style: TextStyle(
                       fontSize: 15.0,

@@ -50,7 +50,7 @@ class _LoginPageState extends State<LoginPage> {
 
   _showTitle() {
     return Text(
-      "Login",
+      'Login',
       style: TextStyle(fontSize: 72, fontWeight: FontWeight.bold),
     );
   }
@@ -60,11 +60,11 @@ class _LoginPageState extends State<LoginPage> {
       padding: EdgeInsets.only(top: 20),
       child: TextFormField(
         onSaved: (val) => _email = val,
-        validator: (val) => !val.contains("@") ? "Invalid Email" : null,
+        validator: (val) => !val.contains('@') ? 'Invalid Email' : null,
         decoration: InputDecoration(
             border: OutlineInputBorder(),
-            labelText: "Email",
-            hintText: "Enter Valid Email",
+            labelText: 'Email',
+            hintText: 'Enter Valid Email',
             icon: Icon(
               Icons.mail,
               color: Colors.grey,
@@ -78,7 +78,7 @@ class _LoginPageState extends State<LoginPage> {
       padding: EdgeInsets.only(top: 20),
       child: TextFormField(
         onSaved: (val) => _password = val,
-        validator: (val) => val.length < 6 ? "Password Is Too Short" : null,
+        validator: (val) => val.length < 6 ? 'Password Is Too Short' : null,
         obscureText: _obscureText,
         decoration: InputDecoration(
             suffixIcon: GestureDetector(
@@ -91,8 +91,8 @@ class _LoginPageState extends State<LoginPage> {
               Icon(_obscureText ? Icons.visibility_off : Icons.visibility),
             ),
             border: OutlineInputBorder(),
-            labelText: "Password",
-            hintText: "Enter Valid Password",
+            labelText: 'Password',
+            hintText: 'Enter Valid Password',
             icon: Icon(
               Icons.lock,
               color: Colors.grey,
@@ -134,7 +134,7 @@ class _LoginPageState extends State<LoginPage> {
             ),
           ),
          FlatButton(
-           child: Text("New User? Register", style: TextStyle(color: Colors.blue.shade400),),
+           child: Text('New User? Register', style: TextStyle(color: Colors.blue.shade400),),
            onPressed: () {
              Navigator.pushAndRemoveUntil(
                  context,
@@ -151,10 +151,10 @@ class _LoginPageState extends State<LoginPage> {
     final _form = _formKey.currentState;
     if (_form.validate()) {
       _form.save();
-      //print("Email $_email, Password $_password");
+      //print('Email $_email, Password $_password');
       _LoginUser();
     } else {
-      print("Form is Invalid");
+      print('Form is Invalid');
     }
   }
 
@@ -167,13 +167,13 @@ class _LoginPageState extends State<LoginPage> {
         .read<EmailLoginService>()
         .signIn(email: _email, password: _password);
 
-    logMessage == "Signed In"
+    logMessage == 'Signed In'
         ? _showSuccessSnack(logMessage)
         : _showErrorSnack(logMessage);
 
-    //print("I am logMessage $logMessage");
+    //print('I am logMessage $logMessage');
 
-    if (logMessage == "Signed In") {
+    if (logMessage == 'Signed In') {
       _redirectUser();
       return;
     } else {
@@ -187,7 +187,7 @@ class _LoginPageState extends State<LoginPage> {
     final snackbar = SnackBar(
       backgroundColor: Colors.black,
       content: Text(
-        "$message",
+        '$message',
         style: TextStyle(color: Colors.green),
       ),
     );
@@ -199,7 +199,7 @@ class _LoginPageState extends State<LoginPage> {
     final snackbar = SnackBar(
       backgroundColor: Colors.black,
       content: Text(
-        "$message",
+        '$message',
         style: TextStyle(color: Colors.red),
       ),
     );

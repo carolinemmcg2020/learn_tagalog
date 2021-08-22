@@ -70,7 +70,6 @@ class QuizBrain {
     } else if (lessonNumber == i && lessonNumber == list.length) {
       i--;
     }
-    print(i);
     return i;
   }
 
@@ -114,9 +113,6 @@ class QuizBrain {
     } else if (option3 != 0) {
       option3--;
     }
-    // print("new opt1: $option1");
-    // print("new opt2: $option2");
-    // print("new opt3: $option3");
   }
 
   void reset() {

@@ -78,7 +78,7 @@ class _HeaderPageState extends State<HeaderPage> {
     } else if (auth.currentUser != null) {
       return SimpleSettingsTile(
         title: auth.currentUser.email,
-        subtitle: "Signed in using E-mail",
+        subtitle: 'Signed in using E-mail',
         leading: ClipOval(
           child: IconWidget(
             icon: FontAwesomeIcons.user,

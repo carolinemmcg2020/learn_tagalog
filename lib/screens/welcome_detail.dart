@@ -71,7 +71,7 @@ class _WelcomePageState extends State<WelcomePage>
                       child: Container(
                         color: Colors.transparent,
                         child: Image.asset(
-                          "assets/splash_800.png",
+                          'assets/splash_800.png',
                           fit: BoxFit.scaleDown,
                         ),
                       )
@@ -79,7 +79,7 @@ class _WelcomePageState extends State<WelcomePage>
                   ),
                   DelayedAnimation(
                     child: Text(
-                      "Learn Tagalog",
+                      'Learn Tagalog',
                       style: TextStyle(
                           fontWeight: FontWeight.bold,
                           fontSize: 35.0,
@@ -89,7 +89,7 @@ class _WelcomePageState extends State<WelcomePage>
                   ),
                   DelayedAnimation(
                     child: Text(
-                      "Learn Anywhere!",
+                      'Learn Anywhere!',
                       style: TextStyle(
                           fontWeight: FontWeight.w200,
                           fontSize: 30.0,
@@ -102,14 +102,14 @@ class _WelcomePageState extends State<WelcomePage>
                   ),
                   DelayedAnimation(
                     child: Text(
-                      "Your New Personal",
+                      'Your New Personal',
                       style: TextStyle(fontSize: 20.0, color: color),
                     ),
                     delay: delayedAmount + 3000,
                   ),
                   DelayedAnimation(
                     child: Text(
-                      "Study Buddy",
+                      'Study Buddy',
                       style: TextStyle(fontSize: 20.0, color: color),
                     ),
                     delay: delayedAmount + 3000,
@@ -133,7 +133,7 @@ class _WelcomePageState extends State<WelcomePage>
                             );
                           },
                           child: CustomButton(
-                            buttonText: "Register",
+                            buttonText: 'Register',
                           ),
                         ),
                       ),
@@ -159,7 +159,7 @@ class _WelcomePageState extends State<WelcomePage>
                                 () {
                                   ScaffoldMessenger.of(context).showSnackBar(
                                     const SnackBar(
-                                      content: Text("Logged in!"),
+                                      content: Text('Logged in!'),
                                     ),
                                   );
                                   Navigator.pushReplacement(
@@ -173,7 +173,7 @@ class _WelcomePageState extends State<WelcomePage>
                             }
                           },
                           child: CustomButton(
-                            buttonText: "Sign in with Google",
+                            buttonText: 'Sign in with Google',
                           ),
                         ),
                       ),
@@ -194,7 +194,7 @@ class _WelcomePageState extends State<WelcomePage>
                         );
                       },
                       child: Text(
-                        "I Already have An Account".toUpperCase(),
+                        'I Already have An Account'.toUpperCase(),
                         style: TextStyle(
                             fontSize: 20.0,
                             fontWeight: FontWeight.bold,
