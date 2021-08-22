@@ -49,7 +49,7 @@ class MyApp extends StatelessWidget {
       ],
       child: ValueChangeObserver<bool>(
         cacheKey: HeaderPage.keyDarkMode,
-        defaultValue: true,
+        defaultValue: false,
         builder: (_, isDarkMode, __) =>
             MaterialApp(
               debugShowCheckedModeBanner: false,

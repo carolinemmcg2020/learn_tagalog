@@ -76,7 +76,7 @@ class _RegisterPageState extends State<RegisterPage> {
     return Padding(
       padding: EdgeInsets.only(top: 20),
       child: TextFormField(
-        onSaved: (val) => _email = val,
+        onSaved: (val) => _email = val.trim(),
         validator: (val) => !val.contains("@") ? "Invalid Email" : null,
         decoration: InputDecoration(
             border: OutlineInputBorder(),
@@ -131,7 +131,7 @@ class _RegisterPageState extends State<RegisterPage> {
               : GestureDetector(
                   onTap: _submit,
                   child: CustomButton(
-                    buttonText: 'Login',
+                    buttonText: "Register",
                     margin: EdgeInsets.only(left: 80, right: 80, top: 20),
                   ),
                 ),
@@ -156,7 +156,6 @@ class _RegisterPageState extends State<RegisterPage> {
     final _form = _formKey.currentState;
     if (_form.validate()) {
       _form.save();
-      //print("Email $_email, Password $_password, Username $_username");
       _registerUser();
     } else {
       print("Form is Invalid");
@@ -182,14 +181,15 @@ class _RegisterPageState extends State<RegisterPage> {
       createUserInFirestore();
     } else {
       setState(() {
+
         _isSubmitting = false;
       });
     }
   }
 
+
   _showSuccessSnack(String message) {
     final snackbar = SnackBar(
-      backgroundColor: Colors.black,
       content: Text(
         "$message",
         style: TextStyle(color: Colors.green),
@@ -201,7 +201,6 @@ class _RegisterPageState extends State<RegisterPage> {
 
   _showErrorSnack(String message) {
     final snackbar = SnackBar(
-      backgroundColor: Colors.black,
       content: Text(
         "$message",
         style: TextStyle(color: Colors.red),
@@ -216,6 +215,15 @@ class _RegisterPageState extends State<RegisterPage> {
         displayName: auth.currentUser.displayName,
         email: auth.currentUser.email,
         timestamp: timestamp);
-    //_redirectUser();
+    _redirectUser();
+  }
+
+  _redirectUser() {
+    Future.delayed(Duration(seconds: 2), () {
+      Navigator.pushAndRemoveUntil(
+          context,
+          MaterialPageRoute(builder: (context) => LoginPage()),
+              (Route<dynamic> route) => false);
+    });
   }
 }

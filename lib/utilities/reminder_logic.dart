@@ -2,7 +2,6 @@
 class ReminderLogic{
 
 
-
   String getTimeStringFromDouble(double value) {
     if (value < 0) return 'Invalid Value';
     int flooredValue = value.floor();

@@ -27,15 +27,15 @@ class _BottomNavBarState extends State<BottomNavBar> {
   static const List<Widget> _pages = <Widget>[
     Icon(
       Icons.home,
-      size: 150,
+      size: 40,
     ),
     Icon(
       FontAwesomeIcons.book,
-      size: 150,
+      size: 30,
     ),
     Icon(
       Icons.person_rounded,
-      size: 150,
+      size: 40,
     )
   ];
 
@@ -58,15 +58,15 @@ class _BottomNavBarState extends State<BottomNavBar> {
         selectedItemColor: Color.fromRGBO(253, 202, 49, 1.0),
         items: [
           BottomNavigationBarItem(
-            icon: Icon(Icons.home),
+            icon: _pages.elementAt(0),
             label: 'Topics',
           ),
           BottomNavigationBarItem(
-            icon: Icon(FontAwesomeIcons.book),
+            icon: _pages.elementAt(1),
             label: 'Collection',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.person_rounded),
+            icon: _pages.elementAt(2),
             label: 'Profile',
           ),
         ],

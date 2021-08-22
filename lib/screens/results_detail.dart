@@ -7,7 +7,7 @@ import 'package:percent_indicator/circular_percent_indicator.dart';
 
 class ResultsDetail extends StatefulWidget {
   final int userResults;
-  List<Lesson> numOfQs;
+  final int numOfQs;
 
  static const String message = '';
 
@@ -28,7 +28,7 @@ class _ResultsDetailState extends State<ResultsDetail> {
    resultLogic = ResultLogic();
  }
 
-  Widget buildButton(BuildContext context) {
+   buildButton(BuildContext context) {
     if (isVisible) {
       return SizedBox(
         width: 100,
@@ -59,7 +59,7 @@ class _ResultsDetailState extends State<ResultsDetail> {
                     Navigator.pop(context);
                   },
                   child: const Text(
-                    'Back to Lessons',
+                    "Back to Lessons",
                   ),
                 ),
               )
@@ -97,7 +97,7 @@ class _ResultsDetailState extends State<ResultsDetail> {
                     Navigator.pop(context);
                   },
                   child: const Text(
-                    'Exit',
+                    "Exit",
                   ),
                 ),
               )
@@ -110,8 +110,8 @@ class _ResultsDetailState extends State<ResultsDetail> {
 
   @override
   Widget build(BuildContext context) {
-    var percent = (widget.userResults / widget.numOfQs.length).toDouble();
-    int percentText = (widget.userResults / widget.numOfQs.length * 100).toInt();
+    var percent = (widget.userResults / widget.numOfQs).toDouble();
+    int percentText = (widget.userResults / widget.numOfQs * 100).toInt();
 
     return Scaffold(
       body: ThemeColor(
@@ -123,7 +123,7 @@ class _ResultsDetailState extends State<ResultsDetail> {
                 child: Padding(
                   padding: const EdgeInsets.all(10.0),
                   child: Text(
-                    'Results',
+                    "Results",
                     style: TextStyle(fontSize: 28.0),
                   ),
                 ),
@@ -146,7 +146,7 @@ class _ResultsDetailState extends State<ResultsDetail> {
               Visibility(
                 visible: resultLogic.failMessage(widget.userResults, widget.numOfQs),
                 child: Text(
-                  'You should review the lesson content again before continuing to the next lesson',
+                  "You should review the lesson content again before continuing to the next lesson",
                   textAlign: TextAlign.center,
                   style: TextStyle(
                       fontSize: 15.0,

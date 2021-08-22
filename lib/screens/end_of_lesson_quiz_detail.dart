@@ -62,7 +62,6 @@ class _EndOfLessonQuizDetailState extends State<EndOfLessonQuizDetail> {
             ),
           );
           correctAnswerCount++;
-          _progress++;
 
         } else {
           ScaffoldMessenger.of(context).showSnackBar(
@@ -80,6 +79,7 @@ class _EndOfLessonQuizDetailState extends State<EndOfLessonQuizDetail> {
           numOfQs: widget.questionContent.length,
         ));
         quizBrain.checkOptions();
+        _progress++;
 
       },
     );

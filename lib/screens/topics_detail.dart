@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:learn_tagalog/helpers/utils.dart';
 import 'package:learn_tagalog/models/topic.dart';
 import 'package:learn_tagalog/screens/lesson_detail.dart';
-import 'package:learn_tagalog/widgets/lessoncard.dart';
+import 'package:learn_tagalog/widgets/lesson_card.dart';
 import 'package:learn_tagalog/widgets/theme_background_color.dart';
 
 class Topics extends StatelessWidget {

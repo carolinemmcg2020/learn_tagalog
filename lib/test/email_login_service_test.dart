@@ -1,5 +1,4 @@
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:firebase_auth_mocks/firebase_auth_mocks.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:learn_tagalog/services/email_login_service.dart';
 import 'package:learn_tagalog/test/mock_firebase_initialize_app.dart';
