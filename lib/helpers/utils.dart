@@ -471,7 +471,6 @@ class Utils {
               color: Color.fromRGBO(0, 149, 85, 1.0),
               backgroundColor: Colors.green[400],
               difficulty: 'Medium',
-              //TODO: Custom Icons
               lessonContent: [
                 LessonContent(
                   tagalogWord: 'Labing isang itik',

@@ -9,7 +9,6 @@ class ThemeColor extends StatelessWidget{
 
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
     return Container(
       padding: padding,
       decoration: BoxDecoration(
