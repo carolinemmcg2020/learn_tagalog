@@ -6,6 +6,8 @@ import 'package:learn_tagalog/widgets/custom_button.dart';
 import 'package:learn_tagalog/widgets/theme_background_color.dart';
 import 'package:provider/provider.dart';
 
+
+/// This is the register ui screen
 class RegisterPage extends StatefulWidget {
   @override
   _RegisterPageState createState() => _RegisterPageState();
@@ -71,6 +73,7 @@ class _RegisterPageState extends State<RegisterPage> {
       ),
     );
   }*/
+
 
   _showEmailInput() {
     return Padding(

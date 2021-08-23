@@ -110,50 +110,48 @@ class _CollectionState extends State<Collection> {
                                           itemBuilder: (BuildContext context,
                                               int contentIndex) {
                                             return Container(
-                                              child: Expanded(
-                                                child: Row(
-                                                  children: [
-                                                    Padding(
-                                                      padding:
-                                                          EdgeInsets.all(12.0),
-                                                      child: CustomLessonIcon(
-                                                        icon: collectionLogic.getIcon(index, ind, contentIndex),
-                                                        iconColor:
-                                                            collectionLogic.getIconColor(index, ind, contentIndex),
-                                                        iconSize: 35.0,
-                                                        glowRadius: 25.0,
-                                                        onTap: () {
-                                                          collectionLogic.playAudio(
-                                                              collectionLogic.getAudio(index, ind, contentIndex));
-                                                        },
-                                                      ),
+                                              child: Row(
+                                                children: [
+                                                  Padding(
+                                                    padding:
+                                                        EdgeInsets.all(12.0),
+                                                    child: CustomLessonIcon(
+                                                      icon: collectionLogic.getIcon(index, ind, contentIndex),
+                                                      iconColor:
+                                                          collectionLogic.getIconColor(index, ind, contentIndex),
+                                                      iconSize: 35.0,
+                                                      glowRadius: 25.0,
+                                                      onTap: () {
+                                                        collectionLogic.playAudio(
+                                                            collectionLogic.getAudio(index, ind, contentIndex));
+                                                      },
                                                     ),
-                                                    SizedBox(
-                                                      width: 40,
+                                                  ),
+                                                  SizedBox(
+                                                    width: 40,
+                                                  ),
+                                                  Expanded(
+                                                    child: Text(
+                                                     collectionLogic.getTagalogText(index, ind, contentIndex),
+                                                      style: TextStyle(
+                                                          fontSize: 18.0),
+                                                      textAlign:
+                                                          TextAlign.center,
                                                     ),
-                                                    Expanded(
-                                                      child: Text(
-                                                       collectionLogic.getTagalogText(index, ind, contentIndex),
-                                                        style: TextStyle(
-                                                            fontSize: 18.0),
-                                                        textAlign:
-                                                            TextAlign.center,
-                                                      ),
+                                                  ),
+                                                  SizedBox(
+                                                    width: 20,
+                                                  ),
+                                                  Expanded(
+                                                    child: Text(
+                                                      collectionLogic.getEnglishText(index, ind, contentIndex),
+                                                      style: TextStyle(
+                                                          fontSize: 18.0),
+                                                      textAlign:
+                                                          TextAlign.center,
                                                     ),
-                                                    SizedBox(
-                                                      width: 20,
-                                                    ),
-                                                    Expanded(
-                                                      child: Text(
-                                                        collectionLogic.getEnglishText(index, ind, contentIndex),
-                                                        style: TextStyle(
-                                                            fontSize: 18.0),
-                                                        textAlign:
-                                                            TextAlign.center,
-                                                      ),
-                                                    ),
-                                                  ],
-                                                ),
+                                                  ),
+                                                ],
                                               ),
                                             );
                                           },

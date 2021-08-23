@@ -1,6 +1,10 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 
+///
+///
+///
+///
 class DelayedAnimation extends StatefulWidget {
   final Widget child;
   final int delay;
